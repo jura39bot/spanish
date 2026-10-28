@@ -330,7 +330,7 @@ function highlightSpeaking(txt,rate){
   try{
     const first=String(txt||"").split(" . ")[0].trim();
     if(!first)return;
-    const nodes=Array.from(document.querySelectorAll("#app b, #app .bigword, #app .karaoke, #app .choice, #app p, #app .ex, #app .fr"));
+    const nodes=Array.from(document.querySelectorAll("#app b, #app .bigword, #app .karaoke, #app .choice, #app p, #app .ex, #app .fr, #app .bubble .txt, #app .bubble"));
     let best=null;
     for(const el of nodes){
       if(el.querySelector("b,div,p,span"))continue;
