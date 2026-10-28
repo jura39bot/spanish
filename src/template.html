@@ -598,15 +598,16 @@ function lesson(a){
     a.innerHTML=`${bar}
       <div class="card">
         <div class="between"><span class="pill">${LEVELS[p.lvl].emoji} ${p.lvl}</span><span class="tiny muted">${L.idx+1}/${L.picks.length}</span></div>
-        <div class="bigword">${esc(w.e)}</div>
-        <div class="row"><span class="phon">${esc(w.p||"")}</span><button class="pill" id="sp">🔊 Écouter</button></div>
+        <div class="bigword karaoke">${esc(w.e)}</div>
+        <div class="kbar"><i id="kf"></i></div>
+        <div class="row" style="margin-top:10px"><span class="phon">${esc(w.p||"")}</span><button class="pill" id="sp">🔊 Écouter</button></div>
         <div class="spacer"></div>
         <div><b>${esc(w.f)}</b></div>
         ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
       </div>
       <div class="feed"><div><button class="btn" id="next">Continuer</button></div></div>`;
-    $("#sp").onclick=()=>speak(w.e+" . "+w.x);
-    setTimeout(()=>speak(w.e),300);
+    $("#sp").onclick=()=>{ karaokeRun(w.e,.9); speak(w.e+" . "+w.x); };
+    setTimeout(()=>{ karaokeRun(w.e,.9); speak(w.e); },300);
     $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="quiz";L.idx=0}render()};
     return;
   }
