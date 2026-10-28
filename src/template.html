@@ -346,16 +346,32 @@ function highlightSpeaking(txt,rate){
     setTimeout(()=>best.classList.remove("speaking"), ms);
   }catch(e){}
 }
+let ACTX=null;
+function unlockAudio(){
+  try{
+    if(!ACTX){const C=window.AudioContext||window.webkitAudioContext; if(C)ACTX=new C();}
+    if(ACTX&&ACTX.state==="suspended")ACTX.resume();
+    if(ACTX){const o=ACTX.createOscillator(),g=ACTX.createGain();
+      g.gain.value=0.0001;o.connect(g);g.connect(ACTX.destination);
+      o.start();o.stop(ACTX.currentTime+0.05);}
+  }catch(e){}
+}
+window.addEventListener("pointerdown",unlockAudio,{once:true});
+if(window.speechSynthesis){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+}
 function speak(txt,rate){
   try{
     highlightSpeaking(txt,rate);
     if(!window.speechSynthesis)return;
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
-    u.lang="es-ES";u.rate=rate||.9;
-    const v=speechSynthesis.getVoices().find(v=>/en(-|_)(US|GB)/i.test(v.lang));
+    u.lang="es-ES"; u.rate=rate||.9; u.pitch=1.05; u.volume=1;
+    const vs=speechSynthesis.getVoices();
+    const v=vs.find(v=>/^es/i.test(v.lang)) || vs.find(v=>/spanish|español/i.test(v.name));
     if(v)u.voice=v;
-    speechSynthesis.speak(u);
+    setTimeout(()=>{ try{ speechSynthesis.resume(); speechSynthesis.speak(u); }catch(e){} },70);
   }catch(e){}
 }
 function startMinuteClock(){
