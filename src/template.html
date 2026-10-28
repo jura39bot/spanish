@@ -248,6 +248,10 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 textarea{width:100%;min-height:110px;padding:14px;border-radius:16px;color:#eef3fb;font:inherit;font-size:16px;
 background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(0,0,0,.18));border:1.5px solid rgba(255,255,255,.12);outline:none}
 
+
+.bubble.speaking{border-color:rgba(94,203,255,.75);box-shadow:0 0 0 2px rgba(94,203,255,.25)}
+.bubble.speaking .txt{color:#5ecbff;font-weight:800}
+
 </style>
 </head>
 <body>
@@ -438,6 +442,7 @@ function render(){
     case "conv":return convScreen(a);
     case "translate":return translateScreen(a);
     case "convo":return convoScreen(a);
+    case "libre":return libreScreen(a);
     case "dialog":return dialogScreen(a);
     case "gram":return gramScreen(a);
     case "gramq":return gramQuiz(a);
@@ -1089,8 +1094,12 @@ function translateScreen(a){
 /* ---------- conversation en rôle-play ---------- */
 function convoScreen(a){
   a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Parler</h2><span style="width:40px"></span></div>
-  <p class="small muted" style="margin-bottom:12px">Tu joues ta réplique. L'app tient l'autre rôle, te corrige et prononce.</p>
+  <button class="btn blue" id="freetalk">🤖 Conversation libre avec l'IA</button>
+  <div class="spacer"></div>
+  <p class="small muted" style="margin-bottom:12px">Ou choisis un dialogue guidé : tu joues ta réplique, l'app tient l'autre rôle.</p>
   <div class="stack" id="cl"></div>`;
+  const ft=$("#freetalk");
+  if(ft)ft.onclick=()=>{S.chat=[];go("libre")};
   CONV.forEach((c,i)=>{
     const b=el(`<button class="lvl"><div class="ico" style="background:rgba(90,209,0,.15)">${c.e}</div>
       <div class="meta"><b>${esc(c.t)}</b><div class="tiny muted">${esc(c.n)} · ${c.lines.length} répliques</div></div>
@@ -1154,6 +1163,73 @@ function similarity(a,b){
   let hit=0; const pool=B.slice();
   A.forEach(w=>{const i=pool.indexOf(w); if(i>=0){hit++;pool.splice(i,1)}});
   return hit/Math.max(A.length,B.length);
+}
+
+/* ---------- conversation libre (passerelle) ---------- */
+const CHAT_URL="https://che-mini-pc.tailca7b67.ts.net:8443/chat", CHAT_TOKEN="j0-FFPUCBoAtw9MXCdQtN8qQbUOEA4H8";
+function chatCfg(){
+  return {url:localStorage.getItem("lc_url")||CHAT_URL, tok:localStorage.getItem("lc_tok")||CHAT_TOKEN};
+}
+function bubbleHtml(m,idx){
+  const cls=m.role==="user"?"me":"them";
+  return `<div class="bubble ${cls}" data-i="${idx}"><span class="txt">${esc(m.content)}</span></div>`;
+}
+function libreScreen(a){
+  S.chat=S.chat||[];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('convo')">‹</button><h2>Conversation libre</h2>
+    <button class="pill" id="cfg">⚙︎</button></div>
+  <div class="chat" id="chat">${S.chat.length?S.chat.map(bubbleHtml).join(""):'<div class="bubble them"><span class="txt">Hi! Let\'s talk. Tell me about your day.</span></div>'}</div>
+  <div class="spacer"></div>
+  <input id="ci" type="text" placeholder="écris en ${TR_LANG.toUpperCase()}…" autocomplete="off" autocorrect="off" spellcheck="false">
+  <div style="height:10px"></div>
+  <div class="grid2"><button class="btn" id="send">Envoyer</button><button class="btn alt" id="mic">🎤</button></div>`;
+  const box=$("#chat");
+  box.scrollTop=box.scrollHeight;
+  const cfg=chatCfg();
+  $("#cfg").onclick=()=>{
+    const u=prompt("URL de la passerelle",cfg.url); if(u===null)return;
+    const t=prompt("Jeton",cfg.tok); if(t===null)return;
+    localStorage.setItem("lc_url",u.trim()); localStorage.setItem("lc_tok",t.trim()); toast("Réglages enregistrés");
+  };
+  const send=async()=>{
+    const v=$("#ci").value.trim(); if(!v)return;
+    $("#ci").value="";
+    S.chat.push({role:"user",content:v});
+    box.insertAdjacentHTML("beforeend",bubbleHtml({role:"user",content:v},S.chat.length-1));
+    const lastUser=box.querySelector('.bubble[data-i="'+(S.chat.length-1)+'"]');
+    if(lastUser){lastUser.classList.add("speaking");setTimeout(()=>lastUser.classList.remove("speaking"),1600)}
+    box.insertAdjacentHTML("beforeend",'<div class="bubble them typing" id="typing"><span class="txt">…</span></div>');
+    box.scrollTop=box.scrollHeight;
+    try{
+      const r=await fetch(cfg.url,{method:"POST",headers:{"Content-Type":"application/json","x-langchat-token":cfg.tok},
+        body:JSON.stringify({lang:TR_LANG,messages:S.chat.slice(-8)})});
+      const j=await r.json();
+      const t=document.getElementById("typing"); if(t)t.remove();
+      if(!j.reply)throw new Error(j.error||"réponse vide");
+      S.chat.push({role:"assistant",content:j.reply});
+      box.insertAdjacentHTML("beforeend",bubbleHtml({role:"assistant",content:j.reply},S.chat.length-1));
+      box.scrollTop=box.scrollHeight;
+      const b=box.querySelector('.bubble[data-i="'+(S.chat.length-1)+'"]');
+      if(b){b.classList.add("speaking");setTimeout(()=>b.classList.remove("speaking"),Math.max(2000,j.reply.length*70))}
+      speak(j.reply);
+    }catch(e){
+      const t=document.getElementById("typing"); if(t)t.remove();
+      toast("Passerelle injoignable — es-tu sur le Tailscale ?");
+    }
+  };
+  $("#send").onclick=send;
+  $("#ci").onkeydown=e=>{if(e.key==="Enter")send()};
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const mic=$("#mic");
+  if(!SR){mic.disabled=true;mic.textContent="🎤 indispo"}
+  else mic.onclick=()=>{
+    const r=new SR(); r.lang=TR_LANG==="en"?"en-US":"es-ES"; r.interimResults=false;
+    mic.textContent="…";
+    r.onresult=ev=>{$("#ci").value=ev.results[0][0].transcript;mic.textContent="🎤";send()};
+    r.onerror=()=>{mic.textContent="🎤"};
+    r.onend=()=>{mic.textContent="🎤"};
+    try{r.start()}catch(e){mic.textContent="🎤"}
+  };
 }
 
 /* ---------- lexique & recherche ---------- */
