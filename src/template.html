@@ -361,9 +361,38 @@ if(window.speechSynthesis){
   speechSynthesis.getVoices();
   speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 }
+let TTS_AUDIO=null, TTS_CACHE={};
+async function speakViaGateway(txt,rate){
+  try{
+    const cfg=(typeof chatCfg==="function")?chatCfg():null;
+    if(!cfg||!cfg.url||!cfg.tok)return false;
+    const base=cfg.url.replace(/\/chat$/,"");
+    const key=base+"|"+TR_LANG+"|"+(rate||1)+"|"+txt;
+    let url=TTS_CACHE[key];
+    if(!url){
+      const r=await fetch(base+"/tts",{method:"POST",
+        headers:{"Content-Type":"application/json","x-langchat-token":cfg.tok},
+        body:JSON.stringify({text:txt,lang:TR_LANG,rate:rate||1})});
+      if(!r.ok)return false;
+      const b=await r.blob();
+      url=URL.createObjectURL(b); TTS_CACHE[key]=url;
+    }
+    if(TTS_AUDIO){try{TTS_AUDIO.pause()}catch(e){}}
+    TTS_AUDIO=new Audio(url);
+    TTS_AUDIO.volume=1;
+    await TTS_AUDIO.play();
+    return true;
+  }catch(e){ return false; }
+}
 function speak(txt,rate){
   try{
     highlightSpeaking(txt,rate);
+    speakViaGateway(txt,rate).then(ok=>{ if(!ok) speakLocal(txt,rate); });
+    return;
+  }catch(e){}
+}
+function speakLocal(txt,rate){
+  try{
     if(!window.speechSynthesis)return;
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
