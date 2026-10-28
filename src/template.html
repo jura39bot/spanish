@@ -368,9 +368,9 @@ function speak(txt,rate){
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
     u.lang="es-ES"; u.rate=rate||.9; u.pitch=1.05; u.volume=1;
-    const vs=speechSynthesis.getVoices();
-    const v=vs.find(v=>/^es/i.test(v.lang)) || vs.find(v=>/spanish|español/i.test(v.name));
-    if(v)u.voice=v;
+    const vs=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang||""));
+    const pref=vs.find(v=>/enhanced|premium|siri|neural/i.test(v.name)) || vs[0];
+    if(pref)u.voice=pref;
     setTimeout(()=>{ try{ speechSynthesis.resume(); speechSynthesis.speak(u); }catch(e){} },70);
   }catch(e){}
 }
