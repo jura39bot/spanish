@@ -238,6 +238,16 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 
 .speaking{color:#5ecbff !important;font-weight:800 !important;text-shadow:0 0 18px rgba(94,203,255,.45);transition:color .15s}
 
+.chat{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.bubble{max-width:88%;padding:12px 14px;border-radius:18px;font-size:15px;line-height:1.45}
+.bubble.them{align-self:flex-start;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16)}
+.bubble.me{align-self:flex-end;background:linear-gradient(160deg,rgba(90,209,0,.28),rgba(90,209,0,.12));border:1px solid rgba(120,230,60,.35)}
+.bubble .tr{display:block;margin-top:5px;font-size:12px;color:#93a4bf}
+.bubble.typing{opacity:.6;font-style:italic}
+.tr-out{margin-top:12px;padding:14px;border-radius:16px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);font-size:16px;line-height:1.5}
+textarea{width:100%;min-height:110px;padding:14px;border-radius:16px;color:#eef3fb;font:inherit;font-size:16px;
+background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(0,0,0,.18));border:1.5px solid rgba(255,255,255,.12);outline:none}
+
 </style>
 </head>
 <body>
@@ -426,6 +436,8 @@ function render(){
     case "lex":return lexScreen(a);
     case "lexcat":return lexCatScreen(a);
     case "conv":return convScreen(a);
+    case "translate":return translateScreen(a);
+    case "convo":return convoScreen(a);
     case "dialog":return dialogScreen(a);
     case "gram":return gramScreen(a);
     case "gramq":return gramQuiz(a);
@@ -531,6 +543,11 @@ function home(a){
     <button class="btn alt" id="cv">💬 Conversations</button>
     <button class="btn alt" id="gr">📘 Grammaire</button>
   </div>
+  <div style="height:10px"></div>
+  <div class="grid2">
+    <button class="btn alt" id="tr">🌐 Traduire</button>
+    <button class="btn alt" id="co">🗣️ Parler</button>
+  </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
   $("#lis").onclick=()=>startLesson(lvl,false,true);
@@ -544,6 +561,8 @@ function home(a){
   $("#lx").onclick=()=>go("lex");
   $("#cv").onclick=()=>go("conv");
   $("#gr").onclick=()=>{S._tab="lecon";go("gram")};
+  $("#tr").onclick=()=>go("translate");
+  $("#co").onclick=()=>go("convo");
 }
 
 function levels(a){
@@ -1009,6 +1028,133 @@ function newQuestQ(){
   S._qs.q={fr:QUEST[i].fr,good,opts};
 }
 
+
+/* ---------- traduction ---------- */
+const TR_LANG="es";
+function normTxt(t){
+  return String(t||"").toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+}
+function looksFrench(t){
+  const fr=["le","la","les","des","une","un","est","et","je","tu","il","nous","vous","pour","avec","dans","que","pas","sur"];
+  const w=normTxt(t).split(" ");
+  return w.filter(x=>fr.includes(x)).length >= Math.max(2, w.length*0.12);
+}
+function localTranslate(txt, toFr){
+  const words=normTxt(txt).split(" ").filter(Boolean);
+  const dict={};
+  Object.keys(DATA).forEach(l=>DATA[l].forEach(w=>{
+    dict[normTxt(w.e)]=w.f; dict[normTxt(w.f)]=w.e;
+  }));
+  if(typeof LEX!=="undefined"&&LEX&&LEX.categories)LEX.categories.forEach(c=>c.items.forEach(w=>{
+    dict[normTxt(w.e)]=w.f; dict[normTxt(w.f)]=w.e;
+  }));
+  const out=words.map(w=>dict[w]||w);
+  return out.join(" ")+"  ⚠︎ (traduction locale, mot à mot)";
+}
+async function doTranslate(){
+  const src=$("#tin").value.trim();
+  if(!src){toast("Écris un texte");return}
+  const out=$("#tout"); out.textContent="…";
+  const toFr=looksFrench(src);
+  const pair = toFr ? (TR_LANG+"|fr") : ("fr|"+TR_LANG);
+  try{
+    const r=await fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(src)+"&langpair="+pair);
+    const j=await r.json();
+    const t=j&&j.responseData&&j.responseData.translatedText;
+    if(!t||/MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(t)) throw new Error("quota");
+    out.textContent=t;
+    S._trLast=t;
+  }catch(e){
+    out.textContent=localTranslate(src,toFr);
+    S._trLast=out.textContent;
+  }
+  const b=$("#tsay"); if(b)b.style.display="inline-flex";
+}
+function translateScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Traduire</h2><span style="width:40px"></span></div>
+  <p class="small muted" style="margin-bottom:10px">Colle un texte. Détection automatique du sens : ${TR_LANG.toUpperCase()} → FR ou FR → ${TR_LANG.toUpperCase()}.</p>
+  <textarea id="tin" placeholder="Colle ton texte ici…"></textarea>
+  <div class="spacer"></div>
+  <button class="btn" id="tgo">Traduire</button>
+  <div class="spacer"></div>
+  <div class="tr-out" id="tout">Le résultat s'affichera ici.</div>
+  <div class="spacer"></div>
+  <button class="btn alt" id="tsay" style="display:none">🔊 Écouter la traduction</button>`;
+  $("#tgo").onclick=doTranslate;
+  $("#tsay").onclick=()=>{ if(S._trLast) speak(S._trLast); };
+}
+
+/* ---------- conversation en rôle-play ---------- */
+function convoScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Parler</h2><span style="width:40px"></span></div>
+  <p class="small muted" style="margin-bottom:12px">Tu joues ta réplique. L'app tient l'autre rôle, te corrige et prononce.</p>
+  <div class="stack" id="cl"></div>`;
+  CONV.forEach((c,i)=>{
+    const b=el(`<button class="lvl"><div class="ico" style="background:rgba(90,209,0,.15)">${c.e}</div>
+      <div class="meta"><b>${esc(c.t)}</b><div class="tiny muted">${esc(c.n)} · ${c.lines.length} répliques</div></div>
+      <div class="muted">›</div></button>`);
+    b.onclick=()=>{S._cvi=i;S._cvl=0;S._cvdone=false;go("convo");S._s="convo";renderConvo()};
+    $("#cl").appendChild(b);
+  });
+}
+function renderConvo(){
+  const a=$("#app");
+  const c=CONV[S._cvi]; if(!c)return go("convo");
+  const upto=S._cvl;
+  const bubbles=c.lines.slice(0,upto+1).map((l,i)=>`
+    <div class="bubble ${i%2===0?"them":"me"}">${esc(l.s)}<span class="tr">${esc(l.f)}</span></div>`).join("");
+  const expected=c.lines[upto+1];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('convo')">‹</button><h2>${c.e} ${esc(c.t)}</h2><span style="width:40px"></span></div>
+  <div class="chat">${bubbles}</div>
+  ${expected?`<div class="spacer"></div>
+  <div class="cardq"><div class="tiny muted">À toi — dis ou écris :</div>
+    <div style="margin-top:6px;font-size:15px;color:#93a4bf">${esc(expected.f)}</div></div>
+  <div class="spacer"></div>
+  <input id="cin" type="text" placeholder="ta réplique en ${TR_LANG.toUpperCase()}…" autocomplete="off" autocorrect="off" spellcheck="false">
+  <div style="height:10px"></div>
+  <div class="grid2"><button class="btn" id="csend">Envoyer</button><button class="btn alt" id="cskip">Voir la réponse</button></div>
+  <div class="spacer"></div>
+  <button class="btn alt" id="cmic">🎤 Parler</button>`:`
+  <div class="spacer"></div><button class="btn" onclick="go('convo')">Terminé ✓</button>`}`;
+  if(!expected)return;
+  const check=()=>{
+    const v=$("#cin").value.trim(); if(!v)return;
+    const sim=similarity(v, expected.s);
+    if(sim>=0.6){
+      toast("✓ Bien joué");
+      S._cvl+=2; if(S._cvl>=c.lines.length-1)S._cvl=c.lines.length-1;
+      renderConvo();
+      setTimeout(()=>{const l=c.lines[Math.min(S._cvl,c.lines.length-1)]; if(l)speak(l.s)},300);
+    } else {
+      toast("Pas encore — regarde la réponse");
+      S._cvl+=2; if(S._cvl>=c.lines.length-1)S._cvl=c.lines.length-1;
+      renderConvo();
+    }
+  };
+  $("#csend").onclick=check;
+  $("#cin").onkeydown=e=>{if(e.key==="Enter")check()};
+  $("#cskip").onclick=()=>{ S._cvl+=2; if(S._cvl>=c.lines.length-1)S._cvl=c.lines.length-1; renderConvo(); };
+  const mic=$("#cmic");
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){ mic.textContent="🎤 Non disponible sur ce navigateur"; mic.disabled=true; }
+  else mic.onclick=()=>{
+    const r=new SR(); r.lang=TR_LANG==="en"?"en-US":"es-ES"; r.interimResults=false; r.maxAlternatives=1;
+    mic.textContent="🎤 Écoute…";
+    r.onresult=ev=>{ const t=ev.results[0][0].transcript; $("#cin").value=t; mic.textContent="🎤 Parler"; check(); };
+    r.onerror=()=>{ mic.textContent="🎤 Parler"; toast("Micro indisponible"); };
+    r.onend=()=>{ mic.textContent="🎤 Parler"; };
+    try{r.start()}catch(e){mic.textContent="🎤 Parler"}
+  };
+}
+function similarity(a,b){
+  const A=normTxt(a).split(" ").filter(Boolean), B=normTxt(b).split(" ").filter(Boolean);
+  if(!A.length||!B.length)return 0;
+  let hit=0; const pool=B.slice();
+  A.forEach(w=>{const i=pool.indexOf(w); if(i>=0){hit++;pool.splice(i,1)}});
+  return hit/Math.max(A.length,B.length);
+}
 
 /* ---------- lexique & recherche ---------- */
 function allWords(){
