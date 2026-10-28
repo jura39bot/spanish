@@ -1,0 +1,301 @@
+[
+ {
+  "v": "ser",
+  "fr": "être",
+  "p": "ser",
+  "t": {
+   "present": [
+    "soy",
+    "eres",
+    "es",
+    "somos",
+    "sois",
+    "son"
+   ],
+   "past": [
+    "fui",
+    "fuiste",
+    "fue",
+    "fuimos",
+    "fuisteis",
+    "fueron"
+   ]
+  }
+ },
+ {
+  "v": "estar",
+  "fr": "être (état)",
+  "p": "ess-TAR",
+  "t": {
+   "present": [
+    "estoy",
+    "estás",
+    "está",
+    "estamos",
+    "estáis",
+    "están"
+   ],
+   "past": [
+    "estuve",
+    "estuviste",
+    "estuvo",
+    "estuvimos",
+    "estuvisteis",
+    "estuvieron"
+   ]
+  }
+ },
+ {
+  "v": "tener",
+  "fr": "avoir",
+  "p": "té-NER",
+  "t": {
+   "present": [
+    "tengo",
+    "tienes",
+    "tiene",
+    "tenemos",
+    "tenéis",
+    "tienen"
+   ],
+   "past": [
+    "tuve",
+    "tuviste",
+    "tuvo",
+    "tuvimos",
+    "tuvisteis",
+    "tuvieron"
+   ]
+  }
+ },
+ {
+  "v": "hacer",
+  "fr": "faire",
+  "p": "a-SER",
+  "t": {
+   "present": [
+    "hago",
+    "haces",
+    "hace",
+    "hacemos",
+    "hacéis",
+    "hacen"
+   ],
+   "past": [
+    "hice",
+    "hiciste",
+    "hizo",
+    "hicimos",
+    "hicisteis",
+    "hicieron"
+   ]
+  }
+ },
+ {
+  "v": "ir",
+  "fr": "aller",
+  "p": "ir",
+  "t": {
+   "present": [
+    "voy",
+    "vas",
+    "va",
+    "vamos",
+    "vais",
+    "van"
+   ],
+   "past": [
+    "fui",
+    "fuiste",
+    "fue",
+    "fuimos",
+    "fuisteis",
+    "fueron"
+   ]
+  }
+ },
+ {
+  "v": "venir",
+  "fr": "venir",
+  "p": "bé-NIR",
+  "t": {
+   "present": [
+    "vengo",
+    "vienes",
+    "viene",
+    "venimos",
+    "venís",
+    "vienen"
+   ],
+   "past": [
+    "vine",
+    "viniste",
+    "vino",
+    "vinimos",
+    "vinisteis",
+    "vinieron"
+   ]
+  }
+ },
+ {
+  "v": "poder",
+  "fr": "pouvoir",
+  "p": "po-DER",
+  "t": {
+   "present": [
+    "puedo",
+    "puedes",
+    "puede",
+    "podemos",
+    "podéis",
+    "pueden"
+   ],
+   "past": [
+    "pude",
+    "pudiste",
+    "pudo",
+    "pudimos",
+    "pudisteis",
+    "pudieron"
+   ]
+  }
+ },
+ {
+  "v": "querer",
+  "fr": "vouloir",
+  "p": "ké-RER",
+  "t": {
+   "present": [
+    "quiero",
+    "quieres",
+    "quiere",
+    "queremos",
+    "queréis",
+    "quieren"
+   ],
+   "past": [
+    "quise",
+    "quisiste",
+    "quiso",
+    "quisimos",
+    "quisisteis",
+    "quisieron"
+   ]
+  }
+ },
+ {
+  "v": "saber",
+  "fr": "savoir",
+  "p": "sa-BER",
+  "t": {
+   "present": [
+    "sé",
+    "sabes",
+    "sabe",
+    "sabemos",
+    "sabéis",
+    "saben"
+   ],
+   "past": [
+    "supe",
+    "supiste",
+    "supo",
+    "supimos",
+    "supisteis",
+    "supieron"
+   ]
+  }
+ },
+ {
+  "v": "decir",
+  "fr": "dire",
+  "p": "dé-SIR",
+  "t": {
+   "present": [
+    "digo",
+    "dices",
+    "dice",
+    "decimos",
+    "decís",
+    "dicen"
+   ],
+   "past": [
+    "dije",
+    "dijiste",
+    "dijo",
+    "dijimos",
+    "dijisteis",
+    "dijeron"
+   ]
+  }
+ },
+ {
+  "v": "ver",
+  "fr": "voir",
+  "p": "ber",
+  "t": {
+   "present": [
+    "veo",
+    "ves",
+    "ve",
+    "vemos",
+    "veis",
+    "ven"
+   ],
+   "past": [
+    "vi",
+    "viste",
+    "vio",
+    "vimos",
+    "visteis",
+    "vieron"
+   ]
+  }
+ },
+ {
+  "v": "comer",
+  "fr": "manger",
+  "p": "ko-MER",
+  "t": {
+   "present": [
+    "como",
+    "comes",
+    "come",
+    "comemos",
+    "coméis",
+    "comen"
+   ],
+   "past": [
+    "comí",
+    "comiste",
+    "comió",
+    "comimos",
+    "comisteis",
+    "comieron"
+   ]
+  }
+ },
+ {
+  "v": "hablar",
+  "fr": "parler",
+  "p": "a-BLAR",
+  "t": {
+   "present": [
+    "hablo",
+    "hablas",
+    "habla",
+    "hablamos",
+    "habláis",
+    "hablan"
+   ],
+   "past": [
+    "hablé",
+    "hablaste",
+    "habló",
+    "hablamos",
+    "hablasteis",
+    "hablaron"
+   ]
+  }
+ }
+]

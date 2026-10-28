@@ -1,0 +1,272 @@
+[
+ {
+  "t": "Se présenter",
+  "e": "👋",
+  "n": "Première rencontre",
+  "lines": [
+   {
+    "s": "Hola, me llamo Mathieu. ¿Y tú?",
+    "f": "Bonjour, je m'appelle Mathieu. Et toi ?"
+   },
+   {
+    "s": "Yo soy Lucía. Mucho gusto.",
+    "f": "Moi, c'est Lucía. Enchantée."
+   },
+   {
+    "s": "¿De dónde eres?",
+    "f": "D'où viens-tu ?"
+   },
+   {
+    "s": "Soy francesa, de Lyon.",
+    "f": "Je suis française, de Lyon."
+   },
+   {
+    "s": "Yo vivo en Madrid desde hace dos años.",
+    "f": "Je vis à Madrid depuis deux ans."
+   }
+  ]
+ },
+ {
+  "t": "Au café",
+  "e": "☕",
+  "n": "Commander",
+  "lines": [
+   {
+    "s": "Buenos días, ¿qué desea?",
+    "f": "Bonjour, que désirez-vous ?"
+   },
+   {
+    "s": "Un café con leche, por favor.",
+    "f": "Un café au lait, s'il vous plaît."
+   },
+   {
+    "s": "¿Algo más?",
+    "f": "Autre chose ?"
+   },
+   {
+    "s": "Sí, un croissant.",
+    "f": "Oui, un croissant."
+   },
+   {
+    "s": "Son cuatro euros.",
+    "f": "Ça fait quatre euros."
+   }
+  ]
+ },
+ {
+  "t": "À l'hôtel",
+  "e": "🏨",
+  "n": "Réserver une chambre",
+  "lines": [
+   {
+    "s": "Buenas tardes, ¿tiene una habitación libre?",
+    "f": "Bonsoir, avez-vous une chambre libre ?"
+   },
+   {
+    "s": "Sí, para dos personas.",
+    "f": "Oui, pour deux personnes."
+   },
+   {
+    "s": "¿Cuánto cuesta la noche?",
+    "f": "Combien coûte la nuit ?"
+   },
+   {
+    "s": "Ochenta euros con desayuno.",
+    "f": "Quatre-vingts euros avec petit-déjeuner."
+   },
+   {
+    "s": "Perfecto, me la quedo.",
+    "f": "Parfait, je la prends."
+   }
+  ]
+ },
+ {
+  "t": "Au marché",
+  "e": "🍅",
+  "n": "Acheter des fruits",
+  "lines": [
+   {
+    "s": "¿Cuánto cuestan los tomates?",
+    "f": "Combien coûtent les tomates ?"
+   },
+   {
+    "s": "Dos euros el kilo.",
+    "f": "Deux euros le kilo."
+   },
+   {
+    "s": "Deme un kilo, por favor.",
+    "f": "Donnez-m'en un kilo, s'il vous plaît."
+   },
+   {
+    "s": "¿Algo más?",
+    "f": "Autre chose ?"
+   },
+   {
+    "s": "No, eso es todo. Gracias.",
+    "f": "Non, c'est tout. Merci."
+   }
+  ]
+ },
+ {
+  "t": "Demander son chemin",
+  "e": "🧭",
+  "n": "Dans la rue",
+  "lines": [
+   {
+    "s": "Perdón, ¿dónde está la estación?",
+    "f": "Pardon, où est la gare ?"
+   },
+   {
+    "s": "Sigue recto y gira a la derecha.",
+    "f": "Continue tout droit et tourne à droite."
+   },
+   {
+    "s": "¿Está lejos?",
+    "f": "C'est loin ?"
+   },
+   {
+    "s": "No, cinco minutos a pie.",
+    "f": "Non, cinq minutes à pied."
+   },
+   {
+    "s": "Muchas gracias.",
+    "f": "Merci beaucoup."
+   }
+  ]
+ },
+ {
+  "t": "Chez le médecin",
+  "e": "🩺",
+  "n": "Expliquer un symptôme",
+  "lines": [
+   {
+    "s": "Buenos días, ¿qué le pasa?",
+    "f": "Bonjour, qu'avez-vous ?"
+   },
+   {
+    "s": "Me duele la cabeza y tengo fiebre.",
+    "f": "J'ai mal à la tête et de la fièvre."
+   },
+   {
+    "s": "¿Desde cuándo?",
+    "f": "Depuis quand ?"
+   },
+   {
+    "s": "Desde ayer por la noche.",
+    "f": "Depuis hier soir."
+   },
+   {
+    "s": "Tome esta medicina dos veces al día.",
+    "f": "Prenez ce médicament deux fois par jour."
+   }
+  ]
+ },
+ {
+  "t": "Au téléphone",
+  "e": "📞",
+  "n": "Prendre un rendez-vous",
+  "lines": [
+   {
+    "s": "Dígame.",
+    "f": "Allô ?"
+   },
+   {
+    "s": "Hola, quiero hablar con el señor García.",
+    "f": "Bonjour, je voudrais parler à monsieur García."
+   },
+   {
+    "s": "¿De parte de quién?",
+    "f": "De la part de qui ?"
+   },
+   {
+    "s": "De parte de Mathieu, de la oficina.",
+    "f": "De la part de Mathieu, du bureau."
+   },
+   {
+    "s": "Un momento, por favor.",
+    "f": "Un instant, s'il vous plaît."
+   }
+  ]
+ },
+ {
+  "t": "Au travail",
+  "e": "💼",
+  "n": "Une réunion",
+  "lines": [
+   {
+    "s": "¿Podemos empezar la reunión?",
+    "f": "Pouvons-nous commencer la réunion ?"
+   },
+   {
+    "s": "Sí, todos están aquí.",
+    "f": "Oui, tout le monde est là."
+   },
+   {
+    "s": "Tenemos que terminar el informe hoy.",
+    "f": "Nous devons finir le rapport aujourd'hui."
+   },
+   {
+    "s": "No hay problema, lo hago esta tarde.",
+    "f": "Pas de problème, je le fais cet après-midi."
+   },
+   {
+    "s": "Perfecto, gracias.",
+    "f": "Parfait, merci."
+   }
+  ]
+ },
+ {
+  "t": "À l'école",
+  "e": "🎒",
+  "n": "Parler des cours",
+  "lines": [
+   {
+    "s": "¿Qué asignatura te gusta más?",
+    "f": "Quelle matière préfères-tu ?"
+   },
+   {
+    "s": "Me gusta la historia.",
+    "f": "J'aime l'histoire."
+   },
+   {
+    "s": "¿Y el inglés?",
+    "f": "Et l'anglais ?"
+   },
+   {
+    "s": "Es difícil, pero interesante.",
+    "f": "C'est difficile, mais intéressant."
+   },
+   {
+    "s": "Mañana tenemos examen.",
+    "f": "Demain nous avons un examen."
+   }
+  ]
+ },
+ {
+  "t": "Projets de week-end",
+  "e": "🌞",
+  "n": "Entre amis",
+  "lines": [
+   {
+    "s": "¿Qué haces este fin de semana?",
+    "f": "Que fais-tu ce week-end ?"
+   },
+   {
+    "s": "Voy a la montaña con mi familia.",
+    "f": "Je vais à la montagne avec ma famille."
+   },
+   {
+    "s": "¿Hace buen tiempo?",
+    "f": "Il fait beau ?"
+   },
+   {
+    "s": "Sí, hace sol y no hace frío.",
+    "f": "Oui, il y a du soleil et il ne fait pas froid."
+   },
+   {
+    "s": "¡Que lo pases bien!",
+    "f": "Passe un bon moment !"
+   }
+  ]
+ }
+]

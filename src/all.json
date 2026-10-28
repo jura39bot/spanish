@@ -1,0 +1,1027 @@
+{
+ "A1": [
+  {
+   "e": "hola",
+   "f": "bonjour",
+   "p": "O-la",
+   "x": "Hola, ¿cómo estás?",
+   "xf": "Bonjour, comment vas-tu ?"
+  },
+  {
+   "e": "adiós",
+   "f": "au revoir",
+   "p": "a-DIOSS",
+   "x": "Adiós, hasta mañana.",
+   "xf": "Au revoir, à demain."
+  },
+  {
+   "e": "buenos días",
+   "f": "bonjour (le matin)",
+   "p": "BOUE-noss DI-ass",
+   "x": "Buenos días, señora.",
+   "xf": "Bonjour, madame."
+  },
+  {
+   "e": "buenas noches",
+   "f": "bonsoir / bonne nuit",
+   "p": "BOUE-nass NO-tchess",
+   "x": "Buenas noches, hasta mañana.",
+   "xf": "Bonne nuit, à demain."
+  },
+  {
+   "e": "por favor",
+   "f": "s'il te plaît",
+   "p": "por fa-VOR",
+   "x": "Un café, por favor.",
+   "xf": "Un café, s'il te plaît."
+  },
+  {
+   "e": "gracias",
+   "f": "merci",
+   "p": "GRA-siass",
+   "x": "Muchas gracias.",
+   "xf": "Merci beaucoup."
+  },
+  {
+   "e": "perdón",
+   "f": "pardon",
+   "p": "per-DON",
+   "x": "Perdón, no entiendo.",
+   "xf": "Pardon, je ne comprends pas."
+  },
+  {
+   "e": "sí",
+   "f": "oui",
+   "p": "si",
+   "x": "Sí, claro.",
+   "xf": "Oui, bien sûr."
+  },
+  {
+   "e": "no",
+   "f": "non",
+   "p": "no",
+   "x": "No, gracias.",
+   "xf": "Non, merci."
+  },
+  {
+   "e": "agua",
+   "f": "eau",
+   "p": "A-goua",
+   "x": "Quiero agua, por favor.",
+   "xf": "Je veux de l'eau, s'il te plaît."
+  },
+  {
+   "e": "pan",
+   "f": "pain",
+   "p": "pan",
+   "x": "El pan está fresco.",
+   "xf": "Le pain est frais."
+  },
+  {
+   "e": "casa",
+   "f": "maison",
+   "p": "KA-ssa",
+   "x": "Mi casa es tu casa.",
+   "xf": "Ma maison est ta maison."
+  },
+  {
+   "e": "amigo",
+   "f": "ami",
+   "p": "a-MI-go",
+   "x": "Es mi mejor amigo.",
+   "xf": "C'est mon meilleur ami."
+  },
+  {
+   "e": "familia",
+   "f": "famille",
+   "p": "fa-MI-lia",
+   "x": "Mi familia vive en España.",
+   "xf": "Ma famille vit en Espagne."
+  },
+  {
+   "e": "madre",
+   "f": "mère",
+   "p": "MA-dre",
+   "x": "Mi madre cocina bien.",
+   "xf": "Ma mère cuisine bien."
+  },
+  {
+   "e": "padre",
+   "f": "père",
+   "p": "PA-dre",
+   "x": "Su padre trabaja aquí.",
+   "xf": "Son père travaille ici."
+  },
+  {
+   "e": "hermano",
+   "f": "frère",
+   "p": "er-MA-no",
+   "x": "Tengo un hermano.",
+   "xf": "J'ai un frère."
+  },
+  {
+   "e": "hermana",
+   "f": "sœur",
+   "p": "er-MA-na",
+   "x": "Mi hermana estudia.",
+   "xf": "Ma sœur étudie."
+  },
+  {
+   "e": "comer",
+   "f": "manger",
+   "p": "ko-MER",
+   "x": "Vamos a comer.",
+   "xf": "Allons manger."
+  },
+  {
+   "e": "beber",
+   "f": "boire",
+   "p": "bé-BER",
+   "x": "Bebo agua cada día.",
+   "xf": "Je bois de l'eau chaque jour."
+  },
+  {
+   "e": "hablar",
+   "f": "parler",
+   "p": "a-BLAR",
+   "x": "Hablo un poco de español.",
+   "xf": "Je parle un peu espagnol."
+  },
+  {
+   "e": "vivir",
+   "f": "vivre",
+   "p": "bi-BIR",
+   "x": "Vivo en Madrid.",
+   "xf": "Je vis à Madrid."
+  },
+  {
+   "e": "trabajar",
+   "f": "travailler",
+   "p": "tra-ba-JAR",
+   "x": "Trabajo en una oficina.",
+   "xf": "Je travaille dans un bureau."
+  },
+  {
+   "e": "escuela",
+   "f": "école",
+   "p": "ess-KOUÉ-la",
+   "x": "Los niños van a la escuela.",
+   "xf": "Les enfants vont à l'école."
+  },
+  {
+   "e": "coche",
+   "f": "voiture",
+   "p": "KO-tché",
+   "x": "Mi coche es rojo.",
+   "xf": "Ma voiture est rouge."
+  },
+  {
+   "e": "dinero",
+   "f": "argent",
+   "p": "di-NÉ-ro",
+   "x": "No tengo dinero.",
+   "xf": "Je n'ai pas d'argent."
+  },
+  {
+   "e": "tiempo",
+   "f": "temps",
+   "p": "TIEM-po",
+   "x": "No tengo tiempo.",
+   "xf": "Je n'ai pas le temps."
+  },
+  {
+   "e": "día",
+   "f": "jour",
+   "p": "DI-a",
+   "x": "Buen día.",
+   "xf": "Bonne journée."
+  },
+  {
+   "e": "noche",
+   "f": "nuit",
+   "p": "NO-tché",
+   "x": "La noche es tranquila.",
+   "xf": "La nuit est calme."
+  },
+  {
+   "e": "hoy",
+   "f": "aujourd'hui",
+   "p": "oï",
+   "x": "Hoy trabajo.",
+   "xf": "Aujourd'hui je travaille."
+  }
+ ],
+ "A2": [
+  {
+   "e": "viajar",
+   "f": "voyager",
+   "p": "bia-JAR",
+   "x": "Me gusta viajar.",
+   "xf": "J'aime voyager."
+  },
+  {
+   "e": "billete",
+   "f": "billet",
+   "p": "bi-YÉ-té",
+   "x": "Compré un billete de tren.",
+   "xf": "J'ai acheté un billet de train."
+  },
+  {
+   "e": "estación",
+   "f": "gare",
+   "p": "ess-ta-SION",
+   "x": "La estación está cerca.",
+   "xf": "La gare est proche."
+  },
+  {
+   "e": "aeropuerto",
+   "f": "aéroport",
+   "p": "a-é-ro-POUER-to",
+   "x": "El aeropuerto es grande.",
+   "xf": "L'aéroport est grand."
+  },
+  {
+   "e": "hotel",
+   "f": "hôtel",
+   "p": "o-TEL",
+   "x": "Reservé una habitación en el hotel.",
+   "xf": "J'ai réservé une chambre à l'hôtel."
+  },
+  {
+   "e": "habitación",
+   "f": "chambre",
+   "p": "a-bi-ta-SION",
+   "x": "La habitación es pequeña.",
+   "xf": "La chambre est petite."
+  },
+  {
+   "e": "tienda",
+   "f": "magasin",
+   "p": "TIEN-da",
+   "x": "La tienda abre a las nueve.",
+   "xf": "Le magasin ouvre à neuf heures."
+  },
+  {
+   "e": "mercado",
+   "f": "marché",
+   "p": "mer-KA-do",
+   "x": "Vamos al mercado.",
+   "xf": "Allons au marché."
+  },
+  {
+   "e": "precio",
+   "f": "prix",
+   "p": "PRÉ-sio",
+   "x": "¿Cuál es el precio?",
+   "xf": "Quel est le prix ?"
+  },
+  {
+   "e": "barato",
+   "f": "bon marché",
+   "p": "ba-RA-to",
+   "x": "Es muy barato.",
+   "xf": "C'est très bon marché."
+  },
+  {
+   "e": "caro",
+   "f": "cher",
+   "p": "KA-ro",
+   "x": "Este hotel es caro.",
+   "xf": "Cet hôtel est cher."
+  },
+  {
+   "e": "comprar",
+   "f": "acheter",
+   "p": "kom-PRAR",
+   "x": "Quiero comprar pan.",
+   "xf": "Je veux acheter du pain."
+  },
+  {
+   "e": "vender",
+   "f": "vendre",
+   "p": "ben-DER",
+   "x": "Venden frutas frescas.",
+   "xf": "Ils vendent des fruits frais."
+  },
+  {
+   "e": "pagar",
+   "f": "payer",
+   "p": "pa-GAR",
+   "x": "¿Puedo pagar con tarjeta?",
+   "xf": "Puis-je payer par carte ?"
+  },
+  {
+   "e": "ciudad",
+   "f": "ville",
+   "p": "siou-DAD",
+   "x": "Madrid es una ciudad grande.",
+   "xf": "Madrid est une grande ville."
+  },
+  {
+   "e": "calle",
+   "f": "rue",
+   "p": "KA-yé",
+   "x": "Vivo en esta calle.",
+   "xf": "Je vis dans cette rue."
+  },
+  {
+   "e": "plaza",
+   "f": "place",
+   "p": "PLA-za",
+   "x": "Nos vemos en la plaza.",
+   "xf": "On se voit sur la place."
+  },
+  {
+   "e": "médico",
+   "f": "médecin",
+   "p": "MÉ-di-ko",
+   "x": "Necesito un médico.",
+   "xf": "J'ai besoin d'un médecin."
+  },
+  {
+   "e": "enfermo",
+   "f": "malade",
+   "p": "en-FER-mo",
+   "x": "Estoy enfermo hoy.",
+   "xf": "Je suis malade aujourd'hui."
+  },
+  {
+   "e": "dolor",
+   "f": "douleur",
+   "p": "do-LOR",
+   "x": "Tengo dolor de cabeza.",
+   "xf": "J'ai mal à la tête."
+  },
+  {
+   "e": "cabeza",
+   "f": "tête",
+   "p": "ka-BÉ-za",
+   "x": "Me duele la cabeza.",
+   "xf": "J'ai mal à la tête."
+  },
+  {
+   "e": "cansado",
+   "f": "fatigué",
+   "p": "kan-SA-do",
+   "x": "Estoy muy cansado.",
+   "xf": "Je suis très fatigué."
+  },
+  {
+   "e": "contento",
+   "f": "content",
+   "p": "kon-TEN-to",
+   "x": "Estoy contento.",
+   "xf": "Je suis content."
+  },
+  {
+   "e": "triste",
+   "f": "triste",
+   "p": "TRISS-té",
+   "x": "¿Por qué estás triste?",
+   "xf": "Pourquoi es-tu triste ?"
+  },
+  {
+   "e": "enfadado",
+   "f": "fâché",
+   "p": "en-fa-DA-do",
+   "x": "Mi padre está enfadado.",
+   "xf": "Mon père est fâché."
+  },
+  {
+   "e": "siempre",
+   "f": "toujours",
+   "p": "SIEM-pré",
+   "x": "Siempre llega tarde.",
+   "xf": "Il arrive toujours en retard."
+  },
+  {
+   "e": "nunca",
+   "f": "jamais",
+   "p": "NOUN-ka",
+   "x": "Nunca bebo café.",
+   "xf": "Je ne bois jamais de café."
+  },
+  {
+   "e": "temprano",
+   "f": "tôt",
+   "p": "tem-PRA-no",
+   "x": "Me levanto temprano.",
+   "xf": "Je me lève tôt."
+  },
+  {
+   "e": "tarde",
+   "f": "tard",
+   "p": "TAR-dé",
+   "x": "Llegó tarde.",
+   "xf": "Il est arrivé tard."
+  },
+  {
+   "e": "cerca",
+   "f": "près",
+   "p": "SER-ka",
+   "x": "El banco está cerca.",
+   "xf": "La banque est proche."
+  }
+ ],
+ "B1": [
+  {
+   "e": "conseguir",
+   "f": "obtenir",
+   "p": "kon-sé-GUIR",
+   "x": "Conseguí el trabajo.",
+   "xf": "J'ai obtenu le poste."
+  },
+  {
+   "e": "mejorar",
+   "f": "améliorer",
+   "p": "mé-jo-RAR",
+   "x": "Quiero mejorar mi español.",
+   "xf": "Je veux améliorer mon espagnol."
+  },
+  {
+   "e": "desarrollar",
+   "f": "développer",
+   "p": "dé-sa-ro-YAR",
+   "x": "La empresa desarrolla software.",
+   "xf": "L'entreprise développe des logiciels."
+  },
+  {
+   "e": "elegir",
+   "f": "choisir",
+   "p": "é-lé-JIR",
+   "x": "Tienes que elegir.",
+   "xf": "Tu dois choisir."
+  },
+  {
+   "e": "evitar",
+   "f": "éviter",
+   "p": "é-bi-TAR",
+   "x": "Evito el tráfico.",
+   "xf": "J'évite les embouteillages."
+  },
+  {
+   "e": "explicar",
+   "f": "expliquer",
+   "p": "ex-pli-KAR",
+   "x": "¿Puedes explicarlo?",
+   "xf": "Peux-tu l'expliquer ?"
+  },
+  {
+   "e": "recordar",
+   "f": "se souvenir",
+   "p": "ré-kor-DAR",
+   "x": "No recuerdo su nombre.",
+   "xf": "Je ne me souviens pas de son nom."
+  },
+  {
+   "e": "olvidar",
+   "f": "oublier",
+   "p": "ol-bi-DAR",
+   "x": "Olvidé las llaves.",
+   "xf": "J'ai oublié les clés."
+  },
+  {
+   "e": "decidir",
+   "f": "décider",
+   "p": "dé-si-DIR",
+   "x": "Hemos decidido quedarnos.",
+   "xf": "Nous avons décidé de rester."
+  },
+  {
+   "e": "apoyar",
+   "f": "soutenir",
+   "p": "a-po-YAR",
+   "x": "Apoyo tu idea.",
+   "xf": "Je soutiens ton idée."
+  },
+  {
+   "e": "compartir",
+   "f": "partager",
+   "p": "kom-par-TIR",
+   "x": "Compartimos el piso.",
+   "xf": "Nous partageons l'appartement."
+  },
+  {
+   "e": "proponer",
+   "f": "proposer",
+   "p": "pro-po-NER",
+   "x": "Propongo otra solución.",
+   "xf": "Je propose une autre solution."
+  },
+  {
+   "e": "aceptar",
+   "f": "accepter",
+   "p": "a-sep-TAR",
+   "x": "Acepto tu oferta.",
+   "xf": "J'accepte ton offre."
+  },
+  {
+   "e": "rechazar",
+   "f": "refuser",
+   "p": "ré-tcha-ZAR",
+   "x": "Rechazó la invitación.",
+   "xf": "Il a refusé l'invitation."
+  },
+  {
+   "e": "aunque",
+   "f": "bien que",
+   "p": "A-OUN-ké",
+   "x": "Aunque llueve, salgo.",
+   "xf": "Bien qu'il pleuve, je sors."
+  },
+  {
+   "e": "sin embargo",
+   "f": "cependant",
+   "p": "sin em-BAR-go",
+   "x": "Es caro; sin embargo, lo compro.",
+   "xf": "C'est cher ; cependant, je l'achète."
+  },
+  {
+   "e": "además",
+   "f": "de plus",
+   "p": "a-de-MASS",
+   "x": "Además, es rápido.",
+   "xf": "De plus, c'est rapide."
+  },
+  {
+   "e": "mientras",
+   "f": "pendant que",
+   "p": "MIEN-trass",
+   "x": "Estudio mientras escucho música.",
+   "xf": "J'étudie pendant que j'écoute de la musique."
+  },
+  {
+   "e": "objetivo",
+   "f": "objectif",
+   "p": "ob-jé-TI-bo",
+   "x": "Nuestro objetivo es claro.",
+   "xf": "Notre objectif est clair."
+  },
+  {
+   "e": "riesgo",
+   "f": "risque",
+   "p": "RIESS-go",
+   "x": "Hay un riesgo real.",
+   "xf": "Il y a un risque réel."
+  },
+  {
+   "e": "ventaja",
+   "f": "avantage",
+   "p": "ben-TA-ja",
+   "x": "Tiene una gran ventaja.",
+   "xf": "Il a un grand avantage."
+  },
+  {
+   "e": "desventaja",
+   "f": "inconvénient",
+   "p": "dess-ben-TA-ja",
+   "x": "La desventaja es el precio.",
+   "xf": "L'inconvénient est le prix."
+  },
+  {
+   "e": "experiencia",
+   "f": "expérience",
+   "p": "ex-pé-RIEN-sia",
+   "x": "Tengo diez años de experiencia.",
+   "xf": "J'ai dix ans d'expérience."
+  },
+  {
+   "e": "conocimiento",
+   "f": "connaissance",
+   "p": "ko-no-si-MIEN-to",
+   "x": "Amplió sus conocimientos.",
+   "xf": "Il a élargi ses connaissances."
+  },
+  {
+   "e": "confianza",
+   "f": "confiance",
+   "p": "kon-FIAN-za",
+   "x": "Gracias por tu confianza.",
+   "xf": "Merci pour ta confiance."
+  },
+  {
+   "e": "herramienta",
+   "f": "outil",
+   "p": "é-ra-MIEN-ta",
+   "x": "Es una herramienta útil.",
+   "xf": "C'est un outil utile."
+  },
+  {
+   "e": "recurso",
+   "f": "ressource",
+   "p": "ré-KOUR-so",
+   "x": "Faltan recursos.",
+   "xf": "Les ressources manquent."
+  },
+  {
+   "e": "entorno",
+   "f": "environnement",
+   "p": "en-TOR-no",
+   "x": "El entorno cambia rápido.",
+   "xf": "L'environnement change vite."
+  },
+  {
+   "e": "cambio",
+   "f": "changement",
+   "p": "KAM-bio",
+   "x": "Necesitamos un cambio.",
+   "xf": "Nous avons besoin d'un changement."
+  },
+  {
+   "e": "alcanzar",
+   "f": "atteindre",
+   "p": "al-kan-ZAR",
+   "x": "Alcanzamos el objetivo.",
+   "xf": "Nous avons atteint l'objectif."
+  }
+ ],
+ "B2": [
+  {
+   "e": "socavar",
+   "f": "saper",
+   "p": "so-ka-BAR",
+   "x": "Eso socava la confianza.",
+   "xf": "Cela sape la confiance."
+  },
+  {
+   "e": "plantear",
+   "f": "soulever",
+   "p": "plan-TÉ-ar",
+   "x": "Planteo una pregunta.",
+   "xf": "Je soulève une question."
+  },
+  {
+   "e": "abordar",
+   "f": "aborder",
+   "p": "a-bor-DAR",
+   "x": "Hay que abordar el problema.",
+   "xf": "Il faut aborder le problème."
+  },
+  {
+   "e": "destacar",
+   "f": "souligner",
+   "p": "dess-ta-KAR",
+   "x": "Destaco dos puntos.",
+   "xf": "Je souligne deux points."
+  },
+  {
+   "e": "matizar",
+   "f": "nuancer",
+   "p": "ma-ti-ZAR",
+   "x": "Quiero matizar esa idea.",
+   "xf": "Je veux nuancer cette idée."
+  },
+  {
+   "e": "cuestionar",
+   "f": "remettre en question",
+   "p": "kouess-tio-NAR",
+   "x": "Cuestionan la decisión.",
+   "xf": "Ils remettent en question la décision."
+  },
+  {
+   "e": "fomentar",
+   "f": "encourager",
+   "p": "fo-men-TAR",
+   "x": "Fomentamos el diálogo.",
+   "xf": "Nous encourageons le dialogue."
+  },
+  {
+   "e": "restringir",
+   "f": "restreindre",
+   "p": "ress-trin-JIR",
+   "x": "Restringen el acceso.",
+   "xf": "Ils restreignent l'accès."
+  },
+  {
+   "e": "agravar",
+   "f": "aggraver",
+   "p": "a-gra-BAR",
+   "x": "La medida agrava la crisis.",
+   "xf": "La mesure aggrave la crise."
+  },
+  {
+   "e": "paliar",
+   "f": "atténuer",
+   "p": "pa-LIAR",
+   "x": "Buscan paliar los efectos.",
+   "xf": "Ils cherchent à atténuer les effets."
+  },
+  {
+   "e": "conllevar",
+   "f": "impliquer",
+   "p": "kon-yé-BAR",
+   "x": "Eso conlleva riesgos.",
+   "xf": "Cela implique des risques."
+  },
+  {
+   "e": "sustentar",
+   "f": "étayer",
+   "p": "souss-ten-TAR",
+   "x": "Los datos sustentan la tesis.",
+   "xf": "Les données étayent la thèse."
+  },
+  {
+   "e": "promover",
+   "f": "promouvoir",
+   "p": "pro-mo-BER",
+   "x": "Promueven la igualdad.",
+   "xf": "Ils promeuvent l'égalité."
+  },
+  {
+   "e": "incurrir",
+   "f": "encourir",
+   "p": "in-kou-RIR",
+   "x": "Incurrió en un error.",
+   "xf": "Il a commis une erreur."
+  },
+  {
+   "e": "prescindir",
+   "f": "se passer de",
+   "p": "press-sin-DIR",
+   "x": "Podemos prescindir de eso.",
+   "xf": "Nous pouvons nous en passer."
+  },
+  {
+   "e": "acatar",
+   "f": "respecter",
+   "p": "a-ka-TAR",
+   "x": "Acatamos la norma.",
+   "xf": "Nous respectons la règle."
+  },
+  {
+   "e": "dilucidar",
+   "f": "élucider",
+   "p": "di-lou-si-DAR",
+   "x": "Falta dilucidar el caso.",
+   "xf": "Il reste à élucider l'affaire."
+  },
+  {
+   "e": "mermar",
+   "f": "réduire",
+   "p": "mer-MAR",
+   "x": "Merma el rendimiento.",
+   "xf": "Le rendement diminue."
+  },
+  {
+   "e": "plasmar",
+   "f": "exprimer",
+   "p": "plass-MAR",
+   "x": "Plasmó su idea en el texto.",
+   "xf": "Il a exprimé son idée dans le texte."
+  },
+  {
+   "e": "entrañar",
+   "f": "comporter",
+   "p": "en-tra-NYAR",
+   "x": "Entraña dificultades.",
+   "xf": "Cela comporte des difficultés."
+  },
+  {
+   "e": "dilatar",
+   "f": "retarder",
+   "p": "di-la-TAR",
+   "x": "Dilataron la decisión.",
+   "xf": "Ils ont retardé la décision."
+  },
+  {
+   "e": "exacerbar",
+   "f": "exacerber",
+   "p": "ex-a-ser-BAR",
+   "x": "Eso exacerba el conflicto.",
+   "xf": "Cela exacerbe le conflit."
+  },
+  {
+   "e": "propiciar",
+   "f": "favoriser",
+   "p": "pro-pi-SIAR",
+   "x": "El clima propicia el debate.",
+   "xf": "Le climat favorise le débat."
+  },
+  {
+   "e": "salvaguardar",
+   "f": "préserver",
+   "p": "sal-ba-gouar-DAR",
+   "x": "Hay que salvaguardar los datos.",
+   "xf": "Il faut préserver les données."
+  },
+  {
+   "e": "subyacer",
+   "f": "sous-tendre",
+   "p": "soub-ya-SER",
+   "x": "Subyace una tensión.",
+   "xf": "Une tension sous-tend cela."
+  },
+  {
+   "e": "tergiversar",
+   "f": "déformer",
+   "p": "ter-ji-ber-SAR",
+   "x": "No tergiverses mis palabras.",
+   "xf": "Ne déforme pas mes propos."
+  },
+  {
+   "e": "vislumbrar",
+   "f": "entrevoir",
+   "p": "biss-loum-BRAR",
+   "x": "Vislumbro una salida.",
+   "xf": "J'entrevois une issue."
+  },
+  {
+   "e": "soslayar",
+   "f": "éluder",
+   "p": "soss-la-YAR",
+   "x": "Soslayó la pregunta.",
+   "xf": "Il a éludé la question."
+  },
+  {
+   "e": "apremiar",
+   "f": "presser",
+   "p": "a-pré-MIAR",
+   "x": "El plazo apremia.",
+   "xf": "Le délai presse."
+  },
+  {
+   "e": "enmarcar",
+   "f": "inscrire",
+   "p": "en-mar-KAR",
+   "x": "Se enmarca en el proyecto.",
+   "xf": "Cela s'inscrit dans le projet."
+  }
+ ],
+ "KIDS": [
+  {
+   "e": "gato",
+   "f": "chat",
+   "p": "GA-to",
+   "x": "El gato duerme.",
+   "xf": "Le chat dort."
+  },
+  {
+   "e": "perro",
+   "f": "chien",
+   "p": "PÉ-rro",
+   "x": "Mi perro es pequeño.",
+   "xf": "Mon chien est petit."
+  },
+  {
+   "e": "pájaro",
+   "f": "oiseau",
+   "p": "PA-ja-ro",
+   "x": "El pájaro canta.",
+   "xf": "L'oiseau chante."
+  },
+  {
+   "e": "pez",
+   "f": "poisson",
+   "p": "pess",
+   "x": "El pez nada.",
+   "xf": "Le poisson nage."
+  },
+  {
+   "e": "sol",
+   "f": "soleil",
+   "p": "sol",
+   "x": "El sol brilla.",
+   "xf": "Le soleil brille."
+  },
+  {
+   "e": "luna",
+   "f": "lune",
+   "p": "LOU-na",
+   "x": "La luna es blanca.",
+   "xf": "La lune est blanche."
+  },
+  {
+   "e": "estrella",
+   "f": "étoile",
+   "p": "ess-TRÉ-ya",
+   "x": "Veo una estrella.",
+   "xf": "Je vois une étoile."
+  },
+  {
+   "e": "árbol",
+   "f": "arbre",
+   "p": "AR-bol",
+   "x": "El árbol es grande.",
+   "xf": "L'arbre est grand."
+  },
+  {
+   "e": "flor",
+   "f": "fleur",
+   "p": "flor",
+   "x": "La flor es roja.",
+   "xf": "La fleur est rouge."
+  },
+  {
+   "e": "leche",
+   "f": "lait",
+   "p": "LÉ-tché",
+   "x": "Bebo leche.",
+   "xf": "Je bois du lait."
+  },
+  {
+   "e": "manzana",
+   "f": "pomme",
+   "p": "man-ZA-na",
+   "x": "Como una manzana.",
+   "xf": "Je mange une pomme."
+  },
+  {
+   "e": "queso",
+   "f": "fromage",
+   "p": "KÉ-so",
+   "x": "Me gusta el queso.",
+   "xf": "J'aime le fromage."
+  },
+  {
+   "e": "rojo",
+   "f": "rouge",
+   "p": "RO-jo",
+   "x": "El coche es rojo.",
+   "xf": "La voiture est rouge."
+  },
+  {
+   "e": "azul",
+   "f": "bleu",
+   "p": "a-ZOUL",
+   "x": "El cielo es azul.",
+   "xf": "Le ciel est bleu."
+  },
+  {
+   "e": "verde",
+   "f": "vert",
+   "p": "BER-dé",
+   "x": "La hoja es verde.",
+   "xf": "La feuille est verte."
+  },
+  {
+   "e": "grande",
+   "f": "grand",
+   "p": "GRAN-dé",
+   "x": "El perro es grande.",
+   "xf": "Le chien est grand."
+  },
+  {
+   "e": "pequeño",
+   "f": "petit",
+   "p": "pé-KÉ-nyo",
+   "x": "El gato es pequeño.",
+   "xf": "Le chat est petit."
+  },
+  {
+   "e": "feliz",
+   "f": "heureux",
+   "p": "fé-LISS",
+   "x": "Estoy feliz.",
+   "xf": "Je suis heureux."
+  },
+  {
+   "e": "correr",
+   "f": "courir",
+   "p": "ko-RER",
+   "x": "Me gusta correr.",
+   "xf": "J'aime courir."
+  },
+  {
+   "e": "saltar",
+   "f": "sauter",
+   "p": "sal-TAR",
+   "x": "El niño salta.",
+   "xf": "L'enfant saute."
+  },
+  {
+   "e": "jugar",
+   "f": "jouer",
+   "p": "jou-GAR",
+   "x": "Vamos a jugar.",
+   "xf": "Allons jouer."
+  },
+  {
+   "e": "dormir",
+   "f": "dormir",
+   "p": "dor-MIR",
+   "x": "El bebé duerme.",
+   "xf": "Le bébé dort."
+  },
+  {
+   "e": "cantar",
+   "f": "chanter",
+   "p": "kan-TAR",
+   "x": "Cantamos juntos.",
+   "xf": "Nous chantons ensemble."
+  },
+  {
+   "e": "agua",
+   "f": "eau",
+   "p": "A-goua",
+   "x": "Bebo agua.",
+   "xf": "Je bois de l'eau."
+  },
+  {
+   "e": "pan",
+   "f": "pain",
+   "p": "pan",
+   "x": "Como pan.",
+   "xf": "Je mange du pain."
+  }
+ ]
+}

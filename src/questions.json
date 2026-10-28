@@ -1,0 +1,230 @@
+[
+ {
+  "q": "¿Cómo te llamas?",
+  "a": "Me llamo Mathieu.",
+  "fr": "Comment t'appelles-tu ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿De dónde eres?",
+  "a": "Soy francés.",
+  "fr": "D'où viens-tu ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿Dónde vives?",
+  "a": "Vivo en Morez.",
+  "fr": "Où habites-tu ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿Cuántos años tienes?",
+  "a": "Tengo cuarenta años.",
+  "fr": "Quel âge as-tu ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿A qué te dedicas?",
+  "a": "Trabajo en informática.",
+  "fr": "Que fais-tu comme métier ?",
+  "cat": "travail"
+ },
+ {
+  "q": "¿Hablas español?",
+  "a": "Hablo un poco de español.",
+  "fr": "Parles-tu espagnol ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Qué hora es?",
+  "a": "Son las tres.",
+  "fr": "Quelle heure est-il ?",
+  "cat": "temps"
+ },
+ {
+  "q": "¿Dónde está la estación?",
+  "a": "Está a cinco minutos.",
+  "fr": "Où est la gare ?",
+  "cat": "ville"
+ },
+ {
+  "q": "¿Cuánto cuesta?",
+  "a": "Cuesta diez euros.",
+  "fr": "Combien ça coûte ?",
+  "cat": "achat"
+ },
+ {
+  "q": "¿Tienes una habitación libre?",
+  "a": "Sí, para dos personas.",
+  "fr": "As-tu une chambre libre ?",
+  "cat": "voyage"
+ },
+ {
+  "q": "¿Qué te gusta hacer?",
+  "a": "Me gusta leer y caminar.",
+  "fr": "Qu'aimes-tu faire ?",
+  "cat": "loisirs"
+ },
+ {
+  "q": "¿Qué desayunas?",
+  "a": "Tomo café y pan.",
+  "fr": "Que prends-tu au petit-déjeuner ?",
+  "cat": "nourriture"
+ },
+ {
+  "q": "¿Puedes ayudarme?",
+  "a": "Claro, ¿qué necesitas?",
+  "fr": "Peux-tu m'aider ?",
+  "cat": "service"
+ },
+ {
+  "q": "¿Dónde puedo comprar un billete?",
+  "a": "En la taquilla.",
+  "fr": "Où puis-je acheter un billet ?",
+  "cat": "voyage"
+ },
+ {
+  "q": "¿Qué tiempo hace?",
+  "a": "Hace sol y hace frío.",
+  "fr": "Quel temps fait-il ?",
+  "cat": "météo"
+ },
+ {
+  "q": "¿Cuándo llegas?",
+  "a": "Llego mañana por la mañana.",
+  "fr": "Quand arrives-tu ?",
+  "cat": "temps"
+ },
+ {
+  "q": "¿Por qué estudias español?",
+  "a": "Porque quiero viajar.",
+  "fr": "Pourquoi étudies-tu l'espagnol ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Cómo se dice « merci »?",
+  "a": "Se dice « gracias ».",
+  "fr": "Comment dit-on « merci » ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Me trae la cuenta?",
+  "a": "Ahora mismo.",
+  "fr": "Pouvez-vous m'apporter l'addition ?",
+  "cat": "restaurant"
+ },
+ {
+  "q": "¿Tiene mesas libres?",
+  "a": "Sí, para dos personas.",
+  "fr": "Avez-vous des tables libres ?",
+  "cat": "restaurant"
+ },
+ {
+  "q": "¿Qué me recomienda?",
+  "a": "Le recomiendo el pescado.",
+  "fr": "Que me recommandez-vous ?",
+  "cat": "restaurant"
+ },
+ {
+  "q": "¿Dónde está el baño?",
+  "a": "Al fondo a la derecha.",
+  "fr": "Où sont les toilettes ?",
+  "cat": "ville"
+ },
+ {
+  "q": "¿A qué hora abre?",
+  "a": "Abre a las nueve.",
+  "fr": "À quelle heure ça ouvre ?",
+  "cat": "ville"
+ },
+ {
+  "q": "¿Hay wifi?",
+  "a": "Sí, la contraseña está en la mesa.",
+  "fr": "Y a-t-il du wifi ?",
+  "cat": "service"
+ },
+ {
+  "q": "¿Puedo pagar con tarjeta?",
+  "a": "Sí, por supuesto.",
+  "fr": "Puis-je payer par carte ?",
+  "cat": "achat"
+ },
+ {
+  "q": "¿Cuánto tarda el tren?",
+  "a": "Tarda dos horas.",
+  "fr": "Combien de temps met le train ?",
+  "cat": "voyage"
+ },
+ {
+  "q": "¿Qué haces el fin de semana?",
+  "a": "Voy a la montaña.",
+  "fr": "Que fais-tu le week-end ?",
+  "cat": "loisirs"
+ },
+ {
+  "q": "¿Tienes hermanos?",
+  "a": "Sí, tengo una hermana.",
+  "fr": "As-tu des frères et sœurs ?",
+  "cat": "famille"
+ },
+ {
+  "q": "¿Cómo estás?",
+  "a": "Estoy bien, gracias.",
+  "fr": "Comment vas-tu ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿Dónde trabajas?",
+  "a": "Trabajo en una oficina.",
+  "fr": "Où travailles-tu ?",
+  "cat": "travail"
+ },
+ {
+  "q": "¿Qué estudias?",
+  "a": "Estudio historia.",
+  "fr": "Qu'étudies-tu ?",
+  "cat": "école"
+ },
+ {
+  "q": "¿Me puedes repetir?",
+  "a": "Sí, claro.",
+  "fr": "Peux-tu répéter ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Hablas más despacio, por favor?",
+  "a": "Sí, sin problema.",
+  "fr": "Peux-tu parler plus lentement ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Qué significa esta palabra?",
+  "a": "Significa « maison ».",
+  "fr": "Que signifie ce mot ?",
+  "cat": "langue"
+ },
+ {
+  "q": "¿Dónde vives exactamente?",
+  "a": "Vivo cerca del centro.",
+  "fr": "Où habites-tu exactement ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿Te gusta el café?",
+  "a": "Sí, me encanta.",
+  "fr": "Aimes-tu le café ?",
+  "cat": "nourriture"
+ },
+ {
+  "q": "¿Cuándo es tu cumpleaños?",
+  "a": "Es en mayo.",
+  "fr": "Quand est ton anniversaire ?",
+  "cat": "identité"
+ },
+ {
+  "q": "¿Qué vas a hacer mañana?",
+  "a": "Voy a trabajar.",
+  "fr": "Que vas-tu faire demain ?",
+  "cat": "temps"
+ }
+]

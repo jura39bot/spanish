@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Espagnol — Béthanie</title>
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Espagnol">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#05070d;--txt:#f6f9ff;--dim:rgba(235,242,255,.62);
+--acc:#5ad100;--acc2:#0aa7f5;--pink:#ff4b8b;--warn:#ff9600;--bad:#ff4b4b;
+--glass:rgba(255,255,255,.09);
+--glass2:rgba(255,255,255,.055);
+--stroke:rgba(255,255,255,.16);
+--stroke2:rgba(255,255,255,.09);
+--r:26px;--rs:18px;
+--shadow:0 18px 44px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.30);
+}
+html,body{margin:0;height:100%;background:var(--bg)}
+body{
+color:var(--txt);
+font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+letter-spacing:-.011em;
+padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+overscroll-behavior-y:contain;-webkit-font-smoothing:antialiased;
+}
+body::before{
+content:"";position:fixed;inset:-25%;z-index:-2;pointer-events:none;
+background:
+ radial-gradient(42% 34% at 16% 6%, rgba(90,209,0,.38), transparent 68%),
+ radial-gradient(40% 30% at 84% 10%, rgba(10,167,245,.36), transparent 68%),
+ radial-gradient(48% 38% at 50% 98%, rgba(180,90,255,.30), transparent 70%),
+ radial-gradient(34% 26% at 92% 62%, rgba(255,90,150,.20), transparent 70%);
+filter:blur(46px) saturate(140%);
+}
+body::after{
+content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background:radial-gradient(130% 90% at 50% 0%,transparent 38%,rgba(0,0,0,.62) 100%);
+}
+#app{max-width:520px;margin:0 auto;padding:18px 16px 104px;min-height:100vh}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.028em}
+h1{font-size:27px;font-weight:800}
+h2{font-size:20px;font-weight:750}
+h3{font-size:11.5px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.10em}
+p{margin:0}
+.muted{color:var(--dim)}
+.small{font-size:13px}.tiny{font-size:11px}
+.row{display:flex;align-items:center;gap:10px}
+.between{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stack>*+*{margin-top:12px}
+.spacer{height:12px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+
+.card{
+background:linear-gradient(158deg,rgba(255,255,255,.14),rgba(255,255,255,.045) 55%,rgba(255,255,255,.075));
+border:1px solid var(--stroke);border-radius:var(--r);padding:17px;
+-webkit-backdrop-filter:blur(26px) saturate(180%);
+backdrop-filter:blur(26px) saturate(180%);
+box-shadow:var(--shadow);
+}
+.btn{
+display:block;width:100%;padding:17px;border-radius:20px;
+background:linear-gradient(180deg,#86ec3a 0%,#55c400 55%,#46ab00 100%);
+color:#05260a;font-weight:800;font-size:16.5px;letter-spacing:-.01em;text-align:center;
+box-shadow:0 12px 26px rgba(85,196,0,.38), inset 0 1px 0 rgba(255,255,255,.60), inset 0 -2px 0 rgba(0,0,0,.14);
+transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn:active{transform:scale(.975);box-shadow:0 5px 14px rgba(85,196,0,.30), inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.alt{
+background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+color:var(--txt);font-weight:700;
+border:1px solid var(--stroke);
+box-shadow:0 10px 26px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.28);
+-webkit-backdrop-filter:blur(20px) saturate(170%);
+backdrop-filter:blur(20px) saturate(170%);
+}
+.btn.blue{
+background:linear-gradient(180deg,#5ecbff,#0aa7f5 60%,#0789c9);
+color:#03212f;
+box-shadow:0 12px 26px rgba(10,167,245,.35), inset 0 1px 0 rgba(255,255,255,.55);
+}
+.btn.ghost{background:transparent;box-shadow:none;color:var(--dim);font-weight:600;padding:10px}
+.btn:disabled{opacity:.42;box-shadow:none;transform:none;filter:saturate(.6)}
+.pill{
+display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700;
+background:linear-gradient(160deg,rgba(255,255,255,.17),rgba(255,255,255,.06));
+border:1px solid var(--stroke);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.28), 0 6px 16px rgba(0,0,0,.22);
+-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+}
+.bar{height:9px;border-radius:99px;background:rgba(0,0,0,.42);overflow:hidden;
+border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 3px rgba(0,0,0,.55)}
+.bar>i{display:block;height:100%;border-radius:99px;
+background:linear-gradient(90deg,#7ef03a,#4fc000);box-shadow:0 0 12px rgba(110,230,40,.55);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.ring{
+--p:0;width:80px;height:80px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;position:relative;
+background:conic-gradient(from -90deg,#8bf23c calc(var(--p)*1%),rgba(255,255,255,.10) 0);
+box-shadow:0 0 22px rgba(110,230,40,.30), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.ring::after{content:"";position:absolute;inset:8px;border-radius:50%;
+background:linear-gradient(160deg,rgba(20,28,44,.96),rgba(8,12,22,.98));
+box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.ring span{position:relative;z-index:1;font-weight:800;font-size:16px;letter-spacing:-.03em}
+.stat{
+background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+border:1px solid var(--stroke2);border-radius:20px;padding:13px;text-align:center;
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px rgba(0,0,0,.28);
+}
+.stat b{display:block;font-size:21px;line-height:1.15;letter-spacing:-.03em}
+.stat i{font-style:normal;font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.07em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lvl{
+display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:15px;border-radius:22px;
+background:linear-gradient(158deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+border:1px solid var(--stroke2);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.24), 0 12px 28px rgba(0,0,0,.30);
+-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);
+transition:transform .12s ease, border-color .12s ease;
+}
+.lvl:active{transform:scale(.982);border-color:rgba(255,255,255,.3)}
+.lvl .ico{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:22px;flex:0 0 auto;
+box-shadow:inset 0 1px 0 rgba(255,255,255,.35), inset 0 -8px 16px rgba(0,0,0,.18)}
+.lvl .meta{flex:1;min-width:0}
+.lvl .meta b{font-size:16px;letter-spacing:-.02em}
+.lvl .meta .bar{margin-top:8px}
+.cardq{
+background:linear-gradient(158deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+border:1px solid var(--stroke);border-radius:22px;padding:16px;
+-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.26), 0 14px 32px rgba(0,0,0,.32);
+}
+.choice{
+display:block;width:100%;text-align:left;padding:16px;border-radius:18px;margin-top:10px;
+font-weight:650;font-size:15.5px;letter-spacing:-.01em;
+background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+border:1.5px solid var(--stroke2);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.20), 0 8px 20px rgba(0,0,0,.22);
+transition:transform .10s ease,border-color .10s ease,background .10s ease;
+}
+.choice:active{transform:scale(.985)}
+.choice.ok{border-color:rgba(120,230,60,.85);background:linear-gradient(160deg,rgba(90,209,0,.28),rgba(90,209,0,.10));
+box-shadow:0 0 0 1px rgba(120,230,60,.35), inset 0 1px 0 rgba(255,255,255,.25)}
+.choice.no{border-color:rgba(255,90,90,.8);background:linear-gradient(160deg,rgba(255,70,70,.26),rgba(255,70,70,.08))}
+.choice .k{display:inline-block;min-width:22px;color:var(--dim);font-weight:800}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.back{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-size:18px;
+background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+border:1px solid var(--stroke);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.28), 0 8px 18px rgba(0,0,0,.28);
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+.bigword{font-size:36px;font-weight:800;letter-spacing:-.035em;margin:6px 0}
+.bigq{font-size:26px;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.phon{color:#6fd3ff;font-weight:700;font-size:15px;letter-spacing:-.01em}
+.ex{color:var(--dim);font-size:14px;font-style:italic;margin-top:10px;border-left:3px solid rgba(255,255,255,.18);padding-left:11px}
+input[type=text],input[type=password]{
+width:100%;padding:16px;border-radius:18px;color:var(--txt);font-size:17px;outline:none;
+background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(0,0,0,.18));
+border:1.5px solid var(--stroke2);
+box-shadow:inset 0 2px 8px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.10);
+-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+transition:border-color .15s ease, box-shadow .15s ease;
+}
+input:focus{border-color:rgba(10,167,245,.85);box-shadow:inset 0 2px 8px rgba(0,0,0,.35),0 0 0 3px rgba(10,167,245,.18)}
+.feed{position:fixed;left:0;right:0;bottom:0;z-index:9;
+padding:16px 16px calc(16px + env(safe-area-inset-bottom));
+background:linear-gradient(180deg,rgba(5,7,13,0),rgba(5,7,13,.72) 45%,rgba(5,7,13,.94) 100%);
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.feed>div{max-width:520px;margin:0 auto}
+.toast{
+position:fixed;left:50%;bottom:118px;transform:translateX(-50%) translateY(16px) scale(.96);opacity:0;
+padding:13px 20px;border-radius:18px;font-weight:700;font-size:14px;z-index:20;pointer-events:none;
+background:linear-gradient(160deg,rgba(70,180,40,.55),rgba(30,90,20,.55));
+border:1px solid rgba(160,255,120,.45);color:#eaffdc;text-align:center;max-width:88vw;
+-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);
+box-shadow:0 16px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.35);
+transition:opacity .22s ease, transform .22s cubic-bezier(.2,.9,.3,1.2);
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:92px}
+.bars>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%}
+.bars i{display:block;width:100%;border-radius:7px 7px 0 0;min-height:4px;
+background:linear-gradient(180deg,#8bf23c,#3fa800);box-shadow:0 0 12px rgba(110,230,40,.35)}
+.bars span{font-size:10px;color:var(--dim)}
+.avs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.avs button{font-size:25px;padding:9px 0;border-radius:15px;
+background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+border:1.5px solid var(--stroke2);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 6px 16px rgba(0,0,0,.22);
+transition:transform .1s ease,border-color .1s ease}
+.avs button:active{transform:scale(.92)}
+.avs button.sel{border-color:rgba(120,230,60,.9);background:linear-gradient(160deg,rgba(90,209,0,.30),rgba(90,209,0,.10));
+box-shadow:0 0 0 1px rgba(120,230,60,.35), inset 0 1px 0 rgba(255,255,255,.3), 0 8px 20px rgba(90,209,0,.25)}
+.tabs{display:flex;gap:8px;margin-bottom:14px;padding:5px;border-radius:18px;
+background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+border:1px solid var(--stroke2);
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.tab{flex:1;padding:10px;border-radius:14px;font-weight:700;font-size:14px;text-align:center;color:var(--dim);
+transition:background .18s ease,color .18s ease,box-shadow .18s ease}
+.tab.on{background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.12));color:#fff;
+box-shadow:0 4px 12px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.4)}
+.formula{background:rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.10);border-radius:14px;
+padding:11px 13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#9ff26a;
+margin-top:6px;box-shadow:inset 0 2px 8px rgba(0,0,0,.4)}
+.corr{color:#9ff26a;font-weight:700}
+.v-present{color:#7ef03a;font-weight:800}
+.v-past{color:#5ecbff;font-weight:800}
+.v-fut{color:#ffb03a;font-weight:800}
+.v-imp{color:#c98bff;font-weight:800}
+.tense{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;margin-top:11px}
+.forms{font-size:14px;color:rgba(230,240,255,.88);margin-top:3px;line-height:1.55}
+.qline{background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+border:1px solid var(--stroke2);border-radius:18px;padding:13px;margin-top:9px}
+.qline b{font-size:15px}
+.qline .fr{color:var(--dim);font-size:13px;margin-top:2px}
+hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
+
+.fb{margin-top:13px;padding:14px 15px;border-radius:16px;font-weight:700;font-size:14.5px;line-height:1.5;
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.fb.ok{background:rgba(90,209,0,.15);border:1px solid rgba(120,230,60,.42);color:#c9ffa8}
+.fb.no{background:rgba(255,70,70,.13);border:1px solid rgba(255,90,90,.42);color:#ffc9c9}
+.fb.no b{color:#ff6b6b}
+.fb.ok b{color:#9dff6b}
+
+.karaoke{font-size:30px;font-weight:800;letter-spacing:-.01em;color:#5ecbff;text-shadow:0 0 18px rgba(94,203,255,.35)}
+.kbar{height:5px;border-radius:99px;background:rgba(255,255,255,.10);overflow:hidden;margin-top:10px}
+.kbar>i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5ecbff,#8fe3ff);box-shadow:0 0 12px rgba(94,203,255,.6)}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA = {"A1":[{"e":"hola","f":"bonjour","p":"O-la","x":"Hola, ¿cómo estás?","xf":"Bonjour, comment vas-tu ?"},{"e":"adiós","f":"au revoir","p":"a-DIOSS","x":"Adiós, hasta mañana.","xf":"Au revoir, à demain."},{"e":"buenos días","f":"bonjour (le matin)","p":"BOUE-noss DI-ass","x":"Buenos días, señora.","xf":"Bonjour, madame."},{"e":"buenas noches","f":"bonsoir / bonne nuit","p":"BOUE-nass NO-tchess","x":"Buenas noches, hasta mañana.","xf":"Bonne nuit, à demain."},{"e":"por favor","f":"s'il te plaît","p":"por fa-VOR","x":"Un café, por favor.","xf":"Un café, s'il te plaît."},{"e":"gracias","f":"merci","p":"GRA-siass","x":"Muchas gracias.","xf":"Merci beaucoup."},{"e":"perdón","f":"pardon","p":"per-DON","x":"Perdón, no entiendo.","xf":"Pardon, je ne comprends pas."},{"e":"sí","f":"oui","p":"si","x":"Sí, claro.","xf":"Oui, bien sûr."},{"e":"no","f":"non","p":"no","x":"No, gracias.","xf":"Non, merci."},{"e":"agua","f":"eau","p":"A-goua","x":"Quiero agua, por favor.","xf":"Je veux de l'eau, s'il te plaît."},{"e":"pan","f":"pain","p":"pan","x":"El pan está fresco.","xf":"Le pain est frais."},{"e":"casa","f":"maison","p":"KA-ssa","x":"Mi casa es tu casa.","xf":"Ma maison est ta maison."},{"e":"amigo","f":"ami","p":"a-MI-go","x":"Es mi mejor amigo.","xf":"C'est mon meilleur ami."},{"e":"familia","f":"famille","p":"fa-MI-lia","x":"Mi familia vive en España.","xf":"Ma famille vit en Espagne."},{"e":"madre","f":"mère","p":"MA-dre","x":"Mi madre cocina bien.","xf":"Ma mère cuisine bien."},{"e":"padre","f":"père","p":"PA-dre","x":"Su padre trabaja aquí.","xf":"Son père travaille ici."},{"e":"hermano","f":"frère","p":"er-MA-no","x":"Tengo un hermano.","xf":"J'ai un frère."},{"e":"hermana","f":"sœur","p":"er-MA-na","x":"Mi hermana estudia.","xf":"Ma sœur étudie."},{"e":"comer","f":"manger","p":"ko-MER","x":"Vamos a comer.","xf":"Allons manger."},{"e":"beber","f":"boire","p":"bé-BER","x":"Bebo agua cada día.","xf":"Je bois de l'eau chaque jour."},{"e":"hablar","f":"parler","p":"a-BLAR","x":"Hablo un poco de español.","xf":"Je parle un peu espagnol."},{"e":"vivir","f":"vivre","p":"bi-BIR","x":"Vivo en Madrid.","xf":"Je vis à Madrid."},{"e":"trabajar","f":"travailler","p":"tra-ba-JAR","x":"Trabajo en una oficina.","xf":"Je travaille dans un bureau."},{"e":"escuela","f":"école","p":"ess-KOUÉ-la","x":"Los niños van a la escuela.","xf":"Les enfants vont à l'école."},{"e":"coche","f":"voiture","p":"KO-tché","x":"Mi coche es rojo.","xf":"Ma voiture est rouge."},{"e":"dinero","f":"argent","p":"di-NÉ-ro","x":"No tengo dinero.","xf":"Je n'ai pas d'argent."},{"e":"tiempo","f":"temps","p":"TIEM-po","x":"No tengo tiempo.","xf":"Je n'ai pas le temps."},{"e":"día","f":"jour","p":"DI-a","x":"Buen día.","xf":"Bonne journée."},{"e":"noche","f":"nuit","p":"NO-tché","x":"La noche es tranquila.","xf":"La nuit est calme."},{"e":"hoy","f":"aujourd'hui","p":"oï","x":"Hoy trabajo.","xf":"Aujourd'hui je travaille."}],"A2":[{"e":"viajar","f":"voyager","p":"bia-JAR","x":"Me gusta viajar.","xf":"J'aime voyager."},{"e":"billete","f":"billet","p":"bi-YÉ-té","x":"Compré un billete de tren.","xf":"J'ai acheté un billet de train."},{"e":"estación","f":"gare","p":"ess-ta-SION","x":"La estación está cerca.","xf":"La gare est proche."},{"e":"aeropuerto","f":"aéroport","p":"a-é-ro-POUER-to","x":"El aeropuerto es grande.","xf":"L'aéroport est grand."},{"e":"hotel","f":"hôtel","p":"o-TEL","x":"Reservé una habitación en el hotel.","xf":"J'ai réservé une chambre à l'hôtel."},{"e":"habitación","f":"chambre","p":"a-bi-ta-SION","x":"La habitación es pequeña.","xf":"La chambre est petite."},{"e":"tienda","f":"magasin","p":"TIEN-da","x":"La tienda abre a las nueve.","xf":"Le magasin ouvre à neuf heures."},{"e":"mercado","f":"marché","p":"mer-KA-do","x":"Vamos al mercado.","xf":"Allons au marché."},{"e":"precio","f":"prix","p":"PRÉ-sio","x":"¿Cuál es el precio?","xf":"Quel est le prix ?"},{"e":"barato","f":"bon marché","p":"ba-RA-to","x":"Es muy barato.","xf":"C'est très bon marché."},{"e":"caro","f":"cher","p":"KA-ro","x":"Este hotel es caro.","xf":"Cet hôtel est cher."},{"e":"comprar","f":"acheter","p":"kom-PRAR","x":"Quiero comprar pan.","xf":"Je veux acheter du pain."},{"e":"vender","f":"vendre","p":"ben-DER","x":"Venden frutas frescas.","xf":"Ils vendent des fruits frais."},{"e":"pagar","f":"payer","p":"pa-GAR","x":"¿Puedo pagar con tarjeta?","xf":"Puis-je payer par carte ?"},{"e":"ciudad","f":"ville","p":"siou-DAD","x":"Madrid es una ciudad grande.","xf":"Madrid est une grande ville."},{"e":"calle","f":"rue","p":"KA-yé","x":"Vivo en esta calle.","xf":"Je vis dans cette rue."},{"e":"plaza","f":"place","p":"PLA-za","x":"Nos vemos en la plaza.","xf":"On se voit sur la place."},{"e":"médico","f":"médecin","p":"MÉ-di-ko","x":"Necesito un médico.","xf":"J'ai besoin d'un médecin."},{"e":"enfermo","f":"malade","p":"en-FER-mo","x":"Estoy enfermo hoy.","xf":"Je suis malade aujourd'hui."},{"e":"dolor","f":"douleur","p":"do-LOR","x":"Tengo dolor de cabeza.","xf":"J'ai mal à la tête."},{"e":"cabeza","f":"tête","p":"ka-BÉ-za","x":"Me duele la cabeza.","xf":"J'ai mal à la tête."},{"e":"cansado","f":"fatigué","p":"kan-SA-do","x":"Estoy muy cansado.","xf":"Je suis très fatigué."},{"e":"contento","f":"content","p":"kon-TEN-to","x":"Estoy contento.","xf":"Je suis content."},{"e":"triste","f":"triste","p":"TRISS-té","x":"¿Por qué estás triste?","xf":"Pourquoi es-tu triste ?"},{"e":"enfadado","f":"fâché","p":"en-fa-DA-do","x":"Mi padre está enfadado.","xf":"Mon père est fâché."},{"e":"siempre","f":"toujours","p":"SIEM-pré","x":"Siempre llega tarde.","xf":"Il arrive toujours en retard."},{"e":"nunca","f":"jamais","p":"NOUN-ka","x":"Nunca bebo café.","xf":"Je ne bois jamais de café."},{"e":"temprano","f":"tôt","p":"tem-PRA-no","x":"Me levanto temprano.","xf":"Je me lève tôt."},{"e":"tarde","f":"tard","p":"TAR-dé","x":"Llegó tarde.","xf":"Il est arrivé tard."},{"e":"cerca","f":"près","p":"SER-ka","x":"El banco está cerca.","xf":"La banque est proche."}],"B1":[{"e":"conseguir","f":"obtenir","p":"kon-sé-GUIR","x":"Conseguí el trabajo.","xf":"J'ai obtenu le poste."},{"e":"mejorar","f":"améliorer","p":"mé-jo-RAR","x":"Quiero mejorar mi español.","xf":"Je veux améliorer mon espagnol."},{"e":"desarrollar","f":"développer","p":"dé-sa-ro-YAR","x":"La empresa desarrolla software.","xf":"L'entreprise développe des logiciels."},{"e":"elegir","f":"choisir","p":"é-lé-JIR","x":"Tienes que elegir.","xf":"Tu dois choisir."},{"e":"evitar","f":"éviter","p":"é-bi-TAR","x":"Evito el tráfico.","xf":"J'évite les embouteillages."},{"e":"explicar","f":"expliquer","p":"ex-pli-KAR","x":"¿Puedes explicarlo?","xf":"Peux-tu l'expliquer ?"},{"e":"recordar","f":"se souvenir","p":"ré-kor-DAR","x":"No recuerdo su nombre.","xf":"Je ne me souviens pas de son nom."},{"e":"olvidar","f":"oublier","p":"ol-bi-DAR","x":"Olvidé las llaves.","xf":"J'ai oublié les clés."},{"e":"decidir","f":"décider","p":"dé-si-DIR","x":"Hemos decidido quedarnos.","xf":"Nous avons décidé de rester."},{"e":"apoyar","f":"soutenir","p":"a-po-YAR","x":"Apoyo tu idea.","xf":"Je soutiens ton idée."},{"e":"compartir","f":"partager","p":"kom-par-TIR","x":"Compartimos el piso.","xf":"Nous partageons l'appartement."},{"e":"proponer","f":"proposer","p":"pro-po-NER","x":"Propongo otra solución.","xf":"Je propose une autre solution."},{"e":"aceptar","f":"accepter","p":"a-sep-TAR","x":"Acepto tu oferta.","xf":"J'accepte ton offre."},{"e":"rechazar","f":"refuser","p":"ré-tcha-ZAR","x":"Rechazó la invitación.","xf":"Il a refusé l'invitation."},{"e":"aunque","f":"bien que","p":"A-OUN-ké","x":"Aunque llueve, salgo.","xf":"Bien qu'il pleuve, je sors."},{"e":"sin embargo","f":"cependant","p":"sin em-BAR-go","x":"Es caro; sin embargo, lo compro.","xf":"C'est cher ; cependant, je l'achète."},{"e":"además","f":"de plus","p":"a-de-MASS","x":"Además, es rápido.","xf":"De plus, c'est rapide."},{"e":"mientras","f":"pendant que","p":"MIEN-trass","x":"Estudio mientras escucho música.","xf":"J'étudie pendant que j'écoute de la musique."},{"e":"objetivo","f":"objectif","p":"ob-jé-TI-bo","x":"Nuestro objetivo es claro.","xf":"Notre objectif est clair."},{"e":"riesgo","f":"risque","p":"RIESS-go","x":"Hay un riesgo real.","xf":"Il y a un risque réel."},{"e":"ventaja","f":"avantage","p":"ben-TA-ja","x":"Tiene una gran ventaja.","xf":"Il a un grand avantage."},{"e":"desventaja","f":"inconvénient","p":"dess-ben-TA-ja","x":"La desventaja es el precio.","xf":"L'inconvénient est le prix."},{"e":"experiencia","f":"expérience","p":"ex-pé-RIEN-sia","x":"Tengo diez años de experiencia.","xf":"J'ai dix ans d'expérience."},{"e":"conocimiento","f":"connaissance","p":"ko-no-si-MIEN-to","x":"Amplió sus conocimientos.","xf":"Il a élargi ses connaissances."},{"e":"confianza","f":"confiance","p":"kon-FIAN-za","x":"Gracias por tu confianza.","xf":"Merci pour ta confiance."},{"e":"herramienta","f":"outil","p":"é-ra-MIEN-ta","x":"Es una herramienta útil.","xf":"C'est un outil utile."},{"e":"recurso","f":"ressource","p":"ré-KOUR-so","x":"Faltan recursos.","xf":"Les ressources manquent."},{"e":"entorno","f":"environnement","p":"en-TOR-no","x":"El entorno cambia rápido.","xf":"L'environnement change vite."},{"e":"cambio","f":"changement","p":"KAM-bio","x":"Necesitamos un cambio.","xf":"Nous avons besoin d'un changement."},{"e":"alcanzar","f":"atteindre","p":"al-kan-ZAR","x":"Alcanzamos el objetivo.","xf":"Nous avons atteint l'objectif."}],"B2":[{"e":"socavar","f":"saper","p":"so-ka-BAR","x":"Eso socava la confianza.","xf":"Cela sape la confiance."},{"e":"plantear","f":"soulever","p":"plan-TÉ-ar","x":"Planteo una pregunta.","xf":"Je soulève une question."},{"e":"abordar","f":"aborder","p":"a-bor-DAR","x":"Hay que abordar el problema.","xf":"Il faut aborder le problème."},{"e":"destacar","f":"souligner","p":"dess-ta-KAR","x":"Destaco dos puntos.","xf":"Je souligne deux points."},{"e":"matizar","f":"nuancer","p":"ma-ti-ZAR","x":"Quiero matizar esa idea.","xf":"Je veux nuancer cette idée."},{"e":"cuestionar","f":"remettre en question","p":"kouess-tio-NAR","x":"Cuestionan la decisión.","xf":"Ils remettent en question la décision."},{"e":"fomentar","f":"encourager","p":"fo-men-TAR","x":"Fomentamos el diálogo.","xf":"Nous encourageons le dialogue."},{"e":"restringir","f":"restreindre","p":"ress-trin-JIR","x":"Restringen el acceso.","xf":"Ils restreignent l'accès."},{"e":"agravar","f":"aggraver","p":"a-gra-BAR","x":"La medida agrava la crisis.","xf":"La mesure aggrave la crise."},{"e":"paliar","f":"atténuer","p":"pa-LIAR","x":"Buscan paliar los efectos.","xf":"Ils cherchent à atténuer les effets."},{"e":"conllevar","f":"impliquer","p":"kon-yé-BAR","x":"Eso conlleva riesgos.","xf":"Cela implique des risques."},{"e":"sustentar","f":"étayer","p":"souss-ten-TAR","x":"Los datos sustentan la tesis.","xf":"Les données étayent la thèse."},{"e":"promover","f":"promouvoir","p":"pro-mo-BER","x":"Promueven la igualdad.","xf":"Ils promeuvent l'égalité."},{"e":"incurrir","f":"encourir","p":"in-kou-RIR","x":"Incurrió en un error.","xf":"Il a commis une erreur."},{"e":"prescindir","f":"se passer de","p":"press-sin-DIR","x":"Podemos prescindir de eso.","xf":"Nous pouvons nous en passer."},{"e":"acatar","f":"respecter","p":"a-ka-TAR","x":"Acatamos la norma.","xf":"Nous respectons la règle."},{"e":"dilucidar","f":"élucider","p":"di-lou-si-DAR","x":"Falta dilucidar el caso.","xf":"Il reste à élucider l'affaire."},{"e":"mermar","f":"réduire","p":"mer-MAR","x":"Merma el rendimiento.","xf":"Le rendement diminue."},{"e":"plasmar","f":"exprimer","p":"plass-MAR","x":"Plasmó su idea en el texto.","xf":"Il a exprimé son idée dans le texte."},{"e":"entrañar","f":"comporter","p":"en-tra-NYAR","x":"Entraña dificultades.","xf":"Cela comporte des difficultés."},{"e":"dilatar","f":"retarder","p":"di-la-TAR","x":"Dilataron la decisión.","xf":"Ils ont retardé la décision."},{"e":"exacerbar","f":"exacerber","p":"ex-a-ser-BAR","x":"Eso exacerba el conflicto.","xf":"Cela exacerbe le conflit."},{"e":"propiciar","f":"favoriser","p":"pro-pi-SIAR","x":"El clima propicia el debate.","xf":"Le climat favorise le débat."},{"e":"salvaguardar","f":"préserver","p":"sal-ba-gouar-DAR","x":"Hay que salvaguardar los datos.","xf":"Il faut préserver les données."},{"e":"subyacer","f":"sous-tendre","p":"soub-ya-SER","x":"Subyace una tensión.","xf":"Une tension sous-tend cela."},{"e":"tergiversar","f":"déformer","p":"ter-ji-ber-SAR","x":"No tergiverses mis palabras.","xf":"Ne déforme pas mes propos."},{"e":"vislumbrar","f":"entrevoir","p":"biss-loum-BRAR","x":"Vislumbro una salida.","xf":"J'entrevois une issue."},{"e":"soslayar","f":"éluder","p":"soss-la-YAR","x":"Soslayó la pregunta.","xf":"Il a éludé la question."},{"e":"apremiar","f":"presser","p":"a-pré-MIAR","x":"El plazo apremia.","xf":"Le délai presse."},{"e":"enmarcar","f":"inscrire","p":"en-mar-KAR","x":"Se enmarca en el proyecto.","xf":"Cela s'inscrit dans le projet."}],"KIDS":[{"e":"gato","f":"chat","p":"GA-to","x":"El gato duerme.","xf":"Le chat dort."},{"e":"perro","f":"chien","p":"PÉ-rro","x":"Mi perro es pequeño.","xf":"Mon chien est petit."},{"e":"pájaro","f":"oiseau","p":"PA-ja-ro","x":"El pájaro canta.","xf":"L'oiseau chante."},{"e":"pez","f":"poisson","p":"pess","x":"El pez nada.","xf":"Le poisson nage."},{"e":"sol","f":"soleil","p":"sol","x":"El sol brilla.","xf":"Le soleil brille."},{"e":"luna","f":"lune","p":"LOU-na","x":"La luna es blanca.","xf":"La lune est blanche."},{"e":"estrella","f":"étoile","p":"ess-TRÉ-ya","x":"Veo una estrella.","xf":"Je vois une étoile."},{"e":"árbol","f":"arbre","p":"AR-bol","x":"El árbol es grande.","xf":"L'arbre est grand."},{"e":"flor","f":"fleur","p":"flor","x":"La flor es roja.","xf":"La fleur est rouge."},{"e":"leche","f":"lait","p":"LÉ-tché","x":"Bebo leche.","xf":"Je bois du lait."},{"e":"manzana","f":"pomme","p":"man-ZA-na","x":"Como una manzana.","xf":"Je mange une pomme."},{"e":"queso","f":"fromage","p":"KÉ-so","x":"Me gusta el queso.","xf":"J'aime le fromage."},{"e":"rojo","f":"rouge","p":"RO-jo","x":"El coche es rojo.","xf":"La voiture est rouge."},{"e":"azul","f":"bleu","p":"a-ZOUL","x":"El cielo es azul.","xf":"Le ciel est bleu."},{"e":"verde","f":"vert","p":"BER-dé","x":"La hoja es verde.","xf":"La feuille est verte."},{"e":"grande","f":"grand","p":"GRAN-dé","x":"El perro es grande.","xf":"Le chien est grand."},{"e":"pequeño","f":"petit","p":"pé-KÉ-nyo","x":"El gato es pequeño.","xf":"Le chat est petit."},{"e":"feliz","f":"heureux","p":"fé-LISS","x":"Estoy feliz.","xf":"Je suis heureux."},{"e":"correr","f":"courir","p":"ko-RER","x":"Me gusta correr.","xf":"J'aime courir."},{"e":"saltar","f":"sauter","p":"sal-TAR","x":"El niño salta.","xf":"L'enfant saute."},{"e":"jugar","f":"jouer","p":"jou-GAR","x":"Vamos a jugar.","xf":"Allons jouer."},{"e":"dormir","f":"dormir","p":"dor-MIR","x":"El bebé duerme.","xf":"Le bébé dort."},{"e":"cantar","f":"chanter","p":"kan-TAR","x":"Cantamos juntos.","xf":"Nous chantons ensemble."},{"e":"agua","f":"eau","p":"A-goua","x":"Bebo agua.","xf":"Je bois de l'eau."},{"e":"pan","f":"pain","p":"pan","x":"Como pan.","xf":"Je mange du pain."}]};
+const CONJ = [{"v":"ser","fr":"être","p":"ser","t":{"present":["soy","eres","es","somos","sois","son"],"past":["fui","fuiste","fue","fuimos","fuisteis","fueron"]}},{"v":"estar","fr":"être (état)","p":"ess-TAR","t":{"present":["estoy","estás","está","estamos","estáis","están"],"past":["estuve","estuviste","estuvo","estuvimos","estuvisteis","estuvieron"]}},{"v":"tener","fr":"avoir","p":"té-NER","t":{"present":["tengo","tienes","tiene","tenemos","tenéis","tienen"],"past":["tuve","tuviste","tuvo","tuvimos","tuvisteis","tuvieron"]}},{"v":"hacer","fr":"faire","p":"a-SER","t":{"present":["hago","haces","hace","hacemos","hacéis","hacen"],"past":["hice","hiciste","hizo","hicimos","hicisteis","hicieron"]}},{"v":"ir","fr":"aller","p":"ir","t":{"present":["voy","vas","va","vamos","vais","van"],"past":["fui","fuiste","fue","fuimos","fuisteis","fueron"]}},{"v":"venir","fr":"venir","p":"bé-NIR","t":{"present":["vengo","vienes","viene","venimos","venís","vienen"],"past":["vine","viniste","vino","vinimos","vinisteis","vinieron"]}},{"v":"poder","fr":"pouvoir","p":"po-DER","t":{"present":["puedo","puedes","puede","podemos","podéis","pueden"],"past":["pude","pudiste","pudo","pudimos","pudisteis","pudieron"]}},{"v":"querer","fr":"vouloir","p":"ké-RER","t":{"present":["quiero","quieres","quiere","queremos","queréis","quieren"],"past":["quise","quisiste","quiso","quisimos","quisisteis","quisieron"]}},{"v":"saber","fr":"savoir","p":"sa-BER","t":{"present":["sé","sabes","sabe","sabemos","sabéis","saben"],"past":["supe","supiste","supo","supimos","supisteis","supieron"]}},{"v":"decir","fr":"dire","p":"dé-SIR","t":{"present":["digo","dices","dice","decimos","decís","dicen"],"past":["dije","dijiste","dijo","dijimos","dijisteis","dijeron"]}},{"v":"ver","fr":"voir","p":"ber","t":{"present":["veo","ves","ve","vemos","veis","ven"],"past":["vi","viste","vio","vimos","visteis","vieron"]}},{"v":"comer","fr":"manger","p":"ko-MER","t":{"present":["como","comes","come","comemos","coméis","comen"],"past":["comí","comiste","comió","comimos","comisteis","comieron"]}},{"v":"hablar","fr":"parler","p":"a-BLAR","t":{"present":["hablo","hablas","habla","hablamos","habláis","hablan"],"past":["hablé","hablaste","habló","hablamos","hablasteis","hablaron"]}}];
+const QUEST = [{"q":"¿Cómo te llamas?","a":"Me llamo Mathieu.","fr":"Comment t'appelles-tu ?","cat":"identité"},{"q":"¿De dónde eres?","a":"Soy francés.","fr":"D'où viens-tu ?","cat":"identité"},{"q":"¿Dónde vives?","a":"Vivo en Morez.","fr":"Où habites-tu ?","cat":"identité"},{"q":"¿Cuántos años tienes?","a":"Tengo cuarenta años.","fr":"Quel âge as-tu ?","cat":"identité"},{"q":"¿A qué te dedicas?","a":"Trabajo en informática.","fr":"Que fais-tu comme métier ?","cat":"travail"},{"q":"¿Hablas español?","a":"Hablo un poco de español.","fr":"Parles-tu espagnol ?","cat":"langue"},{"q":"¿Qué hora es?","a":"Son las tres.","fr":"Quelle heure est-il ?","cat":"temps"},{"q":"¿Dónde está la estación?","a":"Está a cinco minutos.","fr":"Où est la gare ?","cat":"ville"},{"q":"¿Cuánto cuesta?","a":"Cuesta diez euros.","fr":"Combien ça coûte ?","cat":"achat"},{"q":"¿Tienes una habitación libre?","a":"Sí, para dos personas.","fr":"As-tu une chambre libre ?","cat":"voyage"},{"q":"¿Qué te gusta hacer?","a":"Me gusta leer y caminar.","fr":"Qu'aimes-tu faire ?","cat":"loisirs"},{"q":"¿Qué desayunas?","a":"Tomo café y pan.","fr":"Que prends-tu au petit-déjeuner ?","cat":"nourriture"},{"q":"¿Puedes ayudarme?","a":"Claro, ¿qué necesitas?","fr":"Peux-tu m'aider ?","cat":"service"},{"q":"¿Dónde puedo comprar un billete?","a":"En la taquilla.","fr":"Où puis-je acheter un billet ?","cat":"voyage"},{"q":"¿Qué tiempo hace?","a":"Hace sol y hace frío.","fr":"Quel temps fait-il ?","cat":"météo"},{"q":"¿Cuándo llegas?","a":"Llego mañana por la mañana.","fr":"Quand arrives-tu ?","cat":"temps"},{"q":"¿Por qué estudias español?","a":"Porque quiero viajar.","fr":"Pourquoi étudies-tu l'espagnol ?","cat":"langue"},{"q":"¿Cómo se dice « merci »?","a":"Se dice « gracias ».","fr":"Comment dit-on « merci » ?","cat":"langue"},{"q":"¿Me trae la cuenta?","a":"Ahora mismo.","fr":"Pouvez-vous m'apporter l'addition ?","cat":"restaurant"},{"q":"¿Tiene mesas libres?","a":"Sí, para dos personas.","fr":"Avez-vous des tables libres ?","cat":"restaurant"},{"q":"¿Qué me recomienda?","a":"Le recomiendo el pescado.","fr":"Que me recommandez-vous ?","cat":"restaurant"},{"q":"¿Dónde está el baño?","a":"Al fondo a la derecha.","fr":"Où sont les toilettes ?","cat":"ville"},{"q":"¿A qué hora abre?","a":"Abre a las nueve.","fr":"À quelle heure ça ouvre ?","cat":"ville"},{"q":"¿Hay wifi?","a":"Sí, la contraseña está en la mesa.","fr":"Y a-t-il du wifi ?","cat":"service"},{"q":"¿Puedo pagar con tarjeta?","a":"Sí, por supuesto.","fr":"Puis-je payer par carte ?","cat":"achat"},{"q":"¿Cuánto tarda el tren?","a":"Tarda dos horas.","fr":"Combien de temps met le train ?","cat":"voyage"},{"q":"¿Qué haces el fin de semana?","a":"Voy a la montaña.","fr":"Que fais-tu le week-end ?","cat":"loisirs"},{"q":"¿Tienes hermanos?","a":"Sí, tengo una hermana.","fr":"As-tu des frères et sœurs ?","cat":"famille"},{"q":"¿Cómo estás?","a":"Estoy bien, gracias.","fr":"Comment vas-tu ?","cat":"identité"},{"q":"¿Dónde trabajas?","a":"Trabajo en una oficina.","fr":"Où travailles-tu ?","cat":"travail"},{"q":"¿Qué estudias?","a":"Estudio historia.","fr":"Qu'étudies-tu ?","cat":"école"},{"q":"¿Me puedes repetir?","a":"Sí, claro.","fr":"Peux-tu répéter ?","cat":"langue"},{"q":"¿Hablas más despacio, por favor?","a":"Sí, sin problema.","fr":"Peux-tu parler plus lentement ?","cat":"langue"},{"q":"¿Qué significa esta palabra?","a":"Significa « maison ».","fr":"Que signifie ce mot ?","cat":"langue"},{"q":"¿Dónde vives exactamente?","a":"Vivo cerca del centro.","fr":"Où habites-tu exactement ?","cat":"identité"},{"q":"¿Te gusta el café?","a":"Sí, me encanta.","fr":"Aimes-tu le café ?","cat":"nourriture"},{"q":"¿Cuándo es tu cumpleaños?","a":"Es en mayo.","fr":"Quand est ton anniversaire ?","cat":"identité"},{"q":"¿Qué vas a hacer mañana?","a":"Voy a trabajar.","fr":"Que vas-tu faire demain ?","cat":"temps"}];
+const LEX = {"categories":[{"n":"À l'école","e":"🎒","items":[{"e":"escuela","f":"école","p":"ess-KOUÉ-la"},{"e":"profesor","f":"professeur","p":"pro-fé-SOR"},{"e":"alumno","f":"élève","p":"a-LOUM-no"},{"e":"deberes","f":"devoirs","p":"dé-BÉ-réss"},{"e":"cuaderno","f":"cahier","p":"koua-DER-no"},{"e":"libro","f":"livre","p":"LI-bro"},{"e":"clase","f":"cours","p":"KLA-ssé"},{"e":"examen","f":"examen","p":"ex-A-men"},{"e":"pizarra","f":"tableau","p":"pi-ZA-rra"},{"e":"bolígrafo","f":"stylo","p":"bo-LI-gra-fo"},{"e":"asignatura","f":"matière","p":"a-sig-na-TOU-ra"},{"e":"recreo","f":"récréation","p":"ré-KRÉ-o"}]},{"n":"Famille","e":"👨‍👩‍👧","items":[{"e":"madre","f":"mère","p":"MA-dre"},{"e":"padre","f":"père","p":"PA-dre"},{"e":"hermano","f":"frère","p":"er-MA-no"},{"e":"hermana","f":"sœur","p":"er-MA-na"},{"e":"abuelo","f":"grand-père","p":"a-BOUÉ-lo"},{"e":"abuela","f":"grand-mère","p":"a-BOUÉ-la"},{"e":"hijo","f":"fils","p":"I-jo"},{"e":"hija","f":"fille","p":"I-ja"},{"e":"primo","f":"cousin","p":"PRI-mo"},{"e":"tío","f":"oncle","p":"TI-o"},{"e":"sobrino","f":"neveu","p":"so-BRI-no"},{"e":"pareja","f":"compagnon","p":"pa-RÉ-ja"}]},{"n":"Nourriture","e":"🍽️","items":[{"e":"pan","f":"pain","p":"pan"},{"e":"agua","f":"eau","p":"A-goua"},{"e":"leche","f":"lait","p":"LÉ-tché"},{"e":"queso","f":"fromage","p":"KÉ-so"},{"e":"huevo","f":"œuf","p":"OUÉ-bo"},{"e":"carne","f":"viande","p":"KAR-né"},{"e":"pescado","f":"poisson","p":"pess-KA-do"},{"e":"verdura","f":"légume","p":"ber-DOU-ra"},{"e":"fruta","f":"fruit","p":"FROU-ta"},{"e":"arroz","f":"riz","p":"a-RROSS"},{"e":"aceite","f":"huile","p":"a-SÉÏ-té"},{"e":"sal","f":"sel","p":"sal"}]},{"n":"Ville","e":"🏙️","items":[{"e":"calle","f":"rue","p":"KA-yé"},{"e":"plaza","f":"place","p":"PLA-za"},{"e":"tienda","f":"magasin","p":"TIEN-da"},{"e":"mercado","f":"marché","p":"mer-KA-do"},{"e":"banco","f":"banque","p":"BAN-ko"},{"e":"farmacia","f":"pharmacie","p":"far-MA-sia"},{"e":"estación","f":"gare","p":"ess-ta-SION"},{"e":"ayuntamiento","f":"mairie","p":"a-youn-ta-MIEN-to"},{"e":"iglesia","f":"église","p":"i-GLÉ-sia"},{"e":"parque","f":"parc","p":"PAR-ké"},{"e":"barrio","f":"quartier","p":"BA-rrio"},{"e":"puente","f":"pont","p":"POUEN-té"}]},{"n":"Voyage","e":"✈️","items":[{"e":"billete","f":"billet","p":"bi-YÉ-té"},{"e":"maleta","f":"valise","p":"ma-LÉ-ta"},{"e":"vuelo","f":"vol","p":"BOUÉ-lo"},{"e":"tren","f":"train","p":"tren"},{"e":"autobús","f":"bus","p":"aou-to-BOUSS"},{"e":"hotel","f":"hôtel","p":"o-TEL"},{"e":"habitación","f":"chambre","p":"a-bi-ta-SION"},{"e":"pasaporte","f":"passeport","p":"pa-ssa-POR-té"},{"e":"frontera","f":"frontière","p":"fron-TÉ-ra"},{"e":"playa","f":"plage","p":"PLA-ya"},{"e":"montaña","f":"montagne","p":"mon-TA-nya"},{"e":"mapa","f":"carte","p":"MA-pa"}]},{"n":"Travail","e":"💼","items":[{"e":"trabajo","f":"travail","p":"tra-BA-jo"},{"e":"empresa","f":"entreprise","p":"em-PRÉ-sa"},{"e":"jefe","f":"chef","p":"JÉ-fé"},{"e":"reunión","f":"réunion","p":"ré-ou-NION"},{"e":"informe","f":"rapport","p":"in-FOR-mé"},{"e":"proyecto","f":"projet","p":"pro-YEK-to"},{"e":"sueldo","f":"salaire","p":"SOUEL-do"},{"e":"horario","f":"horaire","p":"o-RA-rio"},{"e":"cliente","f":"client","p":"KLIEN-té"},{"e":"ordenador","f":"ordinateur","p":"or-dé-na-DOR"},{"e":"correo","f":"courriel","p":"ko-RRÉ-o"},{"e":"contrato","f":"contrat","p":"kon-TRA-to"}]},{"n":"Santé","e":"🩺","items":[{"e":"médico","f":"médecin","p":"MÉ-di-ko"},{"e":"hospital","f":"hôpital","p":"oss-pi-TAL"},{"e":"dolor","f":"douleur","p":"do-LOR"},{"e":"fiebre","f":"fièvre","p":"FIÉ-bré"},{"e":"medicina","f":"médicament","p":"mé-di-SI-na"},{"e":"cabeza","f":"tête","p":"ka-BÉ-za"},{"e":"estómago","f":"estomac","p":"ess-TO-ma-go"},{"e":"espalda","f":"dos","p":"ess-PAL-da"},{"e":"garganta","f":"gorge","p":"gar-GAN-ta"},{"e":"cansado","f":"fatigué","p":"kan-SA-do"},{"e":"sano","f":"sain","p":"SA-no"},{"e":"urgencias","f":"urgences","p":"our-JEN-sias"}]},{"n":"Maison","e":"🏠","items":[{"e":"casa","f":"maison","p":"KA-ssa"},{"e":"cocina","f":"cuisine","p":"ko-SI-na"},{"e":"salón","f":"salon","p":"sa-LON"},{"e":"dormitorio","f":"chambre","p":"dor-mi-TO-rio"},{"e":"baño","f":"salle de bain","p":"BA-nyo"},{"e":"puerta","f":"porte","p":"POUER-ta"},{"e":"ventana","f":"fenêtre","p":"ben-TA-na"},{"e":"mesa","f":"table","p":"MÉ-sa"},{"e":"silla","f":"chaise","p":"SI-ya"},{"e":"cama","f":"lit","p":"KA-ma"},{"e":"llave","f":"clé","p":"YA-bé"},{"e":"jardín","f":"jardin","p":"jar-DIN"}]},{"n":"Temps","e":"⏰","items":[{"e":"hoy","f":"aujourd'hui","p":"oï"},{"e":"mañana","f":"demain","p":"ma-NYA-na"},{"e":"ayer","f":"hier","p":"a-YER"},{"e":"semana","f":"semaine","p":"sé-MA-na"},{"e":"mes","f":"mois","p":"mess"},{"e":"año","f":"année","p":"A-nyo"},{"e":"hora","f":"heure","p":"O-ra"},{"e":"minuto","f":"minute","p":"mi-NOU-to"},{"e":"lunes","f":"lundi","p":"LOU-néss"},{"e":"viernes","f":"vendredi","p":"BIER-néss"},{"e":"verano","f":"été","p":"bé-RA-no"},{"e":"invierno","f":"hiver","p":"in-BIER-no"}]},{"n":"Loisirs","e":"🎧","items":[{"e":"música","f":"musique","p":"MOU-si-ka"},{"e":"película","f":"film","p":"pé-LI-kou-la"},{"e":"libro","f":"livre","p":"LI-bro"},{"e":"deporte","f":"sport","p":"dé-POR-té"},{"e":"fútbol","f":"football","p":"FOUT-bol"},{"e":"esquí","f":"ski","p":"ess-KI"},{"e":"senderismo","f":"randonnée","p":"sen-dé-RISS-mo"},{"e":"viaje","f":"voyage","p":"BIA-jé"},{"e":"juego","f":"jeu","p":"JOUÉ-go"},{"e":"fiesta","f":"fête","p":"FIESS-ta"},{"e":"concierto","f":"concert","p":"kon-SIER-to"},{"e":"lectura","f":"lecture","p":"lék-TOU-ra"}]}]};
+const CONV = [{"t":"Se présenter","e":"👋","n":"Première rencontre","lines":[{"s":"Hola, me llamo Mathieu. ¿Y tú?","f":"Bonjour, je m'appelle Mathieu. Et toi ?"},{"s":"Yo soy Lucía. Mucho gusto.","f":"Moi, c'est Lucía. Enchantée."},{"s":"¿De dónde eres?","f":"D'où viens-tu ?"},{"s":"Soy francesa, de Lyon.","f":"Je suis française, de Lyon."},{"s":"Yo vivo en Madrid desde hace dos años.","f":"Je vis à Madrid depuis deux ans."}]},{"t":"Au café","e":"☕","n":"Commander","lines":[{"s":"Buenos días, ¿qué desea?","f":"Bonjour, que désirez-vous ?"},{"s":"Un café con leche, por favor.","f":"Un café au lait, s'il vous plaît."},{"s":"¿Algo más?","f":"Autre chose ?"},{"s":"Sí, un croissant.","f":"Oui, un croissant."},{"s":"Son cuatro euros.","f":"Ça fait quatre euros."}]},{"t":"À l'hôtel","e":"🏨","n":"Réserver une chambre","lines":[{"s":"Buenas tardes, ¿tiene una habitación libre?","f":"Bonsoir, avez-vous une chambre libre ?"},{"s":"Sí, para dos personas.","f":"Oui, pour deux personnes."},{"s":"¿Cuánto cuesta la noche?","f":"Combien coûte la nuit ?"},{"s":"Ochenta euros con desayuno.","f":"Quatre-vingts euros avec petit-déjeuner."},{"s":"Perfecto, me la quedo.","f":"Parfait, je la prends."}]},{"t":"Au marché","e":"🍅","n":"Acheter des fruits","lines":[{"s":"¿Cuánto cuestan los tomates?","f":"Combien coûtent les tomates ?"},{"s":"Dos euros el kilo.","f":"Deux euros le kilo."},{"s":"Deme un kilo, por favor.","f":"Donnez-m'en un kilo, s'il vous plaît."},{"s":"¿Algo más?","f":"Autre chose ?"},{"s":"No, eso es todo. Gracias.","f":"Non, c'est tout. Merci."}]},{"t":"Demander son chemin","e":"🧭","n":"Dans la rue","lines":[{"s":"Perdón, ¿dónde está la estación?","f":"Pardon, où est la gare ?"},{"s":"Sigue recto y gira a la derecha.","f":"Continue tout droit et tourne à droite."},{"s":"¿Está lejos?","f":"C'est loin ?"},{"s":"No, cinco minutos a pie.","f":"Non, cinq minutes à pied."},{"s":"Muchas gracias.","f":"Merci beaucoup."}]},{"t":"Chez le médecin","e":"🩺","n":"Expliquer un symptôme","lines":[{"s":"Buenos días, ¿qué le pasa?","f":"Bonjour, qu'avez-vous ?"},{"s":"Me duele la cabeza y tengo fiebre.","f":"J'ai mal à la tête et de la fièvre."},{"s":"¿Desde cuándo?","f":"Depuis quand ?"},{"s":"Desde ayer por la noche.","f":"Depuis hier soir."},{"s":"Tome esta medicina dos veces al día.","f":"Prenez ce médicament deux fois par jour."}]},{"t":"Au téléphone","e":"📞","n":"Prendre un rendez-vous","lines":[{"s":"Dígame.","f":"Allô ?"},{"s":"Hola, quiero hablar con el señor García.","f":"Bonjour, je voudrais parler à monsieur García."},{"s":"¿De parte de quién?","f":"De la part de qui ?"},{"s":"De parte de Mathieu, de la oficina.","f":"De la part de Mathieu, du bureau."},{"s":"Un momento, por favor.","f":"Un instant, s'il vous plaît."}]},{"t":"Au travail","e":"💼","n":"Une réunion","lines":[{"s":"¿Podemos empezar la reunión?","f":"Pouvons-nous commencer la réunion ?"},{"s":"Sí, todos están aquí.","f":"Oui, tout le monde est là."},{"s":"Tenemos que terminar el informe hoy.","f":"Nous devons finir le rapport aujourd'hui."},{"s":"No hay problema, lo hago esta tarde.","f":"Pas de problème, je le fais cet après-midi."},{"s":"Perfecto, gracias.","f":"Parfait, merci."}]},{"t":"À l'école","e":"🎒","n":"Parler des cours","lines":[{"s":"¿Qué asignatura te gusta más?","f":"Quelle matière préfères-tu ?"},{"s":"Me gusta la historia.","f":"J'aime l'histoire."},{"s":"¿Y el inglés?","f":"Et l'anglais ?"},{"s":"Es difícil, pero interesante.","f":"C'est difficile, mais intéressant."},{"s":"Mañana tenemos examen.","f":"Demain nous avons un examen."}]},{"t":"Projets de week-end","e":"🌞","n":"Entre amis","lines":[{"s":"¿Qué haces este fin de semana?","f":"Que fais-tu ce week-end ?"},{"s":"Voy a la montaña con mi familia.","f":"Je vais à la montagne avec ma famille."},{"s":"¿Hace buen tiempo?","f":"Il fait beau ?"},{"s":"Sí, hace sol y no hace frío.","f":"Oui, il y a du soleil et il ne fait pas froid."},{"s":"¡Que lo pases bien!","f":"Passe un bon moment !"}]}];
+const GRAM = [{"t":"Les articles el / la / los / las","lvl":"A1","rule":"Tout nom espagnol a un genre. « el » pour le masculin singulier, « la » pour le féminin, « los » et « las » au pluriel.","form":"el libro · la casa · los libros · las casas","ex":[{"s":"El libro está en la mesa.","f":"Le livre est sur la table."}],"wrong":"le livre → el libro (pas « lo libro »)"},{"t":"un / una / unos / unas","lvl":"A1","rule":"Article indéfini : « un » devant un nom masculin, « una » devant un nom féminin.","form":"un coche · una casa · unos amigos · unas flores","ex":[{"s":"Tengo un perro y una gata.","f":"J'ai un chien et une chatte."}],"wrong":"une maison → una casa"},{"t":"Le pluriel","lvl":"A1","rule":"Voyelle finale : on ajoute -s. Consonne finale : on ajoute -es.","form":"libro → libros · ciudad → ciudades","ex":[{"s":"Las ciudades son grandes.","f":"Les villes sont grandes."}],"wrong":"ciudads → ciudades"},{"t":"ser ou estar","lvl":"A1","rule":"« ser » pour l'identité et les traits permanents. « estar » pour l'état, la localisation et l'humeur.","form":"soy francés · estoy cansado · está en casa","ex":[{"s":"Soy profesor y estoy cansado.","f":"Je suis professeur et je suis fatigué."}],"wrong":"estoy francés → soy francés"},{"t":"hay","lvl":"A1","rule":"« hay » exprime l'existence : il y a. Invariable, quelle que soit la quantité.","form":"hay un libro · hay muchos libros","ex":[{"s":"Hay dos farmacias en la calle.","f":"Il y a deux pharmacies dans la rue."}],"wrong":"hayn → hay"},{"t":"Le présent régulier","lvl":"A1","rule":"Verbes en -ar, -er, -ir : on retire la terminaison et on ajoute -o, -as, -a, -amos, -áis, -an (ou -es, -e, -emos, -éis, -en).","form":"hablo, hablas, habla, hablamos, habláis, hablan","ex":[{"s":"Trabajo en Lyon y vivo en Morez.","f":"Je travaille à Lyon et je vis à Morez."}],"wrong":"yo habla → yo hablo"},{"t":"Le présent irrégulier","lvl":"A1","rule":"Certains verbes changent de radical : tener → tengo, hacer → hago, ir → voy, ser → soy.","form":"tengo · hago · voy · soy","ex":[{"s":"Voy al mercado y tengo tiempo.","f":"Je vais au marché et j'ai le temps."}],"wrong":"yo va → yo voy"},{"t":"Les verbes réfléchis","lvl":"A2","rule":"Le pronom réfléchi change avec la personne : me, te, se, nos, os, se.","form":"me levanto · te levantas · se levanta","ex":[{"s":"Me levanto a las siete.","f":"Je me lève à sept heures."}],"wrong":"yo levanto → me levanto"},{"t":"gustar","lvl":"A2","rule":"« gustar » s'accorde avec la chose aimée, pas avec la personne : me gusta / me gustan.","form":"me gusta el café · me gustan los libros","ex":[{"s":"Me gustan mucho las montañas.","f":"J'aime beaucoup les montagnes."}],"wrong":"me gusto → me gusta"},{"t":"L'interrogation","lvl":"A2","rule":"Les questions s'ouvrent avec ¿ et se ferment avec ?. L'ordre peut rester affirmatif.","form":"¿Dónde vives? · ¿Tienes tiempo?","ex":[{"s":"¿Dónde está la estación?","f":"Où est la gare ?"}],"wrong":"Dónde está la estación? → ¿Dónde está la estación?"},{"t":"La négation","lvl":"A2","rule":"« no » se place devant le verbe. Les autres mots négatifs suivent : nada, nadie, nunca.","form":"no hablo · no tengo nada · nunca voy","ex":[{"s":"No tengo dinero y nunca pido.","f":"Je n'ai pas d'argent et je ne demande jamais."}],"wrong":"tengo no dinero → no tengo dinero"},{"t":"L'adjectif","lvl":"A2","rule":"L'adjectif suit le nom et s'accorde en genre et en nombre.","form":"un coche rojo · una casa roja · unos coches rojos","ex":[{"s":"Tengo una casa pequeña.","f":"J'ai une petite maison."}],"wrong":"una pequeña casa → une petite maison se dit aussi, mais l'usage courant place l'adjectif après"},{"t":"Les possessifs","lvl":"A2","rule":"mi, tu, su, nuestro, vuestro, su — accordés en nombre avec la chose possédée.","form":"mi libro · mis libros · nuestra casa","ex":[{"s":"Mis padres viven en Francia.","f":"Mes parents vivent en France."}],"wrong":"mio libro → mi libro"},{"t":"Les démonstratifs","lvl":"A2","rule":"este / esta (proche), ese / esa (moyen), aquel / aquella (loin).","form":"este libro · esa casa · aquel hombre","ex":[{"s":"Este café está muy bueno.","f":"Ce café est très bon."}],"wrong":"esto café → este café"},{"t":"por ou para","lvl":"B1","rule":"« por » exprime la cause, le moyen, la durée, l'échange. « para » exprime le but, la destination, l'échéance.","form":"por la mañana · para ti · para mañana","ex":[{"s":"Este regalo es para ti, lo compré por veinte euros.","f":"Ce cadeau est pour toi, je l'ai acheté pour vingt euros."}],"wrong":"para ti vs por ti — « por ti » signifie « à cause de toi »"},{"t":"muy ou mucho","lvl":"B1","rule":"« muy » modifie un adjectif ou un adverbe. « mucho » modifie un verbe, ou s'accorde avec un nom.","form":"muy grande · mucho trabajo · me gusta mucho","ex":[{"s":"Trabajo mucho y estoy muy cansado.","f":"Je travaille beaucoup et je suis très fatigué."}],"wrong":"muy trabajo → mucho trabajo"},{"t":"Le passé composé","lvl":"B1","rule":"« haber » au présent + participe : he, has, ha, hemos, habéis, han.","form":"he hablado · has comido · ha vivido","ex":[{"s":"Hoy he trabajado mucho.","f":"Aujourd'hui j'ai beaucoup travaillé."}],"wrong":"he trabajo → he trabajado"},{"t":"L'imparfait","lvl":"B1","rule":"Actions habituelles ou descriptions dans le passé : -aba, -ía.","form":"hablaba · comía · vivía","ex":[{"s":"Cuando era niño, vivía en el campo.","f":"Quand j'étais enfant, je vivais à la campagne."}],"wrong":"viví en el campo (passé ponctuel) → vivía (habitude)"},{"t":"Le futur proche","lvl":"B1","rule":"« ir » au présent + a + infinitif.","form":"voy a hablar · vas a comer · va a venir","ex":[{"s":"Mañana voy a estudiar español.","f":"Demain je vais étudier l'espagnol."}],"wrong":"voy hablar → voy a hablar"},{"t":"Le subjonctif présent","lvl":"B2","rule":"Après « que » exprimant le souhait, le doute ou la nécessité : que hable, que coma, que viva.","form":"que hable · que tengas · que vengamos","ex":[{"s":"Espero que tengas un buen día.","f":"J'espère que tu passes une bonne journée."}],"wrong":"espero que tienes → espero que tengas"}];
+const VERSION = "20261028.0718";
+const LEVELS = {
+  A1:{name:"Débutant",sub:"A1 · survie",emoji:"🌱",color:"#58cc02"},
+  A2:{name:"Élémentaire",sub:"A2 · quotidien",emoji:"🌿",color:"#1cb0f6"},
+  B1:{name:"Intermédiaire",sub:"B1 · aisance",emoji:"🌳",color:"#ce82ff"},
+  B2:{name:"Avancé",sub:"B2 · précision",emoji:"🔥",color:"#ff9600"},
+  KIDS:{name:"Enfant",sub:"Jeux & images",emoji:"🧒",color:"#ff4b8b"}
+};
+const BOX_DAYS=[0,1,2,4,7,15,30,60];
+const GOAL_XP=50, GOAL_MIN=10;
+const AVATARS=["🐧","🦊","🐼","🦉","🐙","🦁","🐸","🐨","🦄","🐺","🦖","🦕","🐉","🦦","🦥","🦔","🐢","🦩","🦚","🐳","🦈","🦋","🐝","🦜"];
+
+/* ---------- state ---------- */
+const KEY="espanol_v1";
+function blank(){return{profile:null,xp:0,streak:0,best:0,last:null,minutes:0,good:0,bad:0,items:{},history:{},created:Date.now()}}
+let S=load();
+function load(){try{const r=JSON.parse(localStorage.getItem(KEY));return r&&r.items?r:blank()}catch(e){return blank()}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const today=()=>new Date().toISOString().slice(0,10);
+const dayNum=d=>Math.round(new Date(d+"T12:00:00").getTime()/864e5);
+
+function touchDay(){
+  const t=today();
+  if(S.last===t)return;
+  const y=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  S.streak = S.last===y ? S.streak+1 : 1;
+  S.best=Math.max(S.best||0,S.streak);
+  S.last=t; save();
+}
+function itm(l,i){
+  const k=l+":"+i;
+  if(!S.items[k])S.items[k]={b:0,d:0,r:0,w:0,n:0};
+  return S.items[k];
+}
+function dueCount(lvl){
+  const t=dayNum(today());let n=0;
+  DATA[lvl].forEach((_,i)=>{const it=itm(lvl,i);if(it.n>0&&it.d<=t)n++});
+  return n;
+}
+function levelPct(lvl){
+  const arr=DATA[lvl];let s=0;
+  arr.forEach((_,i)=>{const it=itm(lvl,i);s+=Math.min(1,it.b/3)});
+  return Math.round(100*s/arr.length);
+}
+function duePct(ok,n){
+  if(!ok)return 0;
+  return 100*S.good/(S.good+S.bad||1);
+}
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+function el(html){const d=document.createElement("div");d.innerHTML=html.trim();return d.firstElementChild}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),1900)}
+function karaokeRun(txt,rate){
+  const b=document.getElementById("kf");
+  if(!b)return;
+  const ms=Math.max(650,((txt||"").length*95+380)/(rate||1));
+  b.style.transition="none"; b.style.width="0%"; void b.offsetWidth;
+  b.style.transition="width "+Math.round(ms)+"ms linear";
+  b.style.width="100%";
+}
+function speak(txt,rate){
+  try{
+    if(!window.speechSynthesis)return;
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(txt);
+    u.lang="es-ES";u.rate=rate||.9;
+    const v=speechSynthesis.getVoices().find(v=>/en(-|_)(US|GB)/i.test(v.lang));
+    if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function startMinuteClock(){
+  if(window._clock)clearInterval(window._clock);
+  window._clock=setInterval(()=>{
+    const t=today();
+    S.history[t]=S.history[t]||{xp:0,m:0};
+    S.history[t].m=(S.history[t].m||0)+1/6; // 10 s
+    S.minutes+=1/6;
+    save();
+  },10000);
+}
+
+const TOKKEY="espanol_gh_token";
+function tok(){try{return localStorage.getItem(TOKKEY)||""}catch(e){return ""}}
+function mergeState(a,b){
+  const out=JSON.parse(JSON.stringify(a||{}));
+  b=b||{};
+  out.xp=Math.max(a.xp||0,b.xp||0);
+  out.streak=Math.max(a.streak||0,b.streak||0);
+  out.best=Math.max(a.best||0,b.best||0);
+  out.minutes=Math.max(a.minutes||0,b.minutes||0);
+  out.good=Math.max(a.good||0,b.good||0);
+  out.bad=Math.max(a.bad||0,b.bad||0);
+  out.last=[a.last||"",b.last||""].sort().pop();
+  out.items=Object.assign({},b.items||{});
+  Object.keys(a.items||{}).forEach(k=>{
+    const v=a.items[k],o=out.items[k];
+    if(!o)out.items[k]=v;
+    else out.items[k]={b:Math.max(o.b||0,v.b||0),d:Math.max(o.d||0,v.d||0),r:Math.max(o.r||0,v.r||0),w:Math.max(o.w||0,v.w||0),n:Math.max(o.n||0,v.n||0)};
+  });
+  out.history=Object.assign({},b.history||{});
+  Object.keys(a.history||{}).forEach(k=>{
+    const v=a.history[k]||{},o=out.history[k]||{};
+    out.history[k]={xp:Math.max(v.xp||0,o.xp||0),m:Math.max(v.m||0,o.m||0)};
+  });
+  out.profile=a.profile||b.profile||null;
+  out.created=Math.min(a.created||Date.now(),b.created||Date.now());
+  out.gistId=a.gistId||b.gistId;
+  return out;
+}
+async function ghSync(){
+  const t=tok();
+  if(!t){toast("Ajoute d'abord un token GitHub");return}
+  const base="https://api.github.com";
+  const h={Authorization:"Bearer "+t,Accept:"application/vnd.github+json","Content-Type":"application/json"};
+  try{
+    if(S.gistId){
+      const r=await fetch(base+"/gists/"+S.gistId,{headers:h});
+      if(r.ok){
+        const g=await r.json();
+        const f=g.files&&g.files["espanol-progress.json"];
+        if(f&&f.content){try{S=mergeState(S,JSON.parse(f.content))}catch(e){}}
+      }
+    }
+    const payload=JSON.stringify({description:"Espagnol — progression (privé)",public:false,files:{"espanol-progress.json":{content:JSON.stringify(S)}}});
+    const r2=S.gistId
+      ? await fetch(base+"/gists/"+S.gistId,{method:"PATCH",headers:h,body:payload})
+      : await fetch(base+"/gists",{method:"POST",headers:h,body:payload});
+    if(!r2.ok)throw new Error("HTTP "+r2.status);
+    const g2=await r2.json();
+    S.gistId=g2.id;S.synced=Date.now();save();
+    toast("Synchronisé ✓");render();
+  }catch(e){toast("Échec : "+e.message)}
+}
+
+/* ---------- screens ---------- */
+function render(){
+  const a=$("#app");
+  if(!S.profile)return onboard(a);
+  switch(S._screen||"home"){
+    case "home":return home(a);
+    case "levels":return levels(a);
+    case "lesson":return lesson(a);
+    case "stats":return stats(a);
+    case "profile":return profile(a);
+    case "browse":return browse(a);
+    case "level":return levelScreen(a);
+    case "conj":return conjScreen(a);
+    case "quest":return questScreen(a);
+    case "search":return searchScreen(a);
+    case "lex":return lexScreen(a);
+    case "lexcat":return lexCatScreen(a);
+    case "conv":return convScreen(a);
+    case "dialog":return dialogScreen(a);
+    case "gram":return gramScreen(a);
+    case "gramq":return gramQuiz(a);
+  }
+  home(a);
+}
+function go(sc){S._screen=sc;render();window.scrollTo(0,0)}
+
+function onboard(a){
+  a.innerHTML=`
+  <div style="margin-top:14vh;text-align:center">
+    <div style="font-size:64px">🇪🇸</div>
+    <h1 style="margin-top:10px">Apprends l'espagnol</h1>
+    <p class="muted" style="margin-top:6px">Un peu chaque jour. Mots, expressions, révisions.</p>
+  </div>
+  <div class="spacer"></div><div class="spacer"></div>
+  <div class="card stack">
+    <div><h3>Ton prénom</h3><input id="nm" type="text" placeholder="Mathieu" autocomplete="given-name"></div>
+    <div><h3 style="margin-bottom:8px">Ton avatar</h3><div class="avs" id="avs">${
+      AVATARS.map((x,i)=>`<button data-a="${x}" class="${i===0?'sel':''}">${x}</button>`).join("")
+    }</div></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn" id="ok">Commencer</button>
+  `;
+  a.querySelectorAll("#avs button").forEach(b=>b.onclick=()=>{
+    a.querySelectorAll("#avs button").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel");
+  });
+  $("#ok").onclick=()=>{
+    const nm=($("#nm").value||"").trim().slice(0,18);
+    if(!nm){toast("Ton prénom ?");$("#nm").focus();return}
+    const av=(a.querySelector("#avs .sel")||{dataset:{a:"🦊"}}).dataset.a;
+    S.profile={name:nm,avatar:av,level:"A1",since:Date.now()};
+    touchDay();save();startMinuteClock();go("home");
+  };
+}
+
+function home(a){
+  touchDay();
+  const t=today();
+  const h=S.history[t]||{xp:0,m:0};
+  const xp=Math.round(h.xp||0), mins=Math.round(h.m||0);
+  const pct=Math.min(100,Math.round(100*xp/GOAL_XP));
+  const due=Object.keys(DATA).reduce((s,l)=>s+dueCount(l),0);
+  const lvl=S.profile.level||"A1";
+  const L=LEVELS[lvl];
+  a.innerHTML=`
+  <div class="between">
+    <div class="row">
+      <div style="font-size:30px">${S.profile.avatar}</div>
+      <div><b>${esc(S.profile.name)}</b><div class="tiny muted">${L.emoji} ${L.name} · ${L.sub}</div></div>
+    </div>
+    <div class="row" style="gap:6px">
+      <span class="pill">🔥 ${S.streak}</span>
+      <span class="pill">⭐ ${S.xp}</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card row" style="gap:16px">
+    <div class="ring" style="--p:${pct}"><span>${xp}/${GOAL_XP}</span></div>
+    <div style="flex:1">
+      <b>Objectif du jour</b>
+      <p class="small muted" style="margin-top:2px">${xp>=GOAL_XP?"Objectif atteint 🎉":`Encore ${GOAL_XP-xp} XP`}</p>
+      <p class="tiny muted">${mins} min aujourd'hui · ${Math.round(S.minutes)} min au total</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn" id="cont">${xp>=GOAL_XP?"Continuer quand même":"Continuer la leçon"}</button>
+  <div style="height:10px"></div>
+  <button class="btn alt" id="lis">🎧 Mode écoute</button>
+  ${due?`<div style="height:10px"></div><button class="btn blue" id="rev">Réviser ${due} mot${due>1?"s":""} dû${due>1?"s":""}</button>`:""}
+  <div class="spacer"></div>
+  <div class="grid3">
+    <div class="stat"><b>${S.streak}</b><i>série</i></div>
+    <div class="stat"><b>${Math.round(S.minutes/60*10)/10}h</b><i>heures</i></div>
+    <div class="stat"><b>${Math.round(100*S.good/((S.good+S.bad)||1))}%</b><i>réussite</i></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="lvl" id="lvlbtn">
+    <div class="ico" style="background:${L.color}22;color:${L.color}">${L.emoji}</div>
+    <div class="meta"><div class="between"><b>${L.name}</b><span class="tiny muted">${levelPct(lvl)}%</span></div>
+      <div class="bar"><i style="width:${levelPct(lvl)}%"></i></div></div>
+    <div class="muted">›</div>
+  </button>
+  <div class="spacer"></div>
+  <div class="grid2">
+    <button class="btn alt" id="pf">👤 Profil</button>
+    <button class="btn alt" id="st">📊 Statistiques</button>
+  </div>
+  <div class="spacer"></div>
+  <div class="grid2">
+    <button class="btn alt" id="co">🔤 Conjugaison</button>
+    <button class="btn alt" id="qu">❓ Questions</button>
+  </div>
+  <div style="height:10px"></div>
+  <div class="grid2">
+    <button class="btn alt" id="se">🔎 Chercher</button>
+    <button class="btn alt" id="lx">📚 Lexique</button>
+  </div>
+  <div style="height:10px"></div>
+  <div class="grid2">
+    <button class="btn alt" id="cv">💬 Conversations</button>
+    <button class="btn alt" id="gr">📘 Grammaire</button>
+  </div>
+  `;
+  $("#cont").onclick=()=>startLesson(lvl,false);
+  $("#lis").onclick=()=>startLesson(lvl,false,true);
+  if(due)$("#rev").onclick=()=>startLesson(null,true);
+  $("#lvlbtn").onclick=()=>go("levels");
+  $("#st").onclick=()=>go("stats");
+  $("#pf").onclick=()=>go("profile");
+  $("#co").onclick=()=>{S._tab="lecon";go("conj")};
+  $("#qu").onclick=()=>{S._tab="lecon";go("quest")};
+  $("#se").onclick=()=>go("search");
+  $("#lx").onclick=()=>go("lex");
+  $("#cv").onclick=()=>go("conv");
+  $("#gr").onclick=()=>{S._tab="lecon";go("gram")};
+}
+
+function levels(a){
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Parcours</h2><span style="width:38px"></span></div>
+  <div class="stack" id="ls"></div>`;
+  const box=$("#ls");
+  Object.entries(LEVELS).forEach(([k,L])=>{
+    const p=levelPct(k), n=DATA[k].length, d=dueCount(k);
+    const b=el(`<button class="lvl" data-k="${k}">
+      <div class="ico" style="background:${L.color}22;color:${L.color}">${L.emoji}</div>
+      <div class="meta">
+        <div class="between"><b>${L.name}</b><span class="tiny muted">${p}%</span></div>
+        <div class="tiny muted">${L.sub} · ${n} mots${d?` · ${d} à réviser`:""}</div>
+        <div class="bar" style="margin-top:8px"><i style="width:${p}%"></i></div>
+      </div><div class="muted">›</div></button>`);
+    b.onclick=()=>{S._lvl=k;S.profile.level=k;save();go("level")};
+    box.appendChild(b);
+  });
+}
+
+function pick(lvl,rev){
+  const t=dayNum(today());
+  let pool=[];
+  DATA[lvl].forEach((w,i)=>{
+    const it=itm(lvl,i);
+    const isDue=it.n>0&&it.d<=t;
+    if(rev&&!isDue)return;
+    let score=it.b*100 + it.n*10 + (isDue?-50:0) + Math.random()*20;
+    if(it.n===0)score=it.b*100+Math.random()*20;
+    pool.push({i,w,it,score});
+  });
+  pool.sort((x,y)=>x.score-y.score);
+  return pool.slice(0,8);
+}
+function distract(lvl,w){
+  const c=DATA[lvl].filter(x=>x.f!==w.f);
+  const out=[];
+  while(out.length<3&&c.length){
+    const p=c.splice(Math.floor(Math.random()*c.length),1)[0];
+    if(!out.find(o=>o.f===p.f))out.push(p);
+  }
+  return out;
+}
+
+/* ---------- lesson engine ---------- */
+let LSN=null;
+function startLesson(lvl,rev,listen){
+  const src=lvl||S.profile.level;
+  let picks;
+  if(rev){
+    picks=[];
+    Object.keys(DATA).forEach(l=>{
+      const p=pick(l,true);
+      p.forEach(x=>picks.push({...x,lvl:l}));
+    });
+    picks.sort((a,b)=>a.score-b.score);
+    picks=picks.slice(0,8);
+  } else {
+    picks=pick(src,false).map(x=>({...x,lvl:src}));
+  }
+  if(!picks.length){toast("Rien à réviser ici 🎉");return}
+  LSN={src,rev,listen:!!listen,picks,idx:0,phase:"card",good:0,bad:0,start:Date.now(),typing:[]};
+  LSN.typing=picks.slice(0,2).map(p=>p.w);
+  go("lesson");
+}
+function lesson(a){
+  const L=LSN; if(!L)return go("home");
+  const total=L.picks.length+ (L.phase==="typing"||L.phase==="done"?L.typing.length:0);
+  const done=L.idx+(L.phase==="typing"?L.picks.length:0);
+  const pct=Math.min(100,Math.round(100*done/total));
+  const bar=`<div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>`;
+
+  if(L.phase==="card"){
+    const p=L.picks[L.idx];const w=p.w;
+    a.innerHTML=`${bar}
+      <div class="card">
+        <div class="between"><span class="pill">${LEVELS[p.lvl].emoji} ${p.lvl}</span><span class="tiny muted">${L.idx+1}/${L.picks.length}</span></div>
+        <div class="bigword">${esc(w.e)}</div>
+        <div class="row"><span class="phon">${esc(w.p||"")}</span><button class="pill" id="sp">🔊 Écouter</button></div>
+        <div class="spacer"></div>
+        <div><b>${esc(w.f)}</b></div>
+        ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
+      </div>
+      <div class="feed"><div><button class="btn" id="next">Continuer</button></div></div>`;
+    $("#sp").onclick=()=>speak(w.e+" . "+w.x);
+    setTimeout(()=>speak(w.e),300);
+    $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="quiz";L.idx=0}render()};
+    return;
+  }
+  if(L.phase==="quiz"){
+    const p=L.picks[L.idx];const w=p.w;
+    if(!p.opts)p.opts=[w,...distract(p.lvl,w)].sort(()=>Math.random()-.5);
+    a.innerHTML=`${bar}
+      <div class="cardq">
+        <div class="tiny muted" style="margin-bottom:6px">${L.idx+1}/${L.picks.length} · ${L.listen?"écoute et choisis":"que veut dire"}</div>
+        ${L.listen
+          ? `<div class="karaoke">${esc(w.e)}</div>
+             <div class="kbar"><i id="kf"></i></div>
+             <div class="row" style="margin-top:10px;gap:8px"><button class="pill" id="sp">🔊 Réécouter</button><button class="pill" id="sps">🐢 Lent</button></div>`
+          : `<div style="font-size:26px;font-weight:800">${esc(w.e)}</div>
+             <button class="pill" id="sp" style="margin-top:8px">🔊</button>`}
+      </div>
+      <div id="opts">${p.opts.map((o,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(o.f)}</button>`).join("")}</div>
+      <div class="feed"><div><button class="btn" id="next" disabled>Continuer</button></div></div>`;
+    $("#sp").onclick=()=>{ if(L.listen)karaokeRun(w.e,.9); speak(w.e); };
+    if(L.listen){
+      setTimeout(()=>{ karaokeRun(w.e,.9); speak(w.e); },250);
+      const sb=$("#sps"); if(sb)sb.onclick=()=>{ karaokeRun(w.e,.55); speak(w.e,.55); };
+    }
+    let answered=false;
+    a.querySelectorAll("#opts .choice").forEach(b=>b.onclick=()=>{
+      if(answered)return;answered=true;
+      const pickIdx=+b.dataset.i; const ok=p.opts[pickIdx].f===w.f;
+      const it=itm(p.lvl,p.i);
+      it.n=(it.n||0)+1;
+      if(ok){it.r++;it.b=Math.min(7,it.b+1);S.good++;L.good++;S.xp+=10}
+      else{it.w++;it.b=Math.max(0,it.b-1);S.bad++;L.bad++;S.xp+=2}
+      it.d=dayNum(today())+BOX_DAYS[Math.min(it.b,BOX_DAYS.length-1)];
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();
+      b.classList.add(ok?"ok":"no");
+      if(!ok){a.querySelectorAll("#opts .choice").forEach(x=>{if(p.opts[+x.dataset.i].f===w.f)x.classList.add("ok")})}
+      $("#next").disabled=false;
+      if(ok)speak(w.e);
+    });
+    $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="typing";L.idx=0}render()};
+    return;
+  }
+  if(L.phase==="typing"){
+    const w=L.typing[L.idx];
+    a.innerHTML=`${bar}
+      <div class="cardq">
+        <div class="tiny muted">Écris en espagnol</div>
+        <div style="font-size:24px;font-weight:800;margin-top:4px">${esc(w.f)}</div>
+      </div>
+      <div class="spacer"></div>
+      <input id="tp" type="text" placeholder="ta réponse…" autocapitalize="off" autocorrect="off" spellcheck="false" autofocus>
+      <div class="feed"><div><button class="btn" id="next" disabled>Valider</button></div></div>`;
+    const inp=$("#tp");
+    const norm=s=>s.toLowerCase().replace(/[^a-z ]/g,"").replace(/\s+/g," ").trim();
+    const check=()=>{$("#next").disabled=!inp.value.trim()};
+    inp.oninput=check;
+    inp.onkeydown=e=>{if(e.key==="Enter"&&!$("#next").disabled)$("#next").click()};
+    $("#next").onclick=()=>{
+      const ok=norm(inp.value)===norm(w.e);
+      if(ok){S.good++;L.good++;S.xp+=15;toast("✓ Exact")}
+      else{S.bad++;L.bad++;S.xp+=3;toast("✗ "+w.e)}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?15:3);
+      save();speak(w.e);
+      L.idx++;if(L.idx>=L.typing.length){L.phase="done"}render();
+    };
+    return;
+  }
+  // done
+  const mins=Math.max(1,Math.round((Date.now()-L.start)/60000));
+  const tot=L.good+L.bad;
+  const acc=Math.round(100*L.good/(tot||1));
+  S.history[today()]=S.history[today()]||{xp:0,m:0};
+  S.history[today()].m=(S.history[today()].m||0)+mins;
+  S.minutes+=mins;save();
+  a.innerHTML=`
+    <div style="text-align:center;margin-top:8vh">
+      <div style="font-size:64px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">${L.src?LEVELS[L.src].name:"Révisions"} · ${mins} min</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="grid3">
+      <div class="stat"><b>${L.good}</b><i>justes</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div>
+      <div class="stat"><b>+${L.good*10+L.bad*2+40}</b><i>xp</i></div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" onclick="go('home')">Terminer</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" onclick="startLesson(${L.src?`'${L.src}'`:"null"},false)">Une autre leçon</button>`;
+  LSN=null;
+}
+
+/* ---------- vocab lessons & modules ---------- */
+const PERS=["I","you","he/she","we","you (pl)","they"];
+const TNAMES={present:"Présent",past:"Passé",future:"Futur",imperative:"Impératif"};
+const TCLS={present:"v-present",past:"v-past",future:"v-fut",imperative:"v-imp"};
+function hl(s,t){return esc(s).replace(/\*\*(.+?)\*\*/g,'<span class="'+(TCLS[t]||"")+'">$1</span>')}
+
+function levelScreen(a){
+  const k=S._lvl||S.profile.level||"A1";
+  const L=LEVELS[k];
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('levels')">‹</button><h2>${L.emoji} ${L.name}</h2><span style="width:38px"></span></div>
+  <div class="card">
+    <div class="between"><b>${DATA[k].length} mots et expressions</b><span class="tiny muted">${levelPct(k)}% maîtrisé</span></div>
+    <div class="bar" style="margin-top:8px"><i style="width:${levelPct(k)}%;background:${L.color}"></i></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn alt" id="bl">📖 Voir les leçons</button>
+  <div style="height:10px"></div>
+  <button class="btn" id="qq">❓ Questions & révision</button>
+  <div style="height:10px"></div>
+  <button class="btn alt" id="li">🎧 Écoute</button>`;
+  $("#bl").onclick=()=>{S._lvl=k;go("browse")};
+  $("#qq").onclick=()=>startLesson(k,false);
+  $("#li").onclick=()=>startLesson(k,false,true);
+}
+
+function browse(a){
+  const k=S._lvl||S.profile.level||"A1";const L=LEVELS[k];
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('level')">‹</button><h2>${L.emoji} Leçons</h2><span style="width:38px"></span></div>
+  <p class="small muted" style="margin-bottom:12px">Lecture seule — tout le vocabulaire du niveau.</p>
+  <div class="stack" id="lst"></div>`;
+  const box=$("#lst");
+  DATA[k].forEach((w,i)=>{
+    const c=el(`<div class="card">
+      <div class="between"><b style="font-size:18px">${esc(w.e)}</b><button class="pill" data-s="${i}">🔊</button></div>
+      <div class="phon">${esc(w.p||"")}</div>
+      <div style="margin-top:4px">${esc(w.f)}</div>
+      ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
+    </div>`);
+    c.querySelector("[data-s]").onclick=()=>speak(w.e+" . "+w.x);
+    box.appendChild(c);
+  });
+}
+
+
+function conjScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
+    ${tabs}<div class="stack" id="cs"></div>`;
+    const box=$("#cs");
+    CONJ.forEach(v=>{
+      let h=`<div class="card"><div class="between"><b style="font-size:17px">${esc(v.v)}</b><span class="phon">${esc(v.p||"")}</span></div><div class="small muted">${esc(v.fr)}</div>`;
+      ["present","past","future","imperative"].forEach(t=>{
+        if(!v.t[t])return;
+        h+=`<div class="tense ${TCLS[t]}">${TNAMES[t]}</div><div class="forms">${v.t[t].map(x=>esc(x)).join(" · ")}</div>`;
+      });
+      if(v.ex&&v.ex.length){
+        h+=`<div class="spacer"></div>`;
+        v.ex.forEach(e=>{h+=`<div class="ex">${hl(e.s,e.t)}<br><span style="color:#7d8ba6">${esc(e.f)}</span></div>`});
+      }
+      box.appendChild(el(h+`</div>`));
+    });
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!S._cs)S._cs={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._cs;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+    <div class="spacer"></div>
+    <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+      <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+    <div class="spacer"></div>
+    <button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._cs=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newConjQ();
+  const q=st.q, v=CONJ[q.vi];
+  const pct=Math.round(100*st.i/st.total);
+
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
+  ${tabs}
+  <div class="between" style="margin-bottom:8px">
+    <span class="pill">Question ${st.i+1} / ${st.total}</span>
+    <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+  </div>
+  <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+
+  <div class="cardq">
+    <div class="tiny ${TCLS[q.t]}" style="letter-spacing:.1em;text-transform:uppercase;font-weight:800">${TNAMES[q.t]}</div>
+    <div style="font-size:24px;font-weight:800;margin-top:8px">${PERS[q.p]} <span style="color:rgba(255,255,255,.35)">___</span> <span class="muted" style="font-size:15px">(${esc(v.v)})</span></div>
+    <div class="small muted" style="margin-top:4px">${esc(v.fr)}</div>
+  </div>
+
+  <div id="o">${q.opts.map((x,i)=>{
+    let cls="choice";
+    if(st.answered){
+      if(x===q.good)cls+=" ok";
+      else if(i===st.pick)cls+=" no";
+    }
+    return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span class="${TCLS[q.t]}">${esc(x)}</span></button>`;
+  }).join("")}</div>
+
+  ${st.answered?`<div class="fb ${st.pick===q.opts.indexOf(q.good)?"ok":"no"}">
+     ${st.pick===q.opts.indexOf(q.good)
+       ? `✓ Juste — <b>${esc(q.good)}</b>`
+       : `✗ Faux. La bonne réponse est <b>${esc(q.good)}</b>`}
+   </div>`:""}
+
+  <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une réponse"}</button></div></div>`;
+
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;
+      st.answered=true;
+      const ok=q.opts[st.pick]===q.good;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
+    });
+  } else {
+    $("#nx").disabled=false;
+    $("#nx").onclick=()=>{
+      st.i++;st.answered=false;st.pick=-1;st.q=null;
+      if(st.i>=st.total){st.done=true}
+      render();
+    };
+  }
+
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+}
+
+function newConjQ(){
+  const vi=Math.floor(Math.random()*CONJ.length);
+  const v=CONJ[vi];
+  const tenses=Object.keys(v.t).filter(t=>v.t[t][0]&&v.t[t][0]!=="—");
+  const t=tenses[Math.floor(Math.random()*tenses.length)];
+  const len=Math.min(6,v.t[t].length);
+  const p=Math.floor(Math.random()*len);
+  const good=v.t[t][p];
+  const pool=[];
+  CONJ.forEach(o=>Object.keys(o.t).forEach(tt=>o.t[tt].forEach(f=>{
+    if(f&&f!=="—"&&f!==good)pool.push(f);
+  })));
+  const opts=[good];
+  while(opts.length<4&&pool.length){
+    const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];
+    if(opts.indexOf(x)<0)opts.push(x);
+  }
+  opts.sort(()=>Math.random()-.5);
+  S._cs.q={vi,t,p,good,opts};
+}
+
+function questScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
+    ${tabs}<div class="stack" id="qs"></div>`;
+    const box=$("#qs");
+    QUEST.forEach((x,i)=>{
+      const c=el(`<div class="card">
+        <div class="between"><b>${esc(x.q)}</b><button class="pill" data-s="${i}">🔊</button></div>
+        <div class="fr" style="margin-top:2px">${esc(x.fr)}</div>
+        <div class="ex" style="margin-top:8px">${esc(x.a)}</div></div>`);
+      c.querySelector("[data-s]").onclick=()=>speak(x.q);
+      box.appendChild(c);
+    });
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!S._qs)S._qs={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._qs;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+    <div class="spacer"></div>
+    <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+      <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+    <div class="spacer"></div>
+    <button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._qs=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newQuestQ();
+  const q=st.q;
+  const pct=Math.round(100*st.i/st.total);
+
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
+  ${tabs}
+  <div class="between" style="margin-bottom:8px">
+    <span class="pill">Question ${st.i+1} / ${st.total}</span>
+    <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+  </div>
+  <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+
+  <div class="cardq">
+    <div class="tiny muted">Comment dit-on</div>
+    <div style="font-size:21px;font-weight:800;margin-top:6px">${esc(q.fr)}</div>
+  </div>
+
+  <div id="o">${q.opts.map((x,i)=>{
+    let cls="choice";
+    if(st.answered){
+      if(x===q.good)cls+=" ok";
+      else if(i===st.pick)cls+=" no";
+    }
+    return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`;
+  }).join("")}</div>
+
+  ${st.answered?`<div class="fb ${st.pick===q.opts.indexOf(q.good)?"ok":"no"}">
+     ${st.pick===q.opts.indexOf(q.good)
+       ? `✓ Juste — <b>${esc(q.good)}</b>`
+       : `✗ Faux. La bonne réponse est <b>${esc(q.good)}</b>`}
+   </div>`:""}
+
+  <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une réponse"}</button></div></div>`;
+
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;
+      st.answered=true;
+      const ok=q.opts[st.pick]===q.good;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
+      if(ok)speak(q.good);
+    });
+  } else {
+    $("#nx").disabled=false;
+    $("#nx").onclick=()=>{
+      st.i++;st.answered=false;st.pick=-1;st.q=null;
+      if(st.i>=st.total){st.done=true}
+      render();
+    };
+  }
+
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+}
+
+function newQuestQ(){
+  const i=Math.floor(Math.random()*QUEST.length);
+  const good=QUEST[i].q;
+  const opts=[good];
+  while(opts.length<4){
+    const x=QUEST[Math.floor(Math.random()*QUEST.length)].q;
+    if(opts.indexOf(x)<0)opts.push(x);
+  }
+  opts.sort(()=>Math.random()-.5);
+  S._qs.q={fr:QUEST[i].fr,good,opts};
+}
+
+
+/* ---------- lexique & recherche ---------- */
+function allWords(){
+  const out=[];
+  Object.keys(DATA).forEach(l=>DATA[l].forEach(w=>out.push(Object.assign({},w,{lvl:l,cat:null}))));
+  if(typeof LEX!=="undefined"&&LEX&&LEX.categories)
+    LEX.categories.forEach(c=>c.items.forEach(w=>out.push(Object.assign({},w,{lvl:null,cat:c.n}))));
+  const seen=new Set();
+  return out.filter(w=>{if(seen.has(w.e))return false;seen.add(w.e);return true});
+}
+function wordCard(w){
+  const tag=w.lvl?("Niveau "+w.lvl):(w.cat||"");
+  return `<div class="card">
+    <div class="between"><b style="font-size:17px">${esc(w.e)}</b><button class="pill">🔊</button></div>
+    <div class="phon">${esc(w.p||"")}</div>
+    <div style="margin-top:3px">${esc(w.f)}</div>
+    ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#7d8ba6">${esc(w.xf||"")}</span></div>`:""}
+    <div class="tiny muted" style="margin-top:8px">${esc(tag)}</div>
+  </div>`;
+}
+function searchScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Chercher</h2><span style="width:40px"></span></div>
+    <input id="sq" type="text" placeholder="français ou espagnol…" autocomplete="off" autocorrect="off" spellcheck="false">
+    <p class="tiny muted" style="margin-top:9px" id="cnt"></p>
+    <div class="stack" id="res" style="margin-top:12px"></div>`;
+  const words=allWords();
+  const inp=$("#sq"),res=$("#res"),cnt=$("#cnt");
+  const draw=()=>{
+    const q=inp.value.trim().toLowerCase();
+    let list=q?words.filter(w=>(w.e+" "+w.f+" "+(w.p||"")).toLowerCase().includes(q)):words.slice(0,20);
+    cnt.textContent=q?(`${list.length} résultat${list.length>1?"s":""} — normalement, une recherche ignorera les accents`)
+                    :(`${words.length} mots au total — tape pour chercher`);
+    res.innerHTML="";
+    if(q&&!list.length){res.innerHTML='<p class="muted small">Rien trouvé. Essaie un mot plus court.</p>';return}
+    list.slice(0,60).forEach(w=>{
+      const c=el(wordCard(w));
+      c.querySelector("button").onclick=()=>speak(w.e);
+      res.appendChild(c);
+    });
+  };
+  inp.oninput=draw;draw();
+  setTimeout(()=>{try{inp.focus()}catch(e){}},200);
+}
+function lexScreen(a){
+  const total=LEX.categories.reduce((s,c)=>s+c.items.length,0);
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Lexique</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">${total} mots classés par thème.</p>
+    <div class="stack" id="ls"></div>`;
+  LEX.categories.forEach((c,i)=>{
+    const b=el(`<button class="lvl">
+      <div class="ico" style="background:rgba(255,255,255,.10)">${c.e}</div>
+      <div class="meta"><b>${esc(c.n)}</b><div class="tiny muted">${c.items.length} mots</div></div>
+      <div class="muted">›</div></button>`);
+    b.onclick=()=>{S._lc=i;go("lexcat")};
+    $("#ls").appendChild(b);
+  });
+}
+function lexCatScreen(a){
+  const c=LEX.categories[S._lc||0];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('lex')">‹</button><h2>${c.e} ${esc(c.n)}</h2><span style="width:40px"></span></div>
+    <div class="stack" id="xs"></div>`;
+  c.items.forEach(w=>{
+    const card=el(`<div class="card">
+      <div class="between"><b style="font-size:17px">${esc(w.e)}</b><button class="pill">🔊</button></div>
+      <div class="phon">${esc(w.p||"")}</div>
+      <div style="margin-top:3px">${esc(w.f)}</div></div>`);
+    card.querySelector("button").onclick=()=>speak(w.e);
+    $("#xs").appendChild(card);
+  });
+}
+
+
+/* ---------- conversations ---------- */
+let playTimer=null, playStop=true;
+function stopPlay(){playStop=true;if(playTimer){clearTimeout(playTimer);playTimer=null}try{speechSynthesis.cancel()}catch(e){}}
+function playAll(lines,btn){
+  stopPlay();playStop=false;let i=0;
+  const step=()=>{
+    if(playStop||i>=lines.length){stopPlay();if(btn)btn.textContent="🔊 Écouter tout";return}
+    if(btn)btn.textContent="⏸ Stop ("+(i+1)+"/"+lines.length+")";
+    const u=new SpeechSynthesisUtterance(lines[i].s);
+    u.lang="es-ES";u.rate=.92;
+    u.onend=()=>{i++;playTimer=setTimeout(step,320)};
+    u.onerror=()=>{i++;playTimer=setTimeout(step,320)};
+    speechSynthesis.speak(u);
+  };
+  step();
+}
+function convScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conversations</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">10 situations réelles. Écoute, lis, répète.</p>
+    <div class="stack" id="cv"></div>`;
+  CONV.forEach((c,i)=>{
+    const b=el(`<button class="lvl">
+      <div class="ico" style="background:rgba(255,255,255,.10)">${c.e}</div>
+      <div class="meta"><b>${esc(c.t)}</b><div class="tiny muted">${esc(c.n)} · ${c.lines.length} répliques</div></div>
+      <div class="muted">›</div></button>`);
+    b.onclick=()=>{S._cv=i;go("dialog")};
+    $("#cv").appendChild(b);
+  });
+}
+function dialogScreen(a){
+  const c=CONV[S._cv||0];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('conv')">‹</button><h2>${c.e} ${esc(c.t)}</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">${esc(c.n)}</p>
+    <button class="btn blue" id="all">🔊 Écouter tout</button>
+    <div class="spacer"></div>
+    <div class="stack" id="dl"></div>`;
+  const box=$("#dl");
+  c.lines.forEach((l,i)=>{
+    const left=i%2===0;
+    const card=el(`<div class="card" style="${left?"":"margin-left:26px"}">
+      <div class="between"><b style="font-size:15.5px">${esc(l.s)}</b><button class="pill">🔊</button></div>
+      <div class="small muted" style="margin-top:5px">${esc(l.f)}</div></div>`);
+    card.querySelector("button").onclick=()=>{stopPlay();speak(l.s)};
+    box.appendChild(card);
+  });
+  $("#all").onclick=()=>{
+    const b=$("#all");
+    if(!playStop){stopPlay();b.textContent="🔊 Écouter tout";return}
+    playAll(c.lines,b);
+  };
+}
+
+
+/* ---------- grammaire ---------- */
+function gramScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>
+      ${tabs}<div class="stack" id="gs"></div>`;
+    const box=$("#gs");
+    GRAM.forEach(r=>{
+      let h=`<div class="card">
+        <div class="between"><b style="font-size:17px">${esc(r.t)}</b><span class="pill">${esc(r.lvl)}</span></div>
+        <p style="margin-top:8px;font-size:14.5px;line-height:1.55">${esc(r.rule)}</p>
+        <div class="formula">${esc(r.form)}</div>`;
+      r.ex.forEach(e=>{h+=`<div class="ex">${esc(e.s)}<br><span style="color:#7d8ba6">${esc(e.f)}</span></div>`});
+      if(r.wrong&&r.wrong.length){
+        h+=`<div class="tense" style="color:#ff8a8a">Erreurs fréquentes</div>`;
+        r.wrong.forEach(w=>{h+=`<div class="small" style="margin-top:6px;color:#ffc2c2">✗ ${esc(w.s)}<div class="tiny muted">${esc(w.why)}</div></div>`});
+      }
+      box.appendChild(el(h+`</div>`));
+    });
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+  go("gramq");
+}
+
+function gramQuiz(a){
+  const tabs=`<div class="tabs">
+    <button class="tab" data-t="lecon">📖 Leçons</button>
+    <button class="tab on" data-t="questions">❓ Questions</button></div>`;
+  if(!S._gq)S._gq={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._gq;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>${tabs}
+      <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+      <div class="spacer"></div>
+      <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+        <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+        <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+      <div class="spacer"></div><button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._gq=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newGramQ();
+  const q=st.q;
+  const pct=Math.round(100*st.i/st.total);
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div class="between" style="margin-bottom:8px">
+      <span class="pill">Question ${st.i+1} / ${st.total}</span>
+      <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+    </div>
+    <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+    <div class="cardq"><div class="tiny" style="color:#8fd4ff;letter-spacing:.08em;text-transform:uppercase;font-weight:800">${esc(q.rule)}</div>
+      <div style="font-size:19px;font-weight:800;margin-top:7px">Quelle phrase est correcte ?</div></div>
+    <div id="o">${q.opts.map((x,i)=>{
+      let cls="choice";
+      if(st.answered){ if(i===q.correct)cls+=" ok"; else if(i===st.pick)cls+=" no"; }
+      return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`;
+    }).join("")}</div>
+    ${st.answered?`<div class="fb ${st.pick===q.correct?"ok":"no"}">
+      ${st.pick===q.correct?`✓ Juste — <b>${esc(q.opts[q.correct])}</b>`
+        :`✗ Faux. La bonne phrase : <b>${esc(q.opts[q.correct])}</b>${q.why?`<div class="tiny" style="margin-top:6px;color:#ffb3b3">${esc(q.why)}</div>`:""}`}
+    </div>`:""}
+    <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une phrase"}</button></div></div>`;
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;st.answered=true;
+      const ok=st.pick===q.correct;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
+    });
+  } else {
+    $("#nx").onclick=()=>{st.i++;st.answered=false;st.pick=-1;st.q=null;if(st.i>=st.total)st.done=true;render()};
+  }
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+}
+
+function newGramQ(){
+  const r=GRAM[Math.floor(Math.random()*GRAM.length)];
+  const good=r.ex[0].s;
+  const pool=[];
+  GRAM.forEach(o=>o.wrong.forEach(w=>{if(w.s!==good)pool.push(w)}));
+  const picks=[];
+  while(picks.length<3&&pool.length){
+    const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];
+    if(picks.find(p=>p.s===x.s))continue;
+    picks.push(x);
+  }
+  const opts=[{s:good,why:""},...picks].sort(()=>Math.random()-.5);
+  const correct=opts.findIndex(o=>o.s===good);
+  S._gq.q={rule:r.t,opts:opts.map(o=>o.s),correct,why:picks.length?picks[0].why:""};
+}
+
+/* ---------- stats ---------- */
+function stats(a){
+  const days=[];let max=1;
+  for(let i=6;i>=0;i--){
+    const d=new Date(Date.now()-i*864e5).toISOString().slice(0,10);
+    const m=Math.round(((S.history[d]||{}).m||0));
+    days.push({d,m});max=Math.max(max,m);
+  }
+  const acc=Math.round(100*S.good/((S.good+S.bad)||1));
+  const learned=Object.values(S.items).filter(x=>x.n>0).length;
+  const mastered=Object.values(S.items).filter(x=>x.b>=3).length;
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Statistiques</h2><span style="width:38px"></span></div>
+  <div class="grid2">
+    <div class="stat"><b>${Math.floor(S.minutes/60)}h${String(Math.round(S.minutes%60)).padStart(2,"0")}</b><i>temps total</i></div>
+    <div class="stat"><b>${S.streak}</b><i>série actuelle</i></div>
+    <div class="stat"><b>${S.best||0}</b><i>record</i></div>
+    <div class="stat"><b>${acc}%</b><i>réussite</i></div>
+    <div class="stat"><b>${learned}</b><i>vus</i></div>
+    <div class="stat"><b>${mastered}</b><i>maîtrisés</i></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>7 derniers jours</h3>
+    <div class="bars" style="margin-top:12px">
+      ${days.map(x=>`<div><i style="height:${Math.max(4,100*x.m/max)}%"></i><span>${["D","L","M","M","J","V","S"][new Date(x.d+"T12:00:00").getDay()]}</span></div>`).join("")}
+    </div>
+    <p class="tiny muted" style="margin-top:8px">minutes d'étude par jour</p>
+  </div>
+  <div class="spacer"></div>
+  <h3>Par niveau</h3><div class="spacer"></div>
+  <div class="stack">${Object.entries(LEVELS).map(([k,L])=>`
+    <div class="card">
+      <div class="between"><b>${L.emoji} ${L.name}</b><span class="tiny muted">${levelPct(k)}%</span></div>
+      <div class="bar" style="margin-top:8px"><i style="width:${levelPct(k)}%;background:${L.color}"></i></div>
+    </div>`).join("")}</div>`;
+}
+
+/* ---------- profile ---------- */
+function profile(a){
+  const p=S.profile;
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Profil</h2><span style="width:38px"></span></div>
+  <div class="card" style="text-align:center">
+    <div style="font-size:56px">${p.avatar}</div>
+    <h2 style="margin-top:6px">${esc(p.name)}</h2>
+    <p class="small muted">Depuis le ${new Date(p.since).toLocaleDateString("fr-FR")}</p>
+    <div class="spacer"></div>
+    <button class="btn alt" id="ren">✏️ Changer le prénom</button>
+    <div class="spacer"></div>
+    <div class="grid3">
+      <div class="stat"><b>${S.xp}</b><i>xp</i></div>
+      <div class="stat"><b>${S.streak}</b><i>série</i></div>
+      <div class="stat"><b>${levelPct(p.level||"A1")}%</b><i>niveau</i></div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Niveau</h3><div class="spacer"></div>
+    <div class="stack">${Object.entries(LEVELS).map(([k,L])=>`
+      <button class="choice" data-l="${k}" style="${k===(p.level||"A1")?"border-color:var(--acc)":""}">
+        ${L.emoji} ${L.name} <span class="muted small">· ${L.sub}</span></button>`).join("")}</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Synchronisation</h3>
+    <p class="tiny muted" style="margin-top:4px">Même progression sur ton iPhone et ton PC, via un Gist GitHub privé.</p>
+    <div class="spacer"></div>
+    <input id="tk" type="password" placeholder="Token GitHub (droits : gist)" value="${tok()?"••••••••••":""}">
+    <div style="height:10px"></div>
+    <button class="btn blue" id="sy">🔄 Synchroniser</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" id="imp">⬆️ Importer un fichier</button>
+    <input id="fi" type="file" accept="application/json" style="display:none">
+    <p class="tiny muted" style="margin-top:10px">${S.synced?"Dernière synchro : "+new Date(S.synced).toLocaleString("fr-FR"):"Jamais synchronisé"}</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Réglages</h3><div class="spacer"></div>
+    <button class="btn blue" id="clr">🧹 Vider le cache et recharger</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" id="exp">⬇️ Exporter mes données</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" id="rst" style="color:#ff9a9a">♻️ Tout réinitialiser</button>
+  </div>
+  <p class="tiny muted" style="text-align:center;margin-top:16px">v${VERSION} · build 2026-10-28 · données stockées sur ton téléphone</p>`;
+  a.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{p.level=b.dataset.l;save();toast("Niveau : "+LEVELS[b.dataset.l].name);render()});
+  $("#sy").onclick=()=>{const v=$("#tk").value.trim();if(v&&v.indexOf("•")!==0)localStorage.setItem(TOKKEY,v);ghSync()};
+  $("#imp").onclick=()=>$("#fi").click();
+  $("#fi").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const o=JSON.parse(rd.result);S=mergeState(S,o);save();toast("Importé ✓");render()}catch(err){toast("Fichier invalide")}};rd.readAsText(f)};
+  $("#ren").onclick=()=>{const v=prompt("Ton prénom",p.name);if(v&&v.trim()){p.name=v.trim().slice(0,18);save();render()}};
+  $("#clr").onclick=async()=>{
+    try{const rs=await navigator.serviceWorker.getRegistrations();for(const r of rs)await r.unregister()}catch(e){}
+    try{const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}catch(e){}
+    location.reload();
+  };
+  $("#exp").onclick=()=>{
+    const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
+    const u=URL.createObjectURL(blob);const i=document.createElement("a");
+    i.href=u;i.download="espanol-progress.json";i.click();URL.revokeObjectURL(u);
+  };
+  $("#rst").onclick=()=>{
+    if(confirm("Effacer toute la progression ?")){localStorage.removeItem(KEY);S=blank();location.reload()}
+  };
+}
+
+/* ---------- boot ---------- */
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+if(window.speechSynthesis)speechSynthesis.onvoiceschanged=()=>{};
+render();startMinuteClock();
+</script>
+</body>
+</html>

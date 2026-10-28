@@ -1,0 +1,664 @@
+{
+ "categories": [
+  {
+   "n": "À l'école",
+   "e": "🎒",
+   "items": [
+    {
+     "e": "escuela",
+     "f": "école",
+     "p": "ess-KOUÉ-la"
+    },
+    {
+     "e": "profesor",
+     "f": "professeur",
+     "p": "pro-fé-SOR"
+    },
+    {
+     "e": "alumno",
+     "f": "élève",
+     "p": "a-LOUM-no"
+    },
+    {
+     "e": "deberes",
+     "f": "devoirs",
+     "p": "dé-BÉ-réss"
+    },
+    {
+     "e": "cuaderno",
+     "f": "cahier",
+     "p": "koua-DER-no"
+    },
+    {
+     "e": "libro",
+     "f": "livre",
+     "p": "LI-bro"
+    },
+    {
+     "e": "clase",
+     "f": "cours",
+     "p": "KLA-ssé"
+    },
+    {
+     "e": "examen",
+     "f": "examen",
+     "p": "ex-A-men"
+    },
+    {
+     "e": "pizarra",
+     "f": "tableau",
+     "p": "pi-ZA-rra"
+    },
+    {
+     "e": "bolígrafo",
+     "f": "stylo",
+     "p": "bo-LI-gra-fo"
+    },
+    {
+     "e": "asignatura",
+     "f": "matière",
+     "p": "a-sig-na-TOU-ra"
+    },
+    {
+     "e": "recreo",
+     "f": "récréation",
+     "p": "ré-KRÉ-o"
+    }
+   ]
+  },
+  {
+   "n": "Famille",
+   "e": "👨‍👩‍👧",
+   "items": [
+    {
+     "e": "madre",
+     "f": "mère",
+     "p": "MA-dre"
+    },
+    {
+     "e": "padre",
+     "f": "père",
+     "p": "PA-dre"
+    },
+    {
+     "e": "hermano",
+     "f": "frère",
+     "p": "er-MA-no"
+    },
+    {
+     "e": "hermana",
+     "f": "sœur",
+     "p": "er-MA-na"
+    },
+    {
+     "e": "abuelo",
+     "f": "grand-père",
+     "p": "a-BOUÉ-lo"
+    },
+    {
+     "e": "abuela",
+     "f": "grand-mère",
+     "p": "a-BOUÉ-la"
+    },
+    {
+     "e": "hijo",
+     "f": "fils",
+     "p": "I-jo"
+    },
+    {
+     "e": "hija",
+     "f": "fille",
+     "p": "I-ja"
+    },
+    {
+     "e": "primo",
+     "f": "cousin",
+     "p": "PRI-mo"
+    },
+    {
+     "e": "tío",
+     "f": "oncle",
+     "p": "TI-o"
+    },
+    {
+     "e": "sobrino",
+     "f": "neveu",
+     "p": "so-BRI-no"
+    },
+    {
+     "e": "pareja",
+     "f": "compagnon",
+     "p": "pa-RÉ-ja"
+    }
+   ]
+  },
+  {
+   "n": "Nourriture",
+   "e": "🍽️",
+   "items": [
+    {
+     "e": "pan",
+     "f": "pain",
+     "p": "pan"
+    },
+    {
+     "e": "agua",
+     "f": "eau",
+     "p": "A-goua"
+    },
+    {
+     "e": "leche",
+     "f": "lait",
+     "p": "LÉ-tché"
+    },
+    {
+     "e": "queso",
+     "f": "fromage",
+     "p": "KÉ-so"
+    },
+    {
+     "e": "huevo",
+     "f": "œuf",
+     "p": "OUÉ-bo"
+    },
+    {
+     "e": "carne",
+     "f": "viande",
+     "p": "KAR-né"
+    },
+    {
+     "e": "pescado",
+     "f": "poisson",
+     "p": "pess-KA-do"
+    },
+    {
+     "e": "verdura",
+     "f": "légume",
+     "p": "ber-DOU-ra"
+    },
+    {
+     "e": "fruta",
+     "f": "fruit",
+     "p": "FROU-ta"
+    },
+    {
+     "e": "arroz",
+     "f": "riz",
+     "p": "a-RROSS"
+    },
+    {
+     "e": "aceite",
+     "f": "huile",
+     "p": "a-SÉÏ-té"
+    },
+    {
+     "e": "sal",
+     "f": "sel",
+     "p": "sal"
+    }
+   ]
+  },
+  {
+   "n": "Ville",
+   "e": "🏙️",
+   "items": [
+    {
+     "e": "calle",
+     "f": "rue",
+     "p": "KA-yé"
+    },
+    {
+     "e": "plaza",
+     "f": "place",
+     "p": "PLA-za"
+    },
+    {
+     "e": "tienda",
+     "f": "magasin",
+     "p": "TIEN-da"
+    },
+    {
+     "e": "mercado",
+     "f": "marché",
+     "p": "mer-KA-do"
+    },
+    {
+     "e": "banco",
+     "f": "banque",
+     "p": "BAN-ko"
+    },
+    {
+     "e": "farmacia",
+     "f": "pharmacie",
+     "p": "far-MA-sia"
+    },
+    {
+     "e": "estación",
+     "f": "gare",
+     "p": "ess-ta-SION"
+    },
+    {
+     "e": "ayuntamiento",
+     "f": "mairie",
+     "p": "a-youn-ta-MIEN-to"
+    },
+    {
+     "e": "iglesia",
+     "f": "église",
+     "p": "i-GLÉ-sia"
+    },
+    {
+     "e": "parque",
+     "f": "parc",
+     "p": "PAR-ké"
+    },
+    {
+     "e": "barrio",
+     "f": "quartier",
+     "p": "BA-rrio"
+    },
+    {
+     "e": "puente",
+     "f": "pont",
+     "p": "POUEN-té"
+    }
+   ]
+  },
+  {
+   "n": "Voyage",
+   "e": "✈️",
+   "items": [
+    {
+     "e": "billete",
+     "f": "billet",
+     "p": "bi-YÉ-té"
+    },
+    {
+     "e": "maleta",
+     "f": "valise",
+     "p": "ma-LÉ-ta"
+    },
+    {
+     "e": "vuelo",
+     "f": "vol",
+     "p": "BOUÉ-lo"
+    },
+    {
+     "e": "tren",
+     "f": "train",
+     "p": "tren"
+    },
+    {
+     "e": "autobús",
+     "f": "bus",
+     "p": "aou-to-BOUSS"
+    },
+    {
+     "e": "hotel",
+     "f": "hôtel",
+     "p": "o-TEL"
+    },
+    {
+     "e": "habitación",
+     "f": "chambre",
+     "p": "a-bi-ta-SION"
+    },
+    {
+     "e": "pasaporte",
+     "f": "passeport",
+     "p": "pa-ssa-POR-té"
+    },
+    {
+     "e": "frontera",
+     "f": "frontière",
+     "p": "fron-TÉ-ra"
+    },
+    {
+     "e": "playa",
+     "f": "plage",
+     "p": "PLA-ya"
+    },
+    {
+     "e": "montaña",
+     "f": "montagne",
+     "p": "mon-TA-nya"
+    },
+    {
+     "e": "mapa",
+     "f": "carte",
+     "p": "MA-pa"
+    }
+   ]
+  },
+  {
+   "n": "Travail",
+   "e": "💼",
+   "items": [
+    {
+     "e": "trabajo",
+     "f": "travail",
+     "p": "tra-BA-jo"
+    },
+    {
+     "e": "empresa",
+     "f": "entreprise",
+     "p": "em-PRÉ-sa"
+    },
+    {
+     "e": "jefe",
+     "f": "chef",
+     "p": "JÉ-fé"
+    },
+    {
+     "e": "reunión",
+     "f": "réunion",
+     "p": "ré-ou-NION"
+    },
+    {
+     "e": "informe",
+     "f": "rapport",
+     "p": "in-FOR-mé"
+    },
+    {
+     "e": "proyecto",
+     "f": "projet",
+     "p": "pro-YEK-to"
+    },
+    {
+     "e": "sueldo",
+     "f": "salaire",
+     "p": "SOUEL-do"
+    },
+    {
+     "e": "horario",
+     "f": "horaire",
+     "p": "o-RA-rio"
+    },
+    {
+     "e": "cliente",
+     "f": "client",
+     "p": "KLIEN-té"
+    },
+    {
+     "e": "ordenador",
+     "f": "ordinateur",
+     "p": "or-dé-na-DOR"
+    },
+    {
+     "e": "correo",
+     "f": "courriel",
+     "p": "ko-RRÉ-o"
+    },
+    {
+     "e": "contrato",
+     "f": "contrat",
+     "p": "kon-TRA-to"
+    }
+   ]
+  },
+  {
+   "n": "Santé",
+   "e": "🩺",
+   "items": [
+    {
+     "e": "médico",
+     "f": "médecin",
+     "p": "MÉ-di-ko"
+    },
+    {
+     "e": "hospital",
+     "f": "hôpital",
+     "p": "oss-pi-TAL"
+    },
+    {
+     "e": "dolor",
+     "f": "douleur",
+     "p": "do-LOR"
+    },
+    {
+     "e": "fiebre",
+     "f": "fièvre",
+     "p": "FIÉ-bré"
+    },
+    {
+     "e": "medicina",
+     "f": "médicament",
+     "p": "mé-di-SI-na"
+    },
+    {
+     "e": "cabeza",
+     "f": "tête",
+     "p": "ka-BÉ-za"
+    },
+    {
+     "e": "estómago",
+     "f": "estomac",
+     "p": "ess-TO-ma-go"
+    },
+    {
+     "e": "espalda",
+     "f": "dos",
+     "p": "ess-PAL-da"
+    },
+    {
+     "e": "garganta",
+     "f": "gorge",
+     "p": "gar-GAN-ta"
+    },
+    {
+     "e": "cansado",
+     "f": "fatigué",
+     "p": "kan-SA-do"
+    },
+    {
+     "e": "sano",
+     "f": "sain",
+     "p": "SA-no"
+    },
+    {
+     "e": "urgencias",
+     "f": "urgences",
+     "p": "our-JEN-sias"
+    }
+   ]
+  },
+  {
+   "n": "Maison",
+   "e": "🏠",
+   "items": [
+    {
+     "e": "casa",
+     "f": "maison",
+     "p": "KA-ssa"
+    },
+    {
+     "e": "cocina",
+     "f": "cuisine",
+     "p": "ko-SI-na"
+    },
+    {
+     "e": "salón",
+     "f": "salon",
+     "p": "sa-LON"
+    },
+    {
+     "e": "dormitorio",
+     "f": "chambre",
+     "p": "dor-mi-TO-rio"
+    },
+    {
+     "e": "baño",
+     "f": "salle de bain",
+     "p": "BA-nyo"
+    },
+    {
+     "e": "puerta",
+     "f": "porte",
+     "p": "POUER-ta"
+    },
+    {
+     "e": "ventana",
+     "f": "fenêtre",
+     "p": "ben-TA-na"
+    },
+    {
+     "e": "mesa",
+     "f": "table",
+     "p": "MÉ-sa"
+    },
+    {
+     "e": "silla",
+     "f": "chaise",
+     "p": "SI-ya"
+    },
+    {
+     "e": "cama",
+     "f": "lit",
+     "p": "KA-ma"
+    },
+    {
+     "e": "llave",
+     "f": "clé",
+     "p": "YA-bé"
+    },
+    {
+     "e": "jardín",
+     "f": "jardin",
+     "p": "jar-DIN"
+    }
+   ]
+  },
+  {
+   "n": "Temps",
+   "e": "⏰",
+   "items": [
+    {
+     "e": "hoy",
+     "f": "aujourd'hui",
+     "p": "oï"
+    },
+    {
+     "e": "mañana",
+     "f": "demain",
+     "p": "ma-NYA-na"
+    },
+    {
+     "e": "ayer",
+     "f": "hier",
+     "p": "a-YER"
+    },
+    {
+     "e": "semana",
+     "f": "semaine",
+     "p": "sé-MA-na"
+    },
+    {
+     "e": "mes",
+     "f": "mois",
+     "p": "mess"
+    },
+    {
+     "e": "año",
+     "f": "année",
+     "p": "A-nyo"
+    },
+    {
+     "e": "hora",
+     "f": "heure",
+     "p": "O-ra"
+    },
+    {
+     "e": "minuto",
+     "f": "minute",
+     "p": "mi-NOU-to"
+    },
+    {
+     "e": "lunes",
+     "f": "lundi",
+     "p": "LOU-néss"
+    },
+    {
+     "e": "viernes",
+     "f": "vendredi",
+     "p": "BIER-néss"
+    },
+    {
+     "e": "verano",
+     "f": "été",
+     "p": "bé-RA-no"
+    },
+    {
+     "e": "invierno",
+     "f": "hiver",
+     "p": "in-BIER-no"
+    }
+   ]
+  },
+  {
+   "n": "Loisirs",
+   "e": "🎧",
+   "items": [
+    {
+     "e": "música",
+     "f": "musique",
+     "p": "MOU-si-ka"
+    },
+    {
+     "e": "película",
+     "f": "film",
+     "p": "pé-LI-kou-la"
+    },
+    {
+     "e": "libro",
+     "f": "livre",
+     "p": "LI-bro"
+    },
+    {
+     "e": "deporte",
+     "f": "sport",
+     "p": "dé-POR-té"
+    },
+    {
+     "e": "fútbol",
+     "f": "football",
+     "p": "FOUT-bol"
+    },
+    {
+     "e": "esquí",
+     "f": "ski",
+     "p": "ess-KI"
+    },
+    {
+     "e": "senderismo",
+     "f": "randonnée",
+     "p": "sen-dé-RISS-mo"
+    },
+    {
+     "e": "viaje",
+     "f": "voyage",
+     "p": "BIA-jé"
+    },
+    {
+     "e": "juego",
+     "f": "jeu",
+     "p": "JOUÉ-go"
+    },
+    {
+     "e": "fiesta",
+     "f": "fête",
+     "p": "FIESS-ta"
+    },
+    {
+     "e": "concierto",
+     "f": "concert",
+     "p": "kon-SIER-to"
+    },
+    {
+     "e": "lectura",
+     "f": "lecture",
+     "p": "lék-TOU-ra"
+    }
+   ]
+  }
+ ]
+}

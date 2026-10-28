@@ -1,0 +1,262 @@
+[
+ {
+  "t": "Les articles el / la / los / las",
+  "lvl": "A1",
+  "rule": "Tout nom espagnol a un genre. « el » pour le masculin singulier, « la » pour le féminin, « los » et « las » au pluriel.",
+  "form": "el libro · la casa · los libros · las casas",
+  "ex": [
+   {
+    "s": "El libro está en la mesa.",
+    "f": "Le livre est sur la table."
+   }
+  ],
+  "wrong": "le livre → el libro (pas « lo libro »)"
+ },
+ {
+  "t": "un / una / unos / unas",
+  "lvl": "A1",
+  "rule": "Article indéfini : « un » devant un nom masculin, « una » devant un nom féminin.",
+  "form": "un coche · una casa · unos amigos · unas flores",
+  "ex": [
+   {
+    "s": "Tengo un perro y una gata.",
+    "f": "J'ai un chien et une chatte."
+   }
+  ],
+  "wrong": "une maison → una casa"
+ },
+ {
+  "t": "Le pluriel",
+  "lvl": "A1",
+  "rule": "Voyelle finale : on ajoute -s. Consonne finale : on ajoute -es.",
+  "form": "libro → libros · ciudad → ciudades",
+  "ex": [
+   {
+    "s": "Las ciudades son grandes.",
+    "f": "Les villes sont grandes."
+   }
+  ],
+  "wrong": "ciudads → ciudades"
+ },
+ {
+  "t": "ser ou estar",
+  "lvl": "A1",
+  "rule": "« ser » pour l'identité et les traits permanents. « estar » pour l'état, la localisation et l'humeur.",
+  "form": "soy francés · estoy cansado · está en casa",
+  "ex": [
+   {
+    "s": "Soy profesor y estoy cansado.",
+    "f": "Je suis professeur et je suis fatigué."
+   }
+  ],
+  "wrong": "estoy francés → soy francés"
+ },
+ {
+  "t": "hay",
+  "lvl": "A1",
+  "rule": "« hay » exprime l'existence : il y a. Invariable, quelle que soit la quantité.",
+  "form": "hay un libro · hay muchos libros",
+  "ex": [
+   {
+    "s": "Hay dos farmacias en la calle.",
+    "f": "Il y a deux pharmacies dans la rue."
+   }
+  ],
+  "wrong": "hayn → hay"
+ },
+ {
+  "t": "Le présent régulier",
+  "lvl": "A1",
+  "rule": "Verbes en -ar, -er, -ir : on retire la terminaison et on ajoute -o, -as, -a, -amos, -áis, -an (ou -es, -e, -emos, -éis, -en).",
+  "form": "hablo, hablas, habla, hablamos, habláis, hablan",
+  "ex": [
+   {
+    "s": "Trabajo en Lyon y vivo en Morez.",
+    "f": "Je travaille à Lyon et je vis à Morez."
+   }
+  ],
+  "wrong": "yo habla → yo hablo"
+ },
+ {
+  "t": "Le présent irrégulier",
+  "lvl": "A1",
+  "rule": "Certains verbes changent de radical : tener → tengo, hacer → hago, ir → voy, ser → soy.",
+  "form": "tengo · hago · voy · soy",
+  "ex": [
+   {
+    "s": "Voy al mercado y tengo tiempo.",
+    "f": "Je vais au marché et j'ai le temps."
+   }
+  ],
+  "wrong": "yo va → yo voy"
+ },
+ {
+  "t": "Les verbes réfléchis",
+  "lvl": "A2",
+  "rule": "Le pronom réfléchi change avec la personne : me, te, se, nos, os, se.",
+  "form": "me levanto · te levantas · se levanta",
+  "ex": [
+   {
+    "s": "Me levanto a las siete.",
+    "f": "Je me lève à sept heures."
+   }
+  ],
+  "wrong": "yo levanto → me levanto"
+ },
+ {
+  "t": "gustar",
+  "lvl": "A2",
+  "rule": "« gustar » s'accorde avec la chose aimée, pas avec la personne : me gusta / me gustan.",
+  "form": "me gusta el café · me gustan los libros",
+  "ex": [
+   {
+    "s": "Me gustan mucho las montañas.",
+    "f": "J'aime beaucoup les montagnes."
+   }
+  ],
+  "wrong": "me gusto → me gusta"
+ },
+ {
+  "t": "L'interrogation",
+  "lvl": "A2",
+  "rule": "Les questions s'ouvrent avec ¿ et se ferment avec ?. L'ordre peut rester affirmatif.",
+  "form": "¿Dónde vives? · ¿Tienes tiempo?",
+  "ex": [
+   {
+    "s": "¿Dónde está la estación?",
+    "f": "Où est la gare ?"
+   }
+  ],
+  "wrong": "Dónde está la estación? → ¿Dónde está la estación?"
+ },
+ {
+  "t": "La négation",
+  "lvl": "A2",
+  "rule": "« no » se place devant le verbe. Les autres mots négatifs suivent : nada, nadie, nunca.",
+  "form": "no hablo · no tengo nada · nunca voy",
+  "ex": [
+   {
+    "s": "No tengo dinero y nunca pido.",
+    "f": "Je n'ai pas d'argent et je ne demande jamais."
+   }
+  ],
+  "wrong": "tengo no dinero → no tengo dinero"
+ },
+ {
+  "t": "L'adjectif",
+  "lvl": "A2",
+  "rule": "L'adjectif suit le nom et s'accorde en genre et en nombre.",
+  "form": "un coche rojo · una casa roja · unos coches rojos",
+  "ex": [
+   {
+    "s": "Tengo una casa pequeña.",
+    "f": "J'ai une petite maison."
+   }
+  ],
+  "wrong": "una pequeña casa → une petite maison se dit aussi, mais l'usage courant place l'adjectif après"
+ },
+ {
+  "t": "Les possessifs",
+  "lvl": "A2",
+  "rule": "mi, tu, su, nuestro, vuestro, su — accordés en nombre avec la chose possédée.",
+  "form": "mi libro · mis libros · nuestra casa",
+  "ex": [
+   {
+    "s": "Mis padres viven en Francia.",
+    "f": "Mes parents vivent en France."
+   }
+  ],
+  "wrong": "mio libro → mi libro"
+ },
+ {
+  "t": "Les démonstratifs",
+  "lvl": "A2",
+  "rule": "este / esta (proche), ese / esa (moyen), aquel / aquella (loin).",
+  "form": "este libro · esa casa · aquel hombre",
+  "ex": [
+   {
+    "s": "Este café está muy bueno.",
+    "f": "Ce café est très bon."
+   }
+  ],
+  "wrong": "esto café → este café"
+ },
+ {
+  "t": "por ou para",
+  "lvl": "B1",
+  "rule": "« por » exprime la cause, le moyen, la durée, l'échange. « para » exprime le but, la destination, l'échéance.",
+  "form": "por la mañana · para ti · para mañana",
+  "ex": [
+   {
+    "s": "Este regalo es para ti, lo compré por veinte euros.",
+    "f": "Ce cadeau est pour toi, je l'ai acheté pour vingt euros."
+   }
+  ],
+  "wrong": "para ti vs por ti — « por ti » signifie « à cause de toi »"
+ },
+ {
+  "t": "muy ou mucho",
+  "lvl": "B1",
+  "rule": "« muy » modifie un adjectif ou un adverbe. « mucho » modifie un verbe, ou s'accorde avec un nom.",
+  "form": "muy grande · mucho trabajo · me gusta mucho",
+  "ex": [
+   {
+    "s": "Trabajo mucho y estoy muy cansado.",
+    "f": "Je travaille beaucoup et je suis très fatigué."
+   }
+  ],
+  "wrong": "muy trabajo → mucho trabajo"
+ },
+ {
+  "t": "Le passé composé",
+  "lvl": "B1",
+  "rule": "« haber » au présent + participe : he, has, ha, hemos, habéis, han.",
+  "form": "he hablado · has comido · ha vivido",
+  "ex": [
+   {
+    "s": "Hoy he trabajado mucho.",
+    "f": "Aujourd'hui j'ai beaucoup travaillé."
+   }
+  ],
+  "wrong": "he trabajo → he trabajado"
+ },
+ {
+  "t": "L'imparfait",
+  "lvl": "B1",
+  "rule": "Actions habituelles ou descriptions dans le passé : -aba, -ía.",
+  "form": "hablaba · comía · vivía",
+  "ex": [
+   {
+    "s": "Cuando era niño, vivía en el campo.",
+    "f": "Quand j'étais enfant, je vivais à la campagne."
+   }
+  ],
+  "wrong": "viví en el campo (passé ponctuel) → vivía (habitude)"
+ },
+ {
+  "t": "Le futur proche",
+  "lvl": "B1",
+  "rule": "« ir » au présent + a + infinitif.",
+  "form": "voy a hablar · vas a comer · va a venir",
+  "ex": [
+   {
+    "s": "Mañana voy a estudiar español.",
+    "f": "Demain je vais étudier l'espagnol."
+   }
+  ],
+  "wrong": "voy hablar → voy a hablar"
+ },
+ {
+  "t": "Le subjonctif présent",
+  "lvl": "B2",
+  "rule": "Après « que » exprimant le souhait, le doute ou la nécessité : que hable, que coma, que viva.",
+  "form": "que hable · que tengas · que vengamos",
+  "ex": [
+   {
+    "s": "Espero que tengas un buen día.",
+    "f": "J'espère que tu passes une bonne journée."
+   }
+  ],
+  "wrong": "espero que tienes → espero que tengas"
+ }
+]
