@@ -235,6 +235,9 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 .kbar{height:5px;border-radius:99px;background:rgba(255,255,255,.10);overflow:hidden;margin-top:10px}
 .kbar>i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5ecbff,#8fe3ff);box-shadow:0 0 12px rgba(94,203,255,.6)}
 
+
+.speaking{color:#5ecbff !important;font-weight:800 !important;text-shadow:0 0 18px rgba(94,203,255,.45);transition:color .15s}
+
 </style>
 </head>
 <body>
@@ -309,8 +312,29 @@ function karaokeRun(txt,rate){
   b.style.transition="width "+Math.round(ms)+"ms linear";
   b.style.width="100%";
 }
+function highlightSpeaking(txt,rate){
+  try{
+    const first=String(txt||"").split(" . ")[0].trim();
+    if(!first)return;
+    const nodes=Array.from(document.querySelectorAll("#app b, #app .bigword, #app .karaoke, #app .choice, #app p, #app .ex, #app .fr"));
+    let best=null;
+    for(const el of nodes){
+      if(el.querySelector("b,div,p,span"))continue;
+      const t=(el.textContent||"").trim();
+      if(!t)continue;
+      const match = (t===first) || t.startsWith(first) || (t.length>3 && first.startsWith(t));
+      if(match && (!best || t.length < best.textContent.trim().length)) best=el;
+    }
+    if(!best)return;
+    document.querySelectorAll(".speaking").forEach(e=>e.classList.remove("speaking"));
+    best.classList.add("speaking");
+    const ms=Math.max(800, (String(first).length*95+400)/(rate||0.9));
+    setTimeout(()=>best.classList.remove("speaking"), ms);
+  }catch(e){}
+}
 function speak(txt,rate){
   try{
+    highlightSpeaking(txt,rate);
     if(!window.speechSynthesis)return;
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
