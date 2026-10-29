@@ -362,6 +362,16 @@ if(window.speechSynthesis){
   speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 }
 let TTS_AUDIO=null, TTS_CACHE={};
+function unlockPlayer(){
+  try{
+    if(!TTS_AUDIO){
+      TTS_AUDIO=new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=");
+      TTS_AUDIO.volume=0.01;
+    }
+    TTS_AUDIO.play().catch(()=>{});
+  }catch(e){}
+}
+window.addEventListener("pointerdown",unlockPlayer,{once:true});
 async function speakViaGateway(txt,rate,onstart){
   try{
     const cfg=(typeof chatCfg==="function")?chatCfg():null;
@@ -370,15 +380,21 @@ async function speakViaGateway(txt,rate,onstart){
     const key=base+"|"+TR_LANG+"|"+(rate||1)+"|"+txt;
     let url=TTS_CACHE[key];
     if(!url){
-      const r=await fetch(base+"/tts",{method:"POST",
-        headers:{"Content-Type":"application/json","x-langchat-token":cfg.tok},
-        body:JSON.stringify({text:txt,lang:TR_LANG,rate:rate||1})});
+      const ctl=new AbortController();
+      const tmo=setTimeout(()=>ctl.abort(),4500);
+      let r;
+      try{
+        r=await fetch(base+"/tts",{method:"POST",signal:ctl.signal,
+          headers:{"Content-Type":"application/json","x-langchat-token":cfg.tok},
+          body:JSON.stringify({text:txt,lang:TR_LANG,rate:rate||1})});
+      } finally { clearTimeout(tmo); }
       if(!r.ok)return false;
       const b=await r.blob();
       url=URL.createObjectURL(b); TTS_CACHE[key]=url;
     }
-    if(TTS_AUDIO){try{TTS_AUDIO.pause()}catch(e){}}
-    TTS_AUDIO=new Audio(url);
+    if(!TTS_AUDIO) TTS_AUDIO=new Audio();
+    try{TTS_AUDIO.pause()}catch(e){}
+    TTS_AUDIO.src=url;
     TTS_AUDIO.volume=1;
     await TTS_AUDIO.play();
     if(onstart)onstart();
