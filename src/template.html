@@ -1212,6 +1212,7 @@ function similarity(a,b){
 }
 
 /* ---------- conversation libre (passerelle) ---------- */
+let REC=null;
 const CHAT_URL="https://che-mini-pc.tailca7b67.ts.net:8443/chat", CHAT_TOKEN="j0-FFPUCBoAtw9MXCdQtN8qQbUOEA4H8";
 function chatCfg(){
   return {url:localStorage.getItem("lc_url")||CHAT_URL, tok:localStorage.getItem("lc_tok")||CHAT_TOKEN};
@@ -1265,16 +1266,33 @@ function libreScreen(a){
   };
   $("#send").onclick=send;
   $("#ci").onkeydown=e=>{if(e.key==="Enter")send()};
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   const mic=$("#mic");
-  if(!SR){mic.disabled=true;mic.textContent="🎤 indispo"}
-  else mic.onclick=()=>{
-    const r=new SR(); r.lang=TR_LANG==="en"?"en-US":"es-ES"; r.interimResults=false;
-    mic.textContent="…";
-    r.onresult=ev=>{$("#ci").value=ev.results[0][0].transcript;mic.textContent="🎤";send()};
-    r.onerror=()=>{mic.textContent="🎤"};
-    r.onend=()=>{mic.textContent="🎤"};
-    try{r.start()}catch(e){mic.textContent="🎤"}
+  mic.onclick=async()=>{
+    if(REC && REC.state==="recording"){ REC.stop(); return; }
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      const chunks=[];
+      REC=new MediaRecorder(stream);
+      REC.ondataavailable=e=>{ if(e.data&&e.data.size) chunks.push(e.data); };
+      REC.onstop=async()=>{
+        stream.getTracks().forEach(t=>t.stop());
+        mic.textContent="…";
+        const blob=new Blob(chunks,{type:REC.mimeType||"audio/mp4"});
+        try{
+          const c2=chatCfg(); const b2=c2.url.replace(/\/chat$/,"");
+          const r=await fetch(b2+"/stt",{method:"POST",
+            headers:{"x-langchat-token":c2.tok,"x-langchat-lang":TR_LANG,"Content-Type":blob.type},
+            body:blob});
+          const j=await r.json();
+          if(j.text && j.text.trim()){ $("#ci").value=j.text.trim(); send(); }
+          else toast("Rien entendu — réessaie");
+        }catch(e){ toast("Transcription impossible"); }
+        mic.textContent="🎤"; REC=null;
+      };
+      REC.start();
+      mic.textContent="⏹ Stop";
+      setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },8000);
+    }catch(e){ toast("Micro refusé — autorise-le dans Réglages"); }
   };
 }
 
