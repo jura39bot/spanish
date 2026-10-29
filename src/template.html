@@ -1317,11 +1317,12 @@ function libreScreen(a){
         }catch(e){ toast("Transcription impossible"); }
         mic.textContent="🎤"; REC=null;
       };
+      REC.onerror=e=>{ toast("Enregistrement interrompu"); try{REC.stop()}catch(_){} };
       REC.start();
       recStart=Date.now();
-      mic.textContent="⏹ 0s";
+      mic.textContent="⏹ 0s / 60";
       clearInterval(recTimer);
-      recTimer=setInterval(()=>{ mic.textContent="⏹ "+Math.round((Date.now()-recStart)/1000)+"s"; },250);
+      recTimer=setInterval(()=>{ mic.textContent="⏹ "+Math.round((Date.now()-recStart)/1000)+"s / 60"; },250);
       setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },60000);
     }catch(e){ toast("Micro refusé — autorise-le dans Réglages"); }
   };
