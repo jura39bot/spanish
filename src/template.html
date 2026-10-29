@@ -1310,7 +1310,8 @@ function libreScreen(a){
             body:blob});
           const j=await r.json();
           if(j.text && j.text.trim()){ $("#ci").value=j.text.trim(); send(); }
-          else toast("Rien entendu — réessaie");
+          else if(j.silent){ toast("Micro muet ("+Math.round(j.peak||-99)+" dB) — vérifie le micro"); }
+          else { toast("Rien entendu ("+Math.round(j.peak||-99)+" dB) — réessaie"); }
         }catch(e){ toast("Transcription impossible"); }
         mic.textContent="🎤"; REC=null;
       };
