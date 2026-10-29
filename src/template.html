@@ -1292,6 +1292,8 @@ function libreScreen(a){
   mic.onclick=async()=>{
     if(REC && REC.state==="recording"){ REC.stop(); return; }
     try{
+      try{ if(TTS_AUDIO) TTS_AUDIO.pause(); }catch(e){}
+      try{ if(window.speechSynthesis) speechSynthesis.cancel(); }catch(e){}
       const stream=await navigator.mediaDevices.getUserMedia({audio:true});
       const chunks=[];
       REC=new MediaRecorder(stream);
