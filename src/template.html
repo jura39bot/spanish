@@ -1322,7 +1322,7 @@ function libreScreen(a){
       mic.textContent="⏹ 0s";
       clearInterval(recTimer);
       recTimer=setInterval(()=>{ mic.textContent="⏹ "+Math.round((Date.now()-recStart)/1000)+"s"; },250);
-      setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },9000);
+      setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },60000);
     }catch(e){ toast("Micro refusé — autorise-le dans Réglages"); }
   };
 }
