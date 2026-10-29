@@ -390,7 +390,10 @@ async function speakViaGateway(txt,rate,onstart){
       } finally { clearTimeout(tmo); }
       if(!r.ok)return false;
       const b=await r.blob();
-      url=URL.createObjectURL(b); TTS_CACHE[key]=url;
+      url=URL.createObjectURL(b);
+      const ks=Object.keys(TTS_CACHE);
+      if(ks.length>=25){ try{URL.revokeObjectURL(TTS_CACHE[ks[0]])}catch(e){} delete TTS_CACHE[ks[0]]; }
+      TTS_CACHE[key]=url;
     }
     if(!TTS_AUDIO) TTS_AUDIO=new Audio();
     try{TTS_AUDIO.pause()}catch(e){}
@@ -1228,7 +1231,7 @@ function similarity(a,b){
 }
 
 /* ---------- conversation libre (passerelle) ---------- */
-let REC=null;
+let REC=null, recStart=0, recTimer=null;
 const CHAT_URL="https://che-mini-pc.tailca7b67.ts.net:8443/chat", CHAT_TOKEN="j0-FFPUCBoAtw9MXCdQtN8qQbUOEA4H8";
 function chatCfg(){
   return {url:localStorage.getItem("lc_url")||CHAT_URL, tok:localStorage.getItem("lc_tok")||CHAT_TOKEN};
@@ -1240,7 +1243,7 @@ function bubbleHtml(m,idx){
 function libreScreen(a){
   S.chat=S.chat||[];
   a.innerHTML=`<div class="top"><button class="back" onclick="go('convo')">‹</button><h2>Conversation libre</h2>
-    <button class="pill" id="cfg">⚙︎</button></div>
+    <button class="pill" id="clrchat">🧹</button><button class="pill" id="cfg">⚙︎</button></div>
   <div class="chat" id="chat">${S.chat.length?S.chat.map(bubbleHtml).join(""):'<div class="bubble them"><span class="txt">Hi! Let\'s talk. Tell me about your day.</span></div>'}</div>
   <div class="spacer"></div>
   <input id="ci" type="text" placeholder="écris en ${TR_LANG.toUpperCase()}…" autocomplete="off" autocorrect="off" spellcheck="false">
@@ -1249,6 +1252,8 @@ function libreScreen(a){
   const box=$("#chat");
   box.scrollTop=box.scrollHeight;
   const cfg=chatCfg();
+  const cc=$("#clrchat");
+  if(cc)cc.onclick=()=>{S.chat=[];toast("Conversation effacée");render()};
   $("#cfg").onclick=()=>{
     const u=prompt("URL de la passerelle",cfg.url); if(u===null)return;
     const t=prompt("Jeton",cfg.tok); if(t===null)return;
@@ -1270,6 +1275,7 @@ function libreScreen(a){
       const t=document.getElementById("typing"); if(t)t.remove();
       if(!j.reply)throw new Error(j.error||"réponse vide");
       S.chat.push({role:"assistant",content:j.reply});
+      if(S.chat.length>40) S.chat=S.chat.slice(-40);
       box.insertAdjacentHTML("beforeend",bubbleHtml({role:"assistant",content:j.reply},S.chat.length-1));
       box.scrollTop=box.scrollHeight;
       const b=box.querySelector('.bubble[data-i="'+(S.chat.length-1)+'"]');
@@ -1291,7 +1297,10 @@ function libreScreen(a){
       REC=new MediaRecorder(stream);
       REC.ondataavailable=e=>{ if(e.data&&e.data.size) chunks.push(e.data); };
       REC.onstop=async()=>{
+        clearInterval(recTimer);
+        const dur=Date.now()-recStart;
         stream.getTracks().forEach(t=>t.stop());
+        if(dur<1200){ toast("Trop court — maintiens 2 secondes"); mic.textContent="🎤"; REC=null; return; }
         mic.textContent="…";
         const blob=new Blob(chunks,{type:REC.mimeType||"audio/mp4"});
         try{
@@ -1306,8 +1315,11 @@ function libreScreen(a){
         mic.textContent="🎤"; REC=null;
       };
       REC.start();
-      mic.textContent="⏹ Stop";
-      setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },8000);
+      recStart=Date.now();
+      mic.textContent="⏹ 0s";
+      clearInterval(recTimer);
+      recTimer=setInterval(()=>{ mic.textContent="⏹ "+Math.round((Date.now()-recStart)/1000)+"s"; },250);
+      setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },9000);
     }catch(e){ toast("Micro refusé — autorise-le dans Réglages"); }
   };
 }
