@@ -362,7 +362,7 @@ if(window.speechSynthesis){
   speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 }
 let TTS_AUDIO=null, TTS_CACHE={};
-async function speakViaGateway(txt,rate){
+async function speakViaGateway(txt,rate,onstart){
   try{
     const cfg=(typeof chatCfg==="function")?chatCfg():null;
     if(!cfg||!cfg.url||!cfg.tok)return false;
@@ -381,13 +381,14 @@ async function speakViaGateway(txt,rate){
     TTS_AUDIO=new Audio(url);
     TTS_AUDIO.volume=1;
     await TTS_AUDIO.play();
+    if(onstart)onstart();
     return true;
   }catch(e){ return false; }
 }
 function speak(txt,rate){
   try{
-    highlightSpeaking(txt,rate);
-    speakViaGateway(txt,rate).then(ok=>{ if(!ok) speakLocal(txt,rate); });
+    const start=()=>{ highlightSpeaking(txt,rate); karaokeRun(txt,rate||.9); };
+    speakViaGateway(txt,rate,start).then(ok=>{ if(!ok){ start(); speakLocal(txt,rate); } });
     return;
   }catch(e){}
 }
@@ -596,7 +597,7 @@ function home(a){
   <div style="height:10px"></div>
   <div class="grid2">
     <button class="btn alt" id="tr">🌐 Traduire</button>
-    <button class="btn alt" id="co">🗣️ Parler</button>
+    <button class="btn alt" id="talk">🗣️ Parler</button>
   </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
@@ -612,7 +613,7 @@ function home(a){
   $("#cv").onclick=()=>go("conv");
   $("#gr").onclick=()=>{S._tab="lecon";go("gram")};
   $("#tr").onclick=()=>go("translate");
-  $("#co").onclick=()=>go("convo");
+  $("#talk").onclick=()=>go("convo");
 }
 
 function levels(a){
@@ -699,8 +700,8 @@ function lesson(a){
         ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
       </div>
       <div class="feed"><div><button class="btn" id="next">Continuer</button></div></div>`;
-    $("#sp").onclick=()=>{ karaokeRun(w.e,.9); speak(w.e+" . "+w.x); };
-    setTimeout(()=>{ karaokeRun(w.e,.9); speak(w.e); },300);
+    $("#sp").onclick=()=>{ speak(w.e+" . "+w.x); };
+    setTimeout(()=>{ speak(w.e); },300);
     $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="quiz";L.idx=0}render()};
     return;
   }
@@ -719,10 +720,10 @@ function lesson(a){
       </div>
       <div id="opts">${p.opts.map((o,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(o.f)}</button>`).join("")}</div>
       <div class="feed"><div><button class="btn" id="next" disabled>Continuer</button></div></div>`;
-    $("#sp").onclick=()=>{ if(L.listen)karaokeRun(w.e,.9); speak(w.e); };
+    $("#sp").onclick=()=>{ speak(w.e); };
     if(L.listen){
-      setTimeout(()=>{ karaokeRun(w.e,.9); speak(w.e); },250);
-      const sb=$("#sps"); if(sb)sb.onclick=()=>{ karaokeRun(w.e,.55); speak(w.e,.55); };
+      setTimeout(()=>{ speak(w.e); },250);
+      const sb=$("#sps"); if(sb)sb.onclick=()=>{ speak(w.e,.55); };
     }
     let answered=false;
     a.querySelectorAll("#opts .choice").forEach(b=>b.onclick=()=>{
