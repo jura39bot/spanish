@@ -252,6 +252,14 @@ background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(0,0,0,.18));border:
 .bubble.speaking{border-color:rgba(94,203,255,.75);box-shadow:0 0 0 2px rgba(94,203,255,.25)}
 .bubble.speaking .txt{color:#5ecbff;font-weight:800}
 
+
+.places{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:14px}
+.place{padding:8px 1px;border-radius:10px;text-align:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.place b{display:block;font-size:19px;font-weight:800}
+.place span{display:block;font-size:7px;color:#93a4bf;text-transform:uppercase;letter-spacing:0;line-height:1.2;margin-top:4px}
+.place.hi{border-color:rgba(94,203,255,.6);background:rgba(94,203,255,.12)}
+.place.hi b{color:#5ecbff}
+
 </style>
 </head>
 <body>
@@ -506,6 +514,7 @@ function render(){
     case "lexcat":return lexCatScreen(a);
     case "conv":return convScreen(a);
     case "translate":return translateScreen(a);
+    case "numbers":return numbersScreen(a);
     case "convo":return convoScreen(a);
     case "libre":return libreScreen(a);
     case "dialog":return dialogScreen(a);
@@ -617,6 +626,7 @@ function home(a){
   <div class="grid2">
     <button class="btn alt" id="tr">🌐 Traduire</button>
     <button class="btn alt" id="talk">🗣️ Parler</button>
+    <button class="btn alt" id="num">🔢 Nombres</button>
   </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
@@ -633,6 +643,7 @@ function home(a){
   $("#gr").onclick=()=>{S._tab="lecon";go("gram")};
   $("#tr").onclick=()=>go("translate");
   $("#talk").onclick=()=>go("convo");
+  $("#num").onclick=()=>{S._num=null;go("numbers")};
 }
 
 function levels(a){
@@ -1326,6 +1337,44 @@ function libreScreen(a){
       setTimeout(()=>{ if(REC && REC.state==="recording") REC.stop(); },60000);
     }catch(e){ toast("Micro refusé — autorise-le dans Réglages"); }
   };
+}
+
+/* ---------- nombres et rangs ---------- */
+function numbersScreen(a){
+  if(!S._num){
+    const len=[4,5,6,6,7][Math.floor(Math.random()*5)];
+    let n=String(1+Math.floor(Math.random()*9));
+    for(let i=1;i<len;i++) n+=String(Math.floor(Math.random()*10));
+    S._num=n;
+  }
+  const n=S._num;
+  const L=TR_LANG==="en"
+    ? ["millions","hundred-thousands","ten-thousands","thousands","hundreds","tens","units"]
+    : ["millones","centenas de millar","decenas de millar","millares","centenas","decenas","unidades"];
+  const digits=n.padStart(7," ").split("");
+  const cells=digits.map((d,i)=>{
+    const known=d.trim()!=="";
+    return `<div class="place${known?" hi":""}"><b>${known?d:"·"}</b><span>${L[i]}</span></div>`;
+  }).join("");
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Nombres</h2><span style="width:40px"></span></div>
+  <p class="small muted" style="margin-bottom:6px">Écoute le nombre, puis lis-le rang par rang.</p>
+  <div class="cardq" style="text-align:center">
+    <div class="karaoke" id="numtxt" style="font-size:34px">${n.replace(/\B(?=(\d{3})+(?!\d))/g," ")}</div>
+    <div class="kbar"><i id="kf"></i></div>
+  </div>
+  <div class="places">${cells}</div>
+  <div class="spacer"></div>
+  <button class="btn" id="say">🔊 Écouter</button>
+  <div style="height:10px"></div>
+  <button class="btn alt" id="new">🎲 Nouveau nombre</button>`;
+  const say=()=>{
+    const t=$("#numtxt");
+    if(t){t.classList.add("speaking");setTimeout(()=>t.classList.remove("speaking"),2200)}
+    speak(n);
+  };
+  $("#say").onclick=say;
+  $("#new").onclick=()=>{S._num=null;render();setTimeout(()=>{const b=$("#say");if(b)b.click()},400)};
+  setTimeout(say,350);
 }
 
 /* ---------- lexique & recherche ---------- */
