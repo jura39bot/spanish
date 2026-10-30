@@ -369,7 +369,8 @@ if(window.speechSynthesis){
   speechSynthesis.getVoices();
   speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 }
-let TTS_AUDIO=null, TTS_CACHE={};
+let TTS_AUDIO=null, TTS_CACHE={}, SPEAK_SEQ=0;
+function stopSpeaking(){ try{ if(TTS_AUDIO){TTS_AUDIO.pause();TTS_AUDIO.currentTime=0;} }catch(e){} try{ if(window.speechSynthesis) speechSynthesis.cancel(); }catch(e){} }
 function unlockPlayer(){
   try{
     if(!TTS_AUDIO){
@@ -380,7 +381,7 @@ function unlockPlayer(){
   }catch(e){}
 }
 window.addEventListener("pointerdown",unlockPlayer,{once:true});
-async function speakViaGateway(txt,rate,onstart){
+async function speakViaGateway(txt,rate,onstart,id){
   try{
     const cfg=(typeof chatCfg==="function")?chatCfg():null;
     if(!cfg||!cfg.url||!cfg.tok)return false;
@@ -403,6 +404,7 @@ async function speakViaGateway(txt,rate,onstart){
       if(ks.length>=25){ try{URL.revokeObjectURL(TTS_CACHE[ks[0]])}catch(e){} delete TTS_CACHE[ks[0]]; }
       TTS_CACHE[key]=url;
     }
+    if(id!==undefined && id!==SPEAK_SEQ) return true;
     if(!TTS_AUDIO) TTS_AUDIO=new Audio();
     try{TTS_AUDIO.pause()}catch(e){}
     TTS_AUDIO.src=url;
@@ -414,8 +416,13 @@ async function speakViaGateway(txt,rate,onstart){
 }
 function speak(txt,rate){
   try{
-    const start=()=>{ highlightSpeaking(txt,rate); karaokeRun(txt,rate||.9); };
-    speakViaGateway(txt,rate,start).then(ok=>{ if(!ok){ start(); speakLocal(txt,rate); } });
+    const id=++SPEAK_SEQ;
+    stopSpeaking();
+    const start=()=>{ if(id!==SPEAK_SEQ) return; highlightSpeaking(txt,rate); karaokeRun(txt,rate||.9); };
+    speakViaGateway(txt,rate,start,id).then(ok=>{
+      if(id!==SPEAK_SEQ) return;
+      if(!ok){ start(); speakLocal(txt,rate); }
+    });
     return;
   }catch(e){}
 }
